@@ -1,6 +1,12 @@
-# Rim Mental Disorders
+<p align="center">
+  <img src="About/Preview.png" alt="Rim Mental Disorders cover">
+</p>
 
-[Chinese version](README_CN.md)
+<p align="center">
+  <a href="README_CN.md">Chinese version</a>
+</p>
+
+# Rim Mental Disorders
 
 ## Design goals
 
