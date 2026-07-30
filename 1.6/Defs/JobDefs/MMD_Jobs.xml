@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <JobDef>
+    <defName>MMD_MindKill</defName>
+    <driverClass>MoreMentalDisorders.JobDriver_MindKill</driverClass>
+    <reportString>正在对TargetA施展心灵宰杀。</reportString>
+    <playerInterruptible>true</playerInterruptible>
+    <abilityCasting>true</abilityCasting>
+  </JobDef>
+</Defs>

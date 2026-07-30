@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationSequence">
+    <operations>
+      <li Class="PatchOperationAdd"><xpath>Defs/HediffDef[defName="MMD_PTSD"]</xpath><value><modExtensions><li Class="MoreMentalDisorders.DiseaseAcquisitionExtension"><all><li><cause>MMD_Cause_Trauma</cause><minAmount>60</minAmount><minEvents>2</minEvents></li></all><any><li><cause>MMD_Cause_NearDeath</cause><minAmount>35</minAmount></li><li><cause>MMD_Cause_WitnessDeath</cause><minAmount>30</minAmount></li></any><chance>0.08</chance></li></modExtensions></value></li>
+      <li Class="PatchOperationAdd"><xpath>Defs/HediffDef[defName="MMD_PersistentDepressive"]</xpath><value><modExtensions><li Class="MoreMentalDisorders.DiseaseAcquisitionExtension"><all><li><cause>MMD_Cause_LowMood</cause><minAmount>45</minAmount></li></all><any><li><cause>MMD_Cause_SleepLoss</cause><minAmount>15</minAmount></li><li><cause>MMD_Cause_ChronicPain</cause><minAmount>15</minAmount></li></any><chance>0.06</chance><cooldownDays>30</cooldownDays></li></modExtensions></value></li>
+      <li Class="PatchOperationAdd"><xpath>Defs/HediffDef[defName="MMD_Insomnia"]</xpath><value><modExtensions><li Class="MoreMentalDisorders.DiseaseAcquisitionExtension"><all><li><cause>MMD_Cause_SleepLoss</cause><minAmount>30</minAmount></li></all><chance>0.08</chance><cooldownDays>30</cooldownDays></li></modExtensions></value></li>
+      <li Class="PatchOperationAdd"><xpath>Defs/HediffDef[defName="MMD_Dissociative"]</xpath><value><modExtensions><li Class="MoreMentalDisorders.DiseaseAcquisitionExtension"><all><li><cause>MMD_Cause_Trauma</cause><minAmount>50</minAmount></li></all><any><li><cause>MMD_Cause_NearDeath</cause><minAmount>25</minAmount></li><li><cause>MMD_Cause_PsychicAttack</cause><minAmount>25</minAmount></li></any><chance>0.04</chance></li></modExtensions></value></li>
+      <li Class="PatchOperationAdd"><xpath>Defs/HediffDef[defName="MMD_Cotard"]</xpath><value><modExtensions><li Class="MoreMentalDisorders.DiseaseAcquisitionExtension">
+        <alternatives>
+          <li><all>
+            <li><cause>MMD_Cause_NearDeath</cause><minAmount>50</minAmount></li>
+            <li><cause>MMD_Cause_PsychicOverload</cause><minAmount>50</minAmount></li>
+          </all><chance>0.002</chance></li>
+          <li><all>
+            <li><cause>MMD_Cause_NearDeath</cause><minAmount>70</minAmount></li>
+            <li><cause>MMD_Cause_Trauma</cause><minAmount>80</minAmount><minEvents>3</minEvents></li>
+          </all><chance>0.001</chance></li>
+        </alternatives>
+      </li></modExtensions></value></li>
+      <li Class="PatchOperationAdd"><xpath>Defs/HediffDef[defName="MMD_Claustrophobia"]</xpath><value><modExtensions><li Class="MoreMentalDisorders.DiseaseAcquisitionExtension">
+        <alternatives>
+          <li><all><li><cause>MMD_Cause_SevereCabinFever</cause><minAmount>60</minAmount></li></all><chance>0.03</chance></li>
+          <li><all>
+            <li><cause>MMD_Cause_SevereCabinFever</cause><minAmount>40</minAmount></li>
+            <li><cause>MMD_Cause_Trauma</cause><minAmount>1</minAmount><afterCause>MMD_Cause_SevereCabinFever</afterCause><afterCauseMinAmount>40</afterCauseMinAmount><maxAgeDays>1</maxAgeDays></li>
+          </all><chance>0.15</chance></li>
+        </alternatives>
+        <cooldownDays>30</cooldownDays>
+        <specialEffects><li>处于室内时更易因精神崩溃而病发；病发为惊慌逃跑。</li></specialEffects>
+      </li></modExtensions></value></li>
+      <li Class="PatchOperationAdd"><xpath>Defs/HediffDef[defName="MMD_Agoraphobia"]</xpath><value><modExtensions><li Class="MoreMentalDisorders.DiseaseAcquisitionExtension">
+        <alternatives>
+          <li><all><li><cause>MMD_Cause_OpenFieldLongShot</cause><minAmount>15</minAmount><minEvents>1</minEvents></li></all><chance>0.015</chance></li>
+          <li><all><li><cause>MMD_Cause_OpenFieldLongShot</cause><minAmount>30</minAmount><minEvents>2</minEvents></li></all><chance>0.04</chance></li>
+        </alternatives>
+        <cooldownDays>30</cooldownDays>
+        <specialEffects><li>在露天开阔区域被30格外的攻击者击中会积累创伤；距离越远、伤害越重，病因累积越多。</li></specialEffects>
+      </li></modExtensions></value></li>
+      <li Class="PatchOperationAdd"><xpath>Defs/HediffDef[defName="MMD_AdjustmentDisorder"]</xpath><value><modExtensions><li Class="MoreMentalDisorders.DiseaseAcquisitionExtension">
+        <alternatives>
+          <li><all><li><cause>MMD_Cause_Trauma</cause><minAmount>18</minAmount></li><li><cause>MMD_Cause_LowMood</cause><minAmount>12</minAmount></li></all><chance>0.08</chance></li>
+          <li><all><li><cause>MMD_Cause_LowMood</cause><minAmount>35</minAmount></li></all><chance>0.05</chance></li>
+        </alternatives><cooldownDays>30</cooldownDays>
+      </li></modExtensions></value></li>
+
+      <li Class="PatchOperationAdd"><xpath>Defs/HediffDef[defName="MMD_ParanoidDelusion"]</xpath><value><modExtensions><li Class="MoreMentalDisorders.DiseaseAcquisitionExtension"><alternatives>
+        <li><all><li><cause>MMD_Cause_SocialRejection</cause><minAmount>45</minAmount><minEvents>4</minEvents></li><li><cause>MMD_Cause_Trauma</cause><minAmount>30</minAmount></li></all><chance>0.001</chance></li>
+        <li><all><li><cause>MMD_Cause_RelationshipLoss</cause><minAmount>35</minAmount></li><li><cause>MMD_Cause_Trauma</cause><minAmount>45</minAmount></li></all><chance>0.001</chance></li>
+      </alternatives></li></modExtensions></value></li>
+      <li Class="PatchOperationAdd"><xpath>Defs/HediffDef[defName="MMD_MajorDepression"]</xpath><value><modExtensions><li Class="MoreMentalDisorders.DiseaseAcquisitionExtension"><alternatives>
+        <li><all><li><cause>MMD_Cause_LowMood</cause><minAmount>75</minAmount></li><li><cause>MMD_Cause_RelationshipLoss</cause><minAmount>20</minAmount></li></all><chance>0.0015</chance></li>
+        <li><all><li><cause>MMD_Cause_LowMood</cause><minAmount>65</minAmount></li><li><cause>MMD_Cause_ChronicPain</cause><minAmount>50</minAmount></li></all><chance>0.001</chance></li>
+      </alternatives></li></modExtensions></value></li>
+      <li Class="PatchOperationAdd"><xpath>Defs/HediffDef[defName="MMD_Schizophrenia"]</xpath><value><modExtensions><li Class="MoreMentalDisorders.DiseaseAcquisitionExtension"><alternatives>
+        <li><all><li><cause>MMD_Cause_BrainDamage</cause><minAmount>25</minAmount></li><li><cause>MMD_Cause_SleepLoss</cause><minAmount>35</minAmount></li></all><chance>0.001</chance></li>
+        <li><all><li><cause>MMD_Cause_PsychicAttack</cause><minAmount>30</minAmount></li><li><cause>MMD_Cause_SleepLoss</cause><minAmount>45</minAmount></li></all><chance>0.001</chance></li>
+      </alternatives></li></modExtensions></value></li>
+      <li Class="PatchOperationAdd"><xpath>Defs/HediffDef[defName="MMD_Mania"]</xpath><value><modExtensions><li Class="MoreMentalDisorders.DiseaseAcquisitionExtension"><alternatives>
+        <li><all><li><cause>MMD_Cause_SleepLoss</cause><minAmount>55</minAmount></li><li><cause>MMD_Cause_StimulantExposure</cause><minAmount>25</minAmount></li></all><chance>0.0015</chance></li>
+        <li><all><li><cause>MMD_Cause_SleepLoss</cause><minAmount>40</minAmount></li><li><cause>MMD_Cause_PsychicOverload</cause><minAmount>40</minAmount></li></all><chance>0.001</chance></li>
+      </alternatives></li></modExtensions></value></li>
+
+      <li Class="PatchOperationAdd"><xpath>Defs/HediffDef[defName="MMD_IntermittentExplosive"]</xpath><value><modExtensions><li Class="MoreMentalDisorders.DiseaseAcquisitionExtension"><all><li><cause>MMD_Cause_SocialRejection</cause><minAmount>35</minAmount><minEvents>4</minEvents></li><li><cause>MMD_Cause_Trauma</cause><minAmount>35</minAmount></li></all><chance>0.003</chance></li></modExtensions></value></li>
+      <li Class="PatchOperationAdd"><xpath>Defs/HediffDef[defName="MMD_Catatonia"]</xpath><value><modExtensions><li Class="MoreMentalDisorders.DiseaseAcquisitionExtension"><alternatives>
+        <li><all><li><cause>MMD_Cause_Trauma</cause><minAmount>70</minAmount></li><li><cause>MMD_Cause_NearDeath</cause><minAmount>30</minAmount></li></all><chance>0.002</chance></li>
+        <li><all><li><cause>MMD_Cause_BrainDamage</cause><minAmount>30</minAmount></li><li><cause>MMD_Cause_PsychicAttack</cause><minAmount>20</minAmount></li></all><chance>0.002</chance></li>
+      </alternatives></li></modExtensions></value></li>
+      <li Class="PatchOperationAdd"><xpath>Defs/HediffDef[defName="MMD_BipolarI"]</xpath><value><modExtensions><li Class="MoreMentalDisorders.DiseaseAcquisitionExtension"><alternatives>
+        <li><all><li><cause>MMD_Cause_LowMood</cause><minAmount>65</minAmount></li><li><cause>MMD_Cause_SleepLoss</cause><minAmount>60</minAmount></li><li><cause>MMD_Cause_StimulantExposure</cause><minAmount>20</minAmount></li></all><chance>0.002</chance></li>
+        <li><all><li><cause>MMD_Cause_LowMood</cause><minAmount>60</minAmount></li><li><cause>MMD_Cause_PsychicOverload</cause><minAmount>35</minAmount></li></all><chance>0.0015</chance></li>
+      </alternatives></li></modExtensions></value></li>
+      <li Class="PatchOperationAdd"><xpath>Defs/HediffDef[defName="MMD_DID"]</xpath><value><modExtensions><li Class="MoreMentalDisorders.DiseaseAcquisitionExtension"><all><li><cause>MMD_Cause_Trauma</cause><minAmount>80</minAmount><minEvents>4</minEvents></li><li><cause>MMD_Cause_Isolation</cause><minAmount>40</minAmount></li></all><chance>0.0015</chance></li></modExtensions></value></li>
+      <li Class="PatchOperationAdd"><xpath>Defs/HediffDef[defName="MMD_Schizoaffective"]</xpath><value><modExtensions><li Class="MoreMentalDisorders.DiseaseAcquisitionExtension"><alternatives>
+        <li><all><li><cause>MMD_Cause_LowMood</cause><minAmount>55</minAmount></li><li><cause>MMD_Cause_BrainDamage</cause><minAmount>20</minAmount></li><li><cause>MMD_Cause_SleepLoss</cause><minAmount>35</minAmount></li></all><chance>0.0015</chance></li>
+        <li><all><li><cause>MMD_Cause_LowMood</cause><minAmount>55</minAmount></li><li><cause>MMD_Cause_PsychicAttack</cause><minAmount>25</minAmount></li></all><chance>0.0015</chance></li>
+      </alternatives></li></modExtensions></value></li>
+
+      <li Class="PatchOperationAdd"><xpath>Defs/HediffDef[defName="MMD_PanicDisorder"]</xpath><value><modExtensions><li Class="MoreMentalDisorders.DiseaseAcquisitionExtension"><all><li><cause>MMD_Cause_Trauma</cause><minAmount>35</minAmount><minEvents>2</minEvents></li><li><cause>MMD_Cause_NearDeath</cause><minAmount>20</minAmount></li></all><chance>0.006</chance></li></modExtensions></value></li>
+      <li Class="PatchOperationAdd"><xpath>Defs/HediffDef[defName="MMD_Narcissistic"]</xpath><value><modExtensions><li Class="MoreMentalDisorders.DiseaseAcquisitionExtension"><all><li><cause>MMD_Cause_SocialRejection</cause><minAmount>45</minAmount><minEvents>5</minEvents></li><li><cause>MMD_Cause_WorkStress</cause><minAmount>25</minAmount></li></all><chance>0.003</chance></li></modExtensions></value></li>
+      <li Class="PatchOperationAdd"><xpath>Defs/HediffDef[defName="MMD_GeneralizedAnxiety"]</xpath><value><modExtensions><li Class="MoreMentalDisorders.DiseaseAcquisitionExtension"><all><li><cause>MMD_Cause_LowMood</cause><minAmount>35</minAmount></li><li><cause>MMD_Cause_SleepLoss</cause><minAmount>25</minAmount></li><li><cause>MMD_Cause_WorkStress</cause><minAmount>30</minAmount></li></all><chance>0.005</chance></li></modExtensions></value></li>
+      <li Class="PatchOperationAdd"><xpath>Defs/HediffDef[defName="MMD_SomaticSymptom"]</xpath><value><modExtensions><li Class="MoreMentalDisorders.DiseaseAcquisitionExtension"><all><li><cause>MMD_Cause_ChronicPain</cause><minAmount>35</minAmount></li><li><cause>MMD_Cause_RecurrentIllness</cause><minAmount>25</minAmount></li></all><chance>0.005</chance></li></modExtensions></value></li>
+      <li Class="PatchOperationAdd"><xpath>Defs/HediffDef[defName="MMD_Borderline"]</xpath><value><modExtensions><li Class="MoreMentalDisorders.DiseaseAcquisitionExtension"><all><li><cause>MMD_Cause_RelationshipLoss</cause><minAmount>40</minAmount></li><li><cause>MMD_Cause_SocialRejection</cause><minAmount>25</minAmount></li><li><cause>MMD_Cause_Trauma</cause><minAmount>20</minAmount></li></all><chance>0.003</chance></li></modExtensions></value></li>
+      <li Class="PatchOperationAdd"><xpath>Defs/HediffDef[defName="MMD_BipolarII"]</xpath><value><modExtensions><li Class="MoreMentalDisorders.DiseaseAcquisitionExtension"><alternatives>
+        <li><all><li><cause>MMD_Cause_LowMood</cause><minAmount>55</minAmount></li><li><cause>MMD_Cause_SleepLoss</cause><minAmount>45</minAmount></li></all><chance>0.003</chance></li>
+        <li><all><li><cause>MMD_Cause_LowMood</cause><minAmount>45</minAmount></li><li><cause>MMD_Cause_StimulantExposure</cause><minAmount>20</minAmount></li></all><chance>0.003</chance></li>
+      </alternatives></li></modExtensions></value></li>
+      <li Class="PatchOperationAdd"><xpath>Defs/HediffDef[defName="MMD_DissociativeAmnesia"]</xpath><value><modExtensions><li Class="MoreMentalDisorders.DiseaseAcquisitionExtension"><all><li><cause>MMD_Cause_Trauma</cause><minAmount>55</minAmount><minEvents>2</minEvents></li><li><cause>MMD_Cause_NearDeath</cause><minAmount>20</minAmount></li></all><chance>0.004</chance></li></modExtensions></value></li>
+      <li Class="PatchOperationAdd"><xpath>Defs/HediffDef[defName="MMD_Anorexia"]</xpath><value><modExtensions><li Class="MoreMentalDisorders.DiseaseAcquisitionExtension"><all><li><cause>MMD_Cause_Hunger</cause><minAmount>35</minAmount></li><li><cause>MMD_Cause_BodyTrauma</cause><minAmount>15</minAmount></li></all><chance>0.004</chance></li></modExtensions></value></li>
+      <li Class="PatchOperationAdd"><xpath>Defs/HediffDef[defName="MMD_Bulimia"]</xpath><value><modExtensions><li Class="MoreMentalDisorders.DiseaseAcquisitionExtension"><all><li><cause>MMD_Cause_Hunger</cause><minAmount>25</minAmount></li><li><cause>MMD_Cause_LowMood</cause><minAmount>30</minAmount></li><li><cause>MMD_Cause_SocialRejection</cause><minAmount>15</minAmount></li></all><chance>0.004</chance></li></modExtensions></value></li>
+
+      <li Class="PatchOperationAdd"><xpath>Defs/HediffDef[defName="MMD_OCD"]</xpath><value><modExtensions><li Class="MoreMentalDisorders.DiseaseAcquisitionExtension"><all><li><cause>MMD_Cause_ChaoticEnvironment</cause><minAmount>40</minAmount></li><li><cause>MMD_Cause_WorkStress</cause><minAmount>30</minAmount></li></all><chance>0.006</chance></li></modExtensions></value></li>
+      <li Class="PatchOperationAdd"><xpath>Defs/HediffDef[defName="MMD_ADHD"]</xpath><value><modExtensions><li Class="MoreMentalDisorders.DiseaseAcquisitionExtension"><alternatives>
+        <li><all><li><cause>MMD_Cause_BrainDamage</cause><minAmount>20</minAmount></li><li><cause>MMD_Cause_SleepLoss</cause><minAmount>35</minAmount></li></all><chance>0.003</chance></li>
+        <li><all><li><cause>MMD_Cause_StimulantExposure</cause><minAmount>40</minAmount></li><li><cause>MMD_Cause_SleepLoss</cause><minAmount>20</minAmount></li></all><chance>0.003</chance></li>
+      </alternatives></li></modExtensions></value></li>
+      <li Class="PatchOperationAdd"><xpath>Defs/HediffDef[defName="MMD_SocialAnxiety"]</xpath><value><modExtensions><li Class="MoreMentalDisorders.DiseaseAcquisitionExtension"><all><li><cause>MMD_Cause_SocialRejection</cause><minAmount>24</minAmount><minEvents>3</minEvents></li><li><cause>MMD_Cause_Isolation</cause><minAmount>15</minAmount></li></all><chance>0.007</chance></li></modExtensions></value></li>
+      <li Class="PatchOperationAdd"><xpath>Defs/HediffDef[defName="MMD_Schizotypal"]</xpath><value><modExtensions><li Class="MoreMentalDisorders.DiseaseAcquisitionExtension"><alternatives>
+        <li><all><li><cause>MMD_Cause_Isolation</cause><minAmount>45</minAmount></li><li><cause>MMD_Cause_SleepLoss</cause><minAmount>30</minAmount></li></all><chance>0.003</chance></li>
+        <li><all><li><cause>MMD_Cause_Isolation</cause><minAmount>35</minAmount></li><li><cause>MMD_Cause_PsychicAttack</cause><minAmount>15</minAmount></li></all><chance>0.003</chance></li>
+      </alternatives></li></modExtensions></value></li>
+      <li Class="PatchOperationAdd"><xpath>Defs/HediffDef[defName="MMD_Hypomania"]</xpath><value><modExtensions><li Class="MoreMentalDisorders.DiseaseAcquisitionExtension"><alternatives>
+        <li><all><li><cause>MMD_Cause_SleepLoss</cause><minAmount>40</minAmount></li><li><cause>MMD_Cause_StimulantExposure</cause><minAmount>15</minAmount></li></all><chance>0.005</chance></li>
+        <li><all><li><cause>MMD_Cause_SleepLoss</cause><minAmount>40</minAmount></li><li><cause>MMD_Cause_PsychicOverload</cause><minAmount>20</minAmount></li></all><chance>0.004</chance></li>
+      </alternatives></li></modExtensions></value></li>
+      <li Class="PatchOperationAdd"><xpath>Defs/HediffDef[defName="MMD_SpecificPhobia"]</xpath><value><modExtensions><li Class="MoreMentalDisorders.DiseaseAcquisitionExtension"><all><li><cause>MMD_Cause_Trauma</cause><minAmount>30</minAmount><minEvents>2</minEvents></li></all><chance>0.005</chance></li></modExtensions></value></li>
+      <li Class="PatchOperationAdd"><xpath>Defs/HediffDef[defName="MMD_AvoidantPersonality"]</xpath><value><modExtensions><li Class="MoreMentalDisorders.DiseaseAcquisitionExtension"><all><li><cause>MMD_Cause_SocialRejection</cause><minAmount>40</minAmount><minEvents>4</minEvents></li><li><cause>MMD_Cause_Isolation</cause><minAmount>30</minAmount></li></all><chance>0.004</chance></li></modExtensions></value></li>
+      <li Class="PatchOperationAdd"><xpath>Defs/HediffDef[defName="MMD_DependentPersonality"]</xpath><value><modExtensions><li Class="MoreMentalDisorders.DiseaseAcquisitionExtension"><alternatives>
+        <li><all><li><cause>MMD_Cause_RelationshipLoss</cause><minAmount>30</minAmount></li><li><cause>MMD_Cause_RecurrentIllness</cause><minAmount>25</minAmount></li></all><chance>0.004</chance></li>
+        <li><all><li><cause>MMD_Cause_NearDeath</cause><minAmount>25</minAmount></li><li><cause>MMD_Cause_Isolation</cause><minAmount>30</minAmount></li></all><chance>0.004</chance></li>
+      </alternatives></li></modExtensions></value></li>
+      <li Class="PatchOperationAdd"><xpath>Defs/HediffDef[defName="MMD_OCPD"]</xpath><value><modExtensions><li Class="MoreMentalDisorders.DiseaseAcquisitionExtension"><all><li><cause>MMD_Cause_WorkStress</cause><minAmount>55</minAmount></li><li><cause>MMD_Cause_ChaoticEnvironment</cause><minAmount>25</minAmount></li></all><chance>0.005</chance></li></modExtensions></value></li>
+      <li Class="PatchOperationAdd"><xpath>Defs/HediffDef[defName="MMD_Cyclothymia"]</xpath><value><modExtensions><li Class="MoreMentalDisorders.DiseaseAcquisitionExtension"><all><li><cause>MMD_Cause_LowMood</cause><minAmount>35</minAmount></li><li><cause>MMD_Cause_SleepLoss</cause><minAmount>35</minAmount></li></all><chance>0.005</chance></li></modExtensions></value></li>
+      <li Class="PatchOperationAdd"><xpath>Defs/HediffDef[defName="MMD_BodyDysmorphic"]</xpath><value><modExtensions><li Class="MoreMentalDisorders.DiseaseAcquisitionExtension"><all><li><cause>MMD_Cause_BodyTrauma</cause><minAmount>25</minAmount></li><li><cause>MMD_Cause_SocialRejection</cause><minAmount>12</minAmount></li></all><chance>0.005</chance></li></modExtensions></value></li>
+      <li Class="PatchOperationAdd"><xpath>Defs/HediffDef[defName="MMD_IllnessAnxiety"]</xpath><value><modExtensions><li Class="MoreMentalDisorders.DiseaseAcquisitionExtension"><all><li><cause>MMD_Cause_RecurrentIllness</cause><minAmount>45</minAmount></li><li><cause>MMD_Cause_WitnessDeath</cause><minAmount>12</minAmount></li></all><chance>0.005</chance></li></modExtensions></value></li>
+    </operations>
+  </Operation>
+</Patch>

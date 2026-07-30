@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <MMD_InstallCognitiveStabilizer.label>install mind stabilizer chip</MMD_InstallCognitiveStabilizer.label>
+  <MMD_InstallCognitiveStabilizer.description>Implant a mind stabilizer chip in the brain.</MMD_InstallCognitiveStabilizer.description>
+  <MMD_InstallCognitiveStabilizer.jobString>Installing mind stabilizer chip.</MMD_InstallCognitiveStabilizer.jobString>
+  <MMD_RemoveCognitiveStabilizer.label>remove mind stabilizer chip</MMD_RemoveCognitiveStabilizer.label>
+  <MMD_RemoveCognitiveStabilizer.description>Remove the mind stabilizer chip. Cured disorders do not return, but prevention and the mood bonus end.</MMD_RemoveCognitiveStabilizer.description>
+  <MMD_RemoveCognitiveStabilizer.jobString>Removing mind stabilizer chip.</MMD_RemoveCognitiveStabilizer.jobString>
+  <MMD_HippocampectomySurgery.label>hippocampectomy</MMD_HippocampectomySurgery.label>
+  <MMD_HippocampectomySurgery.description>Remove the hippocampus, permanently fixing all current skills and preventing mental breaks. Irreversible.</MMD_HippocampectomySurgery.description>
+  <MMD_HippocampectomySurgery.jobString>Performing hippocampectomy.</MMD_HippocampectomySurgery.jobString>
+</LanguageData>

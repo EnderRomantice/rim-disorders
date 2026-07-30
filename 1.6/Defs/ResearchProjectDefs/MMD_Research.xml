@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ResearchProjectDef>
+    <defName>MMD_NeuralResearch</defName>
+    <label>神经研究</label>
+    <description>研究记忆形成、情绪调节与精神崩溃的神经基础。解锁心灵稳定芯片和海马体切除术。</description>
+    <baseCost>1800</baseCost>
+    <techLevel>Industrial</techLevel>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <prerequisites><li>MicroelectronicsBasics</li></prerequisites>
+    <researchViewX>12</researchViewX>
+    <researchViewY>6</researchViewY>
+  </ResearchProjectDef>
+</Defs>

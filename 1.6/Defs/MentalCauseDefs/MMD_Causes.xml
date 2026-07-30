@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <MoreMentalDisorders.MentalCauseDef><defName>MMD_Cause_Trauma</defName><label>创伤</label><decayPerDay>0.15</decayPerDay></MoreMentalDisorders.MentalCauseDef>
+  <MoreMentalDisorders.MentalCauseDef><defName>MMD_Cause_NearDeath</defName><label>濒死</label><decayPerDay>0.05</decayPerDay></MoreMentalDisorders.MentalCauseDef>
+  <MoreMentalDisorders.MentalCauseDef><defName>MMD_Cause_WitnessDeath</defName><label>目睹死亡</label><decayPerDay>0.1</decayPerDay></MoreMentalDisorders.MentalCauseDef>
+  <MoreMentalDisorders.MentalCauseDef><defName>MMD_Cause_LowMood</defName><label>长期低落</label><decayPerDay>0.25</decayPerDay></MoreMentalDisorders.MentalCauseDef>
+  <MoreMentalDisorders.MentalCauseDef><defName>MMD_Cause_SleepLoss</defName><label>长期失眠</label><decayPerDay>0.35</decayPerDay></MoreMentalDisorders.MentalCauseDef>
+  <MoreMentalDisorders.MentalCauseDef><defName>MMD_Cause_ChronicPain</defName><label>慢性疼痛</label><decayPerDay>0.2</decayPerDay></MoreMentalDisorders.MentalCauseDef>
+  <MoreMentalDisorders.MentalCauseDef><defName>MMD_Cause_PsychicOverload</defName><label>灵能过载</label><decayPerDay>0.05</decayPerDay></MoreMentalDisorders.MentalCauseDef>
+  <MoreMentalDisorders.MentalCauseDef><defName>MMD_Cause_PsychicAttack</defName><label>灵能攻击</label><decayPerDay>0.08</decayPerDay></MoreMentalDisorders.MentalCauseDef>
+  <MoreMentalDisorders.MentalCauseDef><defName>MMD_Cause_Aging</defName><label>高龄退化</label><decayPerDay>0</decayPerDay><recoverableByHighMood>false</recoverableByHighMood></MoreMentalDisorders.MentalCauseDef>
+  <MoreMentalDisorders.MentalCauseDef><defName>MMD_Cause_BrainDamage</defName><label>脑部损伤</label><decayPerDay>0</decayPerDay><recoverableByHighMood>false</recoverableByHighMood></MoreMentalDisorders.MentalCauseDef>
+  <MoreMentalDisorders.MentalCauseDef><defName>MMD_Cause_SevereCabinFever</defName><label>持续的重度幽居病</label><decayPerDay>3</decayPerDay></MoreMentalDisorders.MentalCauseDef>
+  <MoreMentalDisorders.MentalCauseDef><defName>MMD_Cause_OpenFieldLongShot</defName><label>开阔地远程受击创伤</label><decayPerDay>8</decayPerDay></MoreMentalDisorders.MentalCauseDef>
+  <MoreMentalDisorders.MentalCauseDef><defName>MMD_Cause_SocialRejection</defName><label>受辱与社交排斥</label><decayPerDay>0.5</decayPerDay></MoreMentalDisorders.MentalCauseDef>
+  <MoreMentalDisorders.MentalCauseDef><defName>MMD_Cause_RelationshipLoss</defName><label>亲密关系破裂或丧失</label><decayPerDay>0.15</decayPerDay></MoreMentalDisorders.MentalCauseDef>
+  <MoreMentalDisorders.MentalCauseDef><defName>MMD_Cause_Isolation</defName><label>长期孤立</label><decayPerDay>1</decayPerDay></MoreMentalDisorders.MentalCauseDef>
+  <MoreMentalDisorders.MentalCauseDef><defName>MMD_Cause_StimulantExposure</defName><label>反复使用兴奋性药物</label><decayPerDay>0.5</decayPerDay></MoreMentalDisorders.MentalCauseDef>
+  <MoreMentalDisorders.MentalCauseDef><defName>MMD_Cause_Hunger</defName><label>长期饥饿</label><decayPerDay>1</decayPerDay></MoreMentalDisorders.MentalCauseDef>
+  <MoreMentalDisorders.MentalCauseDef><defName>MMD_Cause_RecurrentIllness</defName><label>反复患病与治疗</label><decayPerDay>0.5</decayPerDay></MoreMentalDisorders.MentalCauseDef>
+  <MoreMentalDisorders.MentalCauseDef><defName>MMD_Cause_WorkStress</defName><label>长期工作压力</label><decayPerDay>1</decayPerDay></MoreMentalDisorders.MentalCauseDef>
+  <MoreMentalDisorders.MentalCauseDef><defName>MMD_Cause_ChaoticEnvironment</defName><label>污秽与失控环境</label><decayPerDay>1</decayPerDay></MoreMentalDisorders.MentalCauseDef>
+  <MoreMentalDisorders.MentalCauseDef><defName>MMD_Cause_BodyTrauma</defName><label>毁容与躯体创伤</label><decayPerDay>0.1</decayPerDay></MoreMentalDisorders.MentalCauseDef>
+
+  <HediffDef>
+    <defName>MMD_MentalEtiology</defName>
+    <label>精神病因记录</label>
+    <hediffClass>MoreMentalDisorders.Hediff_MentalEtiology</hediffClass>
+    <scenarioCanAdd>false</scenarioCanAdd>
+  </HediffDef>
+</Defs>

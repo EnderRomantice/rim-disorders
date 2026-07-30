@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <MMD_Cause_Trauma.label>trauma</MMD_Cause_Trauma.label>
+  <MMD_Cause_NearDeath.label>near-death experience</MMD_Cause_NearDeath.label>
+  <MMD_Cause_WitnessDeath.label>witnessed death</MMD_Cause_WitnessDeath.label>
+  <MMD_Cause_LowMood.label>prolonged low mood</MMD_Cause_LowMood.label>
+  <MMD_Cause_SleepLoss.label>prolonged sleep deprivation</MMD_Cause_SleepLoss.label>
+  <MMD_Cause_ChronicPain.label>chronic pain</MMD_Cause_ChronicPain.label>
+  <MMD_Cause_PsychicOverload.label>psychic overload</MMD_Cause_PsychicOverload.label>
+  <MMD_Cause_PsychicAttack.label>psychic attack</MMD_Cause_PsychicAttack.label>
+  <MMD_Cause_Aging.label>age-related decline</MMD_Cause_Aging.label>
+  <MMD_Cause_BrainDamage.label>brain damage</MMD_Cause_BrainDamage.label>
+  <MMD_Cause_SevereCabinFever.label>prolonged severe cabin fever</MMD_Cause_SevereCabinFever.label>
+  <MMD_Cause_OpenFieldLongShot.label>long-range open-field trauma</MMD_Cause_OpenFieldLongShot.label>
+  <MMD_Cause_SocialRejection.label>humiliation and social rejection</MMD_Cause_SocialRejection.label>
+  <MMD_Cause_RelationshipLoss.label>loss or breakdown of a close relationship</MMD_Cause_RelationshipLoss.label>
+  <MMD_Cause_Isolation.label>prolonged isolation</MMD_Cause_Isolation.label>
+  <MMD_Cause_StimulantExposure.label>repeated stimulant exposure</MMD_Cause_StimulantExposure.label>
+  <MMD_Cause_Hunger.label>prolonged hunger</MMD_Cause_Hunger.label>
+  <MMD_Cause_RecurrentIllness.label>recurrent illness and treatment</MMD_Cause_RecurrentIllness.label>
+  <MMD_Cause_WorkStress.label>prolonged work stress</MMD_Cause_WorkStress.label>
+  <MMD_Cause_ChaoticEnvironment.label>filthy and chaotic environment</MMD_Cause_ChaoticEnvironment.label>
+  <MMD_Cause_BodyTrauma.label>disfigurement and bodily trauma</MMD_Cause_BodyTrauma.label>
+</LanguageData>

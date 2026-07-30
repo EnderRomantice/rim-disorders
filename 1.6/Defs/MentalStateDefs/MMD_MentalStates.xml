@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <MentalStateDef ParentName="WanderPsychotic">
+    <defName>MMD_PanicEpisode</defName>
+    <label>惊慌失措</label>
+    <stateClass>MentalState_WanderPsychotic</stateClass>
+    <minTicksBeforeRecovery>7500</minTicksBeforeRecovery>
+    <maxTicksBeforeRecovery>15000</maxTicksBeforeRecovery>
+    <recoveryMtbDays>0.04</recoveryMtbDays>
+    <recoverFromSleep>true</recoverFromSleep>
+    <beginLetterLabel>病发：惊慌失措</beginLetterLabel>
+    <beginLetter>{0}陷入惊慌，无法正常工作，但不会离开地图。</beginLetter>
+    <recoveryMessage>{0}已经从惊慌中恢复。</recoveryMessage>
+    <baseInspectLine>精神状态：惊慌失措</baseInspectLine>
+  </MentalStateDef>
+</Defs>

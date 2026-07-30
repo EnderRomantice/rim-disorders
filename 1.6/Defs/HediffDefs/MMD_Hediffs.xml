@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <HediffDef Name="MMD_BaseDisorder" Abstract="True">
+    <hediffClass>MoreMentalDisorders.Hediff_MentalDisorder</hediffClass>
+    <isBad>true</isBad>
+    <scenarioCanAdd>true</scenarioCanAdd>
+    <everCurableByItem>false</everCurableByItem>
+  </HediffDef>
+
+  <HediffDef ParentName="MMD_BaseDisorder">
+    <defName>MMD_ParanoidDelusion</defName>
+    <label>被迫害型妄想障碍</label>
+    <description>患者坚信身边所有人都想杀死自己，回避社交，并会把任何伤害或厌恶视为处决对方的正当理由。</description>
+    <stages><li><minSeverity>0</minSeverity></li></stages>
+  </HediffDef>
+
+  <HediffDef ParentName="MMD_BaseDisorder">
+    <defName>MMD_MajorDepression</defName>
+    <label>重性抑郁障碍</label>
+    <description>患者的灵能异常稳定而低耗，但正面感受迅速消逝，病发时可能尝试自杀。</description>
+    <stages><li><minSeverity>0</minSeverity></li></stages>
+  </HediffDef>
+
+  <HediffDef ParentName="MMD_BaseDisorder">
+    <defName>MMD_Schizophrenia</defName>
+    <label>精神分裂症</label>
+    <description>患者认为脑中住着另一位传奇人物，并真实表现出与该身份相符的超常能力。当前人格及全部具体加成列于下方。</description>
+    <stages><li><minSeverity>0</minSeverity></li></stages>
+  </HediffDef>
+
+  <HediffDef ParentName="MMD_BaseDisorder">
+    <defName>MMD_Mania</defName>
+    <label>狂躁症</label>
+    <description>患者拥有极端的速度、力量和工作热情，但精神熵容量很低且极易病发。</description>
+    <stages>
+      <li>
+        <minSeverity>0</minSeverity>
+        <statFactors>
+          <IncomingDamageFactor>0.4</IncomingDamageFactor>
+          <MeleeDamageFactor>2</MeleeDamageFactor>
+          <MoveSpeed>2</MoveSpeed>
+          <WorkSpeedGlobal>1.5</WorkSpeedGlobal>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef ParentName="MMD_BaseDisorder">
+    <defName>MMD_OCD</defName>
+    <label>强迫症</label>
+    <description>患者擅长需要秩序和复核的劳动，工作与建造速度：×1.15；但会周期性中断工作反复检查，冲动长期未满足时心情−8、工作速度额外：×0.85。</description>
+    <stages><li><minSeverity>0</minSeverity><statFactors><WorkSpeedGlobal>1.15</WorkSpeedGlobal><ConstructionSpeed>1.15</ConstructionSpeed></statFactors></li></stages>
+  </HediffDef>
+
+  <HediffDef ParentName="MMD_BaseDisorder">
+    <defName>MMD_PanicDisorder</defName>
+    <label>恐慌障碍</label>
+    <description>患者会在没有明确危险时自发恐慌，受伤也可能立即触发；发作后持续担心再次失控，心情−8，移动速度：×1.25、工作速度：×0.6、瞄准时间：×1.5。</description>
+    <stages>
+      <li>
+        <minSeverity>0</minSeverity>
+        <statFactors>
+          <PsychicEntropyMax>1.5</PsychicEntropyMax>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef ParentName="MMD_BaseDisorder">
+    <defName>MMD_IntermittentExplosive</defName>
+    <label>间歇性暴怒障碍</label>
+    <description>患者拥有近战伤害：×2、承伤系数：×0.8；受到伤害时可能短促爆发狂暴，发作后心情−9、社交影响：×0.5，但近战伤害暂时额外：×1.5。</description>
+    <stages>
+      <li>
+        <minSeverity>0</minSeverity>
+        <statFactors>
+          <MeleeDamageFactor>2</MeleeDamageFactor>
+          <IncomingDamageFactor>0.8</IncomingDamageFactor>
+          <PainShockThreshold>1.5</PainShockThreshold>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef ParentName="MMD_BaseDisorder">
+    <defName>MMD_Narcissistic</defName>
+    <label>自恋型人格障碍</label>
+    <description>患者社交影响：×1.5、谈判能力：×1.3；获得正面互动后心情+8并进一步表现自信，被侮辱或轻视后心情−12、工作与社交能力下降。</description>
+    <stages>
+      <li>
+        <minSeverity>0</minSeverity>
+        <statFactors>
+          <SocialImpact>1.5</SocialImpact>
+          <NegotiationAbility>1.3</NegotiationAbility>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef ParentName="MMD_BaseDisorder">
+    <defName>MMD_ADHD</defName>
+    <label>注意缺陷多动障碍</label>
+    <description>患者移动速度：×1.1、学习效率：×1.1；开始一项工作时速度：×1.2，持续过久后降至 ×0.8，并可能失去专注、中断任务。</description>
+    <stages><li><minSeverity>0</minSeverity><statFactors><MoveSpeed>1.1</MoveSpeed><GlobalLearningFactor>1.1</GlobalLearningFactor></statFactors></li></stages>
+  </HediffDef>
+
+  <HediffDef ParentName="MMD_BaseDisorder">
+    <defName>MMD_SocialAnxiety</defName>
+    <label>社交焦虑障碍</label>
+    <description>患者独处时心情+3并能正常工作；附近人数越多，社交与工作能力越低，被人群包围时心情−10，并会回避互动和聚会。</description>
+    <stages><li><minSeverity>0</minSeverity><statFactors>
+      <PsychicSensitivity>1.3</PsychicSensitivity>
+    </statFactors></li></stages>
+  </HediffDef>
+
+  <HediffDef ParentName="MMD_BaseDisorder">
+    <defName>MMD_PersistentDepressive</defName>
+    <label>持续性抑郁障碍</label>
+    <description>患者灵能消耗：×0.85、精神力自然降低速度：×0.75；平稳时工作速度额外：×1.05，心情低落时心情−7、工作速度额外：×0.8。病发时悲伤徘徊，不会尝试自杀。</description>
+    <stages><li><minSeverity>0</minSeverity></li></stages>
+  </HediffDef>
+
+  <HediffDef ParentName="MMD_BaseDisorder">
+    <defName>MMD_Schizotypal</defName>
+    <label>分裂型人格障碍</label>
+    <description>患者在退缩期适合独处研究；进入奇异信念活跃期后心灵敏感度：×1.5，会把普通事件视为征兆，心情与社交能力下降。</description>
+    <stages><li><minSeverity>0</minSeverity><statFactors>
+      <PsychicSensitivity>1.5</PsychicSensitivity>
+      <MeditationFocusGain>1.25</MeditationFocusGain>
+      <ResearchSpeed>1.1</ResearchSpeed>
+      <SocialImpact>0.75</SocialImpact>
+    </statFactors></li></stages>
+  </HediffDef>
+
+  <HediffDef ParentName="MMD_BaseDisorder">
+    <defName>MMD_Hypomania</defName>
+    <label>轻躁狂</label>
+    <description>患者在平稳期与轻躁期之间周期变化；轻躁期心情+6、工作速度：×1.25、移动速度：×1.15，但休息消耗：×1.25。</description>
+    <stages><li><minSeverity>0</minSeverity><statFactors>
+      <PsychicEntropyMax>0.9</PsychicEntropyMax>
+    </statFactors></li></stages>
+  </HediffDef>
+  <HediffDef ParentName="MMD_BaseDisorder">
+    <defName>MMD_GeneralizedAnxiety</defName>
+    <label>广泛性焦虑障碍</label>
+    <description>患者会根据殖民者受伤、低落和火灾数量持续担忧；事情越多，心情、工作与瞄准能力越差，严重时会直接惊慌逃跑。</description>
+    <stages><li><minSeverity>0</minSeverity><statFactors>
+      <PsychicEntropyMax>1.5</PsychicEntropyMax>
+      <PsychicEntropyGain>1.25</PsychicEntropyGain>
+    </statFactors></li></stages>
+  </HediffDef>
+
+  <HediffDef ParentName="MMD_BaseDisorder">
+    <defName>MMD_Dissociative</defName>
+    <label>解离性障碍</label>
+    <description>患者周期性短暂失去现实感并中断工作；发作后一段时间心情−8，工作速度与学习效率：×0.6。</description>
+    <stages><li><minSeverity>0</minSeverity><statFactors>
+      <PsychicSensitivity>1.5</PsychicSensitivity>
+      <IncomingDamageFactor>0.9</IncomingDamageFactor>
+      <PainShockThreshold>1.5</PainShockThreshold>
+    </statFactors></li></stages>
+  </HediffDef>
+
+  <HediffDef ParentName="MMD_BaseDisorder">
+    <defName>MMD_SomaticSymptom</defName>
+    <label>躯体症状障碍</label>
+    <description>患者在压力和低心情下会把痛苦理解为身体疾病，主动中断工作并寻求病床；医疗休养效率：×1.5，但工作稳定性较差。</description>
+    <stages><li><minSeverity>0</minSeverity><statFactors>
+      <PsychicSensitivity>1.4</PsychicSensitivity>
+      <BedRestEffectiveness>1.5</BedRestEffectiveness>
+      <PainShockThreshold>0.75</PainShockThreshold>
+      <WorkSpeedGlobal>0.85</WorkSpeedGlobal>
+    </statFactors></li></stages>
+  </HediffDef>
+
+  <HediffDef ParentName="MMD_BaseDisorder">
+    <defName>MMD_PTSD</defName>
+    <label>创伤后应激障碍</label>
+    <description>患者保存造成创伤的伤害类型；只有相同来源再次伤害患者时才可能触发闪回，闪回期间心情−12、工作速度：×0.7，并在逃跑与反击间失控。</description>
+    <stages><li><minSeverity>0</minSeverity><statFactors>
+      <IncomingDamageFactor>0.75</IncomingDamageFactor>
+      <MoveSpeed>1.15</MoveSpeed>
+      <AimingDelayFactor>0.75</AimingDelayFactor>
+      <PsychicEntropyMax>1.5</PsychicEntropyMax>
+    </statFactors></li></stages>
+  </HediffDef>
+
+  <HediffDef ParentName="MMD_BaseDisorder">
+    <defName>MMD_Catatonia</defName>
+    <label>紧张症</label>
+    <description>患者平时动作与工作迟缓，并可能突然停止当前工作、短暂无反应；病发时进入真实的紧张性木僵。</description>
+    <stages><li><minSeverity>0</minSeverity><statFactors>
+      <PsychicSensitivity>2</PsychicSensitivity>
+      <PsychicEntropyMax>2</PsychicEntropyMax>
+      <WorkSpeedGlobal>0.5</WorkSpeedGlobal>
+      <MoveSpeed>0.75</MoveSpeed>
+    </statFactors></li></stages>
+  </HediffDef>
+  <!-- Additional real-world diagnoses. Effects are intentionally simple. -->
+  <HediffDef ParentName="MMD_BaseDisorder">
+    <defName>MMD_Insomnia</defName><label>失眠障碍</label>
+    <description>患者休息消耗：×0.9，夜间工作速度：×1.15；但入睡困难、休息恢复：×0.75，且睡眠中可能惊醒。</description>
+    <stages><li><minSeverity>0</minSeverity><statFactors><PsychicSensitivity>1.2</PsychicSensitivity><RestRateMultiplier>0.75</RestRateMultiplier><RestFallRateFactor>0.9</RestFallRateFactor></statFactors></li></stages>
+  </HediffDef>
+  <HediffDef ParentName="MMD_BaseDisorder">
+    <defName>MMD_AdjustmentDisorder</defName><label>适应障碍</label>
+    <description>由创伤、长期低落或重大变化后天形成；低心情时心情−9、工作速度：×0.8，若长期恢复稳定则会自行痊愈。</description>
+    <stages><li><minSeverity>0</minSeverity><statFactors><GlobalLearningFactor>1.1</GlobalLearningFactor><PsychicSensitivity>1.2</PsychicSensitivity></statFactors></li></stages>
+  </HediffDef>
+  <HediffDef ParentName="MMD_BaseDisorder">
+    <defName>MMD_SpecificPhobia</defName><label>特定恐惧症</label>
+    <description>患者的创伤绑定于某个具体时段、实体、天气、动物种类、人物、人种、家具或物品。未见创伤源时心情+6，正面情绪持续：×1.2，负面情绪持续：×0.8。接触创伤源越久，获得越严重、持续越久的心情减益；减益存在期间，正负面情绪持续倍率反转。</description>
+    <stages><li><minSeverity>0</minSeverity><statFactors><PsychicSensitivity>1.25</PsychicSensitivity></statFactors></li></stages>
+  </HediffDef>
+  <HediffDef ParentName="MMD_BaseDisorder">
+    <defName>MMD_Agoraphobia</defName><label>广场恐惧症</label>
+    <description>患者在安全室内心情+4、工作速度：×1.1、研究速度：×1.15；进入室外后逐渐焦虑，远离遮蔽时心情−14、工作速度：×0.7、瞄准时间：×1.35，并可能惊慌失措。</description>
+    <stages><li><minSeverity>0</minSeverity><statFactors><PsychicSensitivity>1.3</PsychicSensitivity></statFactors></li></stages>
+  </HediffDef>
+  <HediffDef ParentName="MMD_BaseDisorder">
+    <defName>MMD_AvoidantPersonality</defName><label>回避型人格障碍</label>
+    <description>患者独处时研究速度额外：×1.2、工作速度：×1.1；但尤其回避自己重视的人，对某人的评价越高，就越可能因害怕暴露自己或最终失去对方而拒绝互动。</description>
+    <stages><li><minSeverity>0</minSeverity><statFactors><PsychicSensitivity>1.3</PsychicSensitivity><ResearchSpeed>1.1</ResearchSpeed><SocialImpact>0.6</SocialImpact></statFactors></li></stages>
+  </HediffDef>
+  <HediffDef ParentName="MMD_BaseDisorder">
+    <defName>MMD_DependentPersonality</defName><label>依赖型人格障碍</label>
+    <description>患者会把配偶、恋人或最信任的同伴确立为依赖对象；对方在身边时明显安心，分离或失去对方时则陷入强烈不安。</description>
+    <stages><li><minSeverity>0</minSeverity><statFactors><SocialImpact>1.2</SocialImpact><NegotiationAbility>0.9</NegotiationAbility><WorkSpeedGlobal>0.9</WorkSpeedGlobal></statFactors></li></stages>
+  </HediffDef>
+  <HediffDef ParentName="MMD_BaseDisorder">
+    <defName>MMD_OCPD</defName><label>强迫型人格障碍</label>
+    <description>患者工作速度：×1.15、建造速度：×1.1，追求规则与完美；会周期性中断任务重新检查细节，难以容忍不完整的工作。</description>
+    <stages><li><minSeverity>0</minSeverity><statFactors><WorkSpeedGlobal>1.15</WorkSpeedGlobal><ConstructionSpeed>1.1</ConstructionSpeed><ResearchSpeed>0.9</ResearchSpeed></statFactors></li></stages>
+  </HediffDef>
+  <HediffDef ParentName="MMD_BaseDisorder">
+    <defName>MMD_Cyclothymia</defName><label>环性心境障碍</label>
+    <description>患者在持续数日的低落期与高涨期之间循环；低落期心情−5、工作速度：×0.85，高涨期心情+5、工作速度：×1.15。</description>
+    <stages><li><minSeverity>0</minSeverity><statFactors><PsychicEntropyMax>0.9</PsychicEntropyMax></statFactors></li></stages>
+  </HediffDef>
+  <HediffDef ParentName="MMD_BaseDisorder">
+    <defName>MMD_BodyDysmorphic</defName><label>躯体变形障碍</label>
+    <description>患者对外表与细节高度敏感，社交影响：×1.1、工作速度：×1.05；会中断工作检查仪容，检查后短期表现提高，长期无法检查则心情−6且能力反转。</description>
+    <stages><li><minSeverity>0</minSeverity><statFactors><SocialImpact>1.1</SocialImpact><WorkSpeedGlobal>1.05</WorkSpeedGlobal></statFactors></li></stages>
+  </HediffDef>
+  <HediffDef ParentName="MMD_BaseDisorder">
+    <defName>MMD_IllnessAnxiety</defName><label>疾病焦虑障碍</label>
+    <description>患者因高度关注身体而拥有医疗速度：×1.25；会主动中断工作寻找病床检查，检查后短期工作提高，长期未检查则心情−7。</description>
+    <stages><li><minSeverity>0</minSeverity><statFactors><PsychicSensitivity>1.2</PsychicSensitivity><MedicalTendSpeed>1.25</MedicalTendSpeed></statFactors></li></stages>
+  </HediffDef>
+
+  <HediffDef ParentName="MMD_BaseDisorder">
+    <defName>MMD_Borderline</defName><label>边缘型人格障碍</label>
+    <description>患者会锁定一名重要关系对象，并在理想化与贬低之间变化；理想化时心情+8，遭遇负面互动后转为被抛弃感，心情−13且能力下降。</description>
+    <stages><li><minSeverity>0</minSeverity><statFactors><NegotiationAbility>1.15</NegotiationAbility><PsychicEntropyGain>1.4</PsychicEntropyGain></statFactors></li></stages>
+  </HediffDef>
+  <HediffDef ParentName="MMD_BaseDisorder">
+    <defName>MMD_BipolarII</defName><label>双相Ⅱ型障碍</label>
+    <description>患者在抑郁期与轻躁期之间循环；抑郁期心情−12、工作速度：×0.65，轻躁期心情+8、工作速度：×1.3。</description>
+    <stages><li><minSeverity>0</minSeverity><statFactors><PsychicEntropyGain>1.25</PsychicEntropyGain></statFactors></li></stages>
+  </HediffDef>
+  <HediffDef ParentName="MMD_BaseDisorder">
+    <defName>MMD_DissociativeAmnesia</defName><label>解离性遗忘</label>
+    <description>病发时会暂时封锁一项技能的2至5级并出现记忆空白，心情−8；约两天后技能恢复，不再造成随机永久遗忘。</description>
+    <stages><li><minSeverity>0</minSeverity><statFactors><PsychicSensitivity>1.6</PsychicSensitivity><IncomingDamageFactor>0.9</IncomingDamageFactor></statFactors></li></stages>
+  </HediffDef>
+  <HediffDef ParentName="MMD_BaseDisorder">
+    <defName>MMD_Anorexia</defName><label>神经性厌食症</label>
+    <description>患者进食速度：×1.2，能够暂时忍受饥饿；但在尚未濒临饥饿时经常拒食，身体恢复：×0.8、承伤：×1.2，接近危险饥饿后才稳定接受食物。</description>
+    <stages><li><minSeverity>0</minSeverity><statFactors><EatingSpeed>1.2</EatingSpeed><RestRateMultiplier>0.8</RestRateMultiplier><IncomingDamageFactor>1.2</IncomingDamageFactor></statFactors></li></stages>
+  </HediffDef>
+  <HediffDef ParentName="MMD_BaseDisorder">
+    <defName>MMD_Bulimia</defName><label>神经性贪食症</label>
+    <description>患者进食速度：×1.25，会经历限制进食与失控暴食的循环；暴食后短期心情+8并获得工作、移动加成，随后转为心情−10。</description>
+    <stages><li><minSeverity>0</minSeverity><statFactors><EatingSpeed>1.25</EatingSpeed><RestFallRateFactor>1.1</RestFallRateFactor></statFactors></li></stages>
+  </HediffDef>
+
+  <HediffDef ParentName="MMD_BaseDisorder">
+    <defName>MMD_BipolarI</defName><label>双相Ⅰ型障碍</label>
+    <description>患者在严重抑郁期与躁狂期之间循环；抑郁期心情−16、工作速度：×0.5，躁狂期心情+12、工作速度：×1.6并大量消耗休息。</description>
+    <stages><li><minSeverity>0</minSeverity><statFactors><PsychicEntropyMax>0.75</PsychicEntropyMax></statFactors></li></stages>
+  </HediffDef>
+  <HediffDef ParentName="MMD_BaseDisorder">
+    <defName>MMD_DID</defName><label>分离性身份障碍</label>
+    <description>患者拥有固定的保护者与照料者身份，并会周期切换；保护者强化近战和承伤，照料者强化社交与医疗，病发时会强制切换身份。</description>
+    <stages><li><minSeverity>0</minSeverity><statFactors><PsychicSensitivity>2</PsychicSensitivity></statFactors></li></stages>
+  </HediffDef>
+  <HediffDef ParentName="MMD_BaseDisorder">
+    <defName>MMD_Schizoaffective</defName><label>分裂情感性障碍</label>
+    <description>患者在抑郁、躁狂和精神病性阶段之间循环；每一阶段拥有不同心情、工作、社交和灵能表现，病发会推动阶段切换。</description>
+    <stages><li><minSeverity>0</minSeverity><statFactors><PsychicSensitivity>2</PsychicSensitivity><PsychicEntropyMax>2</PsychicEntropyMax></statFactors></li></stages>
+  </HediffDef>
+  <HediffDef ParentName="MMD_BaseDisorder">
+    <defName>MMD_Cotard</defName>
+    <label>虚无妄想综合征</label>
+    <description>患者否定死亡和现实本身；死亡后只要尸体仍然存在，就会立即否定死亡并复活。</description>
+    <stages><li><minSeverity>0</minSeverity><statFactors>
+      <PsychicSensitivity>5</PsychicSensitivity>
+      <PsychicEntropyMax>5</PsychicEntropyMax>
+      <PsychicEntropyRecoveryRate>2</PsychicEntropyRecoveryRate>
+      <IncomingDamageFactor>0.5</IncomingDamageFactor>
+      <WorkSpeedGlobal>0.75</WorkSpeedGlobal>
+      <SocialImpact>0.25</SocialImpact>
+    </statFactors></li></stages>
+  </HediffDef>
+  <HediffDef ParentName="MMD_BaseDisorder">
+    <defName>MMD_Claustrophobia</defName>
+    <label>幽闭恐惧症</label>
+    <description>患者根据房间面积感受封闭程度；开阔空间心情+3，普通室内心情−6，面积不足35格的狭小房间心情−14、工作速度：×0.65，并可能惊慌逃跑。</description>
+    <stages><li><minSeverity>0</minSeverity><statFactors>
+      <PsychicSensitivity>1.3</PsychicSensitivity>
+    </statFactors></li></stages>
+  </HediffDef>
+  <HediffDef ParentName="MMD_BaseDisorder">
+    <defName>MMD_Hyperthymesia</defName>
+    <label>超忆症</label>
+    <description>患者无法遗忘任何经历：技能经验永不自然衰减，所有正面与负面心情记忆都会永久保留。只能先天获得。</description>
+    <stages><li><minSeverity>0</minSeverity><statFactors>
+      <GlobalLearningFactor>1.5</GlobalLearningFactor>
+      <ResearchSpeed>1.25</ResearchSpeed>
+      <PsychicSensitivity>2</PsychicSensitivity>
+    </statFactors></li></stages>
+  </HediffDef>
+</Defs>

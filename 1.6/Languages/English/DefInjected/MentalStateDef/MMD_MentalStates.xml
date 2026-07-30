@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <MMD_PanicEpisode.label>overwhelmed by panic</MMD_PanicEpisode.label>
+  <MMD_PanicEpisode.beginLetterLabel>Episode: panic</MMD_PanicEpisode.beginLetterLabel>
+  <MMD_PanicEpisode.beginLetter>{0} is overwhelmed by panic and cannot work normally, but will not leave the map.</MMD_PanicEpisode.beginLetter>
+  <MMD_PanicEpisode.recoveryMessage>{0} has recovered from the panic episode.</MMD_PanicEpisode.recoveryMessage>
+  <MMD_PanicEpisode.baseInspectLine>Mental state: Overwhelmed by panic</MMD_PanicEpisode.baseInspectLine>
+</LanguageData>

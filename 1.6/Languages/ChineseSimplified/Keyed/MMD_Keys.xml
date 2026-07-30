@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <MMD_Triggered>{0}的{1}，在高压下爆发了。</MMD_Triggered>
+  <MMD_Cured>{0}的精神疾病已经治愈。</MMD_Cured>
+  <MMD_Acquired>{0}在一次极其严重的精神崩溃后患上了{1}。</MMD_Acquired>
+  <MMD_Identity>妄想身份：{0}</MMD_Identity>
+  <MMD_TraumaTab>创伤</MMD_TraumaTab>
+</LanguageData>

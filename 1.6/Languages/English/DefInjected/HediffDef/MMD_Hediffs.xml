@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <MMD_ParanoidDelusion.label>Persecutory delusional disorder</MMD_ParanoidDelusion.label>
+  <MMD_ParanoidDelusion.description>The patient believes everyone intends to kill them, avoids social contact, and treats injury or hostility as justification for execution.</MMD_ParanoidDelusion.description>
+  <MMD_MajorDepression.label>Major depressive disorder</MMD_MajorDepression.label>
+  <MMD_MajorDepression.description>Psyfocus is unusually stable and efficient, but positive feelings fade rapidly and an episode may lead to a genuine suicide attempt.</MMD_MajorDepression.description>
+  <MMD_Schizophrenia.label>Schizophrenia</MMD_Schizophrenia.label>
+  <MMD_Schizophrenia.description>The patient believes a legendary figure lives inside their mind and manifests real abilities matching that identity.</MMD_Schizophrenia.description>
+  <MMD_Mania.label>Mania</MMD_Mania.label>
+  <MMD_Mania.description>The patient possesses extreme speed, strength, and drive, but has little neural heat capacity and is highly prone to episodes.</MMD_Mania.description>
+  <MMD_OCD.label>Obsessive-compulsive disorder</MMD_OCD.label>
+  <MMD_OCD.description>Orderly work is faster, but compulsive checking interrupts tasks and unmet compulsions reduce mood and productivity.</MMD_OCD.description>
+  <MMD_PanicDisorder.label>Panic disorder</MMD_PanicDisorder.label>
+  <MMD_PanicDisorder.description>Sudden panic can occur without danger or after injury. The patient moves quickly but works and aims poorly during the aftermath.</MMD_PanicDisorder.description>
+  <MMD_IntermittentExplosive.label>Intermittent explosive disorder</MMD_IntermittentExplosive.label>
+  <MMD_IntermittentExplosive.description>The patient is dangerous in melee and may erupt into a brief berserk rage when injured, followed by remorse.</MMD_IntermittentExplosive.description>
+  <MMD_Narcissistic.label>Narcissistic personality disorder</MMD_Narcissistic.label>
+  <MMD_Narcissistic.description>Praise produces confidence and strong social performance, while insults or rejection cause a severe crash.</MMD_Narcissistic.description>
+  <MMD_ADHD.label>Attention-deficit/hyperactivity disorder</MMD_ADHD.label>
+  <MMD_ADHD.description>The patient learns and moves quickly, starts tasks intensely, then loses focus and may abandon prolonged work.</MMD_ADHD.description>
+  <MMD_SocialAnxiety.label>Social anxiety disorder</MMD_SocialAnxiety.label>
+  <MMD_SocialAnxiety.description>The patient functions well alone, but crowds reduce mood, social ability, and work speed and encourage avoidance.</MMD_SocialAnxiety.description>
+  <MMD_PersistentDepressive.label>Persistent depressive disorder</MMD_PersistentDepressive.label>
+  <MMD_PersistentDepressive.description>A chronic low state with efficient psycasts but reduced productivity when mood falls. Episodes cause sad wandering, not suicide.</MMD_PersistentDepressive.description>
+  <MMD_Schizotypal.label>Schizotypal personality disorder</MMD_Schizotypal.label>
+  <MMD_Schizotypal.description>The patient cycles between withdrawn focus and active strange beliefs with increased psychic sensitivity and impaired social function.</MMD_Schizotypal.description>
+  <MMD_Hypomania.label>Hypomania</MMD_Hypomania.label>
+  <MMD_Hypomania.description>The patient cycles between stable and hypomanic phases. Hypomania improves mood, work, and movement but consumes more rest.</MMD_Hypomania.description>
+  <MMD_GeneralizedAnxiety.label>Generalized anxiety disorder</MMD_GeneralizedAnxiety.label>
+  <MMD_GeneralizedAnxiety.description>Injured or unhappy colonists and nearby fires accumulate as worries, progressively impairing mood, work, and aim.</MMD_GeneralizedAnxiety.description>
+  <MMD_Dissociative.label>Dissociative disorder</MMD_Dissociative.label>
+  <MMD_Dissociative.description>Brief losses of reality interrupt work and leave a period of reduced mood, productivity, and learning.</MMD_Dissociative.description>
+  <MMD_SomaticSymptom.label>Somatic symptom disorder</MMD_SomaticSymptom.label>
+  <MMD_SomaticSymptom.description>Stress is interpreted as physical illness, causing the patient to interrupt work and seek medical rest.</MMD_SomaticSymptom.description>
+  <MMD_PTSD.label>Post-traumatic stress disorder</MMD_PTSD.label>
+  <MMD_PTSD.description>The patient remembers a traumatic damage source. Re-exposure can trigger a flashback and uncontrolled flight or retaliation.</MMD_PTSD.description>
+  <MMD_Catatonia.label>Catatonia</MMD_Catatonia.label>
+  <MMD_Catatonia.description>Movement and work are slowed and may stop abruptly. A full episode causes genuine catatonic shutdown.</MMD_Catatonia.description>
+  <MMD_Insomnia.label>Insomnia disorder</MMD_Insomnia.label>
+  <MMD_Insomnia.description>The patient works well at night and tolerates wakefulness, but restores rest slowly and may wake abruptly.</MMD_Insomnia.description>
+  <MMD_AdjustmentDisorder.label>Adjustment disorder</MMD_AdjustmentDisorder.label>
+  <MMD_AdjustmentDisorder.description>Develops after trauma or prolonged low mood. It impairs mood and work while stressed, but can resolve after sustained stability.</MMD_AdjustmentDisorder.description>
+  <MMD_SpecificPhobia.label>Specific phobia</MMD_SpecificPhobia.label>
+  <MMD_SpecificPhobia.description>The trauma is tied to one specific time of day, entity, weather, animal species, person, human group, furniture type, or item. While the source is absent: mood +6, positive memory duration ×1.2, negative memory duration ×0.8. Longer exposure causes stronger and longer-lasting mood penalties; while a penalty remains, both memory multipliers are reversed.</MMD_SpecificPhobia.description>
+  <MMD_Agoraphobia.label>Agoraphobia</MMD_Agoraphobia.label>
+  <MMD_Agoraphobia.description>Safe rooms improve mood and work, while open exposed spaces cause escalating anxiety, impaired aim, and panic.</MMD_Agoraphobia.description>
+  <MMD_AvoidantPersonality.label>Avoidant personality disorder</MMD_AvoidantPersonality.label>
+  <MMD_AvoidantPersonality.description>The patient works well alone but especially avoids people they value, fearing exposure and eventual loss.</MMD_AvoidantPersonality.description>
+  <MMD_DependentPersonality.label>Dependent personality disorder</MMD_DependentPersonality.label>
+  <MMD_DependentPersonality.description>The patient attaches to a partner or trusted companion, becoming calm nearby and distressed by separation or loss.</MMD_DependentPersonality.description>
+  <MMD_OCPD.label>Obsessive-compulsive personality disorder</MMD_OCPD.label>
+  <MMD_OCPD.description>The patient works quickly and precisely but repeatedly interrupts tasks to inspect details and cannot tolerate incomplete work.</MMD_OCPD.description>
+  <MMD_Cyclothymia.label>Cyclothymic disorder</MMD_Cyclothymia.label>
+  <MMD_Cyclothymia.description>The patient cycles over several days between a low, slow phase and an elevated, productive phase.</MMD_Cyclothymia.description>
+  <MMD_BodyDysmorphic.label>Body dysmorphic disorder</MMD_BodyDysmorphic.label>
+  <MMD_BodyDysmorphic.description>The patient repeatedly checks their appearance. Checking briefly improves performance; prolonged inability reverses the benefit.</MMD_BodyDysmorphic.description>
+  <MMD_IllnessAnxiety.label>Illness anxiety disorder</MMD_IllnessAnxiety.label>
+  <MMD_IllnessAnxiety.description>The patient is medically attentive but interrupts work to seek examinations; reassurance helps temporarily.</MMD_IllnessAnxiety.description>
+  <MMD_Borderline.label>Borderline personality disorder</MMD_Borderline.label>
+  <MMD_Borderline.description>The patient fixates on an important person and alternates between idealization and devaluation after negative interactions.</MMD_Borderline.description>
+  <MMD_BipolarII.label>Bipolar II disorder</MMD_BipolarII.label>
+  <MMD_BipolarII.description>The patient cycles between a debilitating depressive phase and a productive hypomanic phase.</MMD_BipolarII.description>
+  <MMD_DissociativeAmnesia.label>Dissociative amnesia</MMD_DissociativeAmnesia.label>
+  <MMD_DissociativeAmnesia.description>An episode temporarily suppresses several levels of one skill. The skill returns after about two days.</MMD_DissociativeAmnesia.description>
+  <MMD_Anorexia.label>Anorexia nervosa</MMD_Anorexia.label>
+  <MMD_Anorexia.description>The patient frequently refuses food until dangerously hungry, reducing recovery and increasing incoming damage.</MMD_Anorexia.description>
+  <MMD_Bulimia.label>Bulimia nervosa</MMD_Bulimia.label>
+  <MMD_Bulimia.description>The patient cycles between restriction and uncontrolled eating, followed by a brief high and then a severe crash.</MMD_Bulimia.description>
+  <MMD_BipolarI.label>Bipolar I disorder</MMD_BipolarI.label>
+  <MMD_BipolarI.description>The patient cycles between severe depression and full mania with extreme productivity and rest consumption.</MMD_BipolarI.description>
+  <MMD_DID.label>Dissociative identity disorder</MMD_DID.label>
+  <MMD_DID.description>The patient alternates between protector and caregiver identities with distinct combat, medical, and social strengths.</MMD_DID.description>
+  <MMD_Schizoaffective.label>Schizoaffective disorder</MMD_Schizoaffective.label>
+  <MMD_Schizoaffective.description>The patient cycles through depressive, manic, and psychotic phases with different mood, work, social, and psychic effects.</MMD_Schizoaffective.description>
+  <MMD_Cotard.label>Cotard delusion</MMD_Cotard.label>
+  <MMD_Cotard.description>The patient denies death and reality itself. If a corpse remains after death, they immediately return to life.</MMD_Cotard.description>
+  <MMD_Claustrophobia.label>Claustrophobia</MMD_Claustrophobia.label>
+  <MMD_Claustrophobia.description>Open space is comforting, while small enclosed rooms severely impair mood and work and may provoke panic.</MMD_Claustrophobia.description>
+  <MMD_Hyperthymesia.label>Hyperthymesia</MMD_Hyperthymesia.label>
+  <MMD_Hyperthymesia.description>The patient cannot forget: skill experience never decays and all positive and negative mood memories persist forever. Congenital only.</MMD_Hyperthymesia.description>
+
+  <MMD_MentalEtiology.label>mental etiology record</MMD_MentalEtiology.label>
+  <MMD_CognitiveStabilizer.label>mind stabilizer chip</MMD_CognitiveStabilizer.label>
+  <MMD_CognitiveStabilizer.labelNoun>a mind stabilizer chip</MMD_CognitiveStabilizer.labelNoun>
+  <MMD_CognitiveStabilizer.description>An implanted neural regulator that cures and prevents all mental disorders and grants a permanent +12 mood.</MMD_CognitiveStabilizer.description>
+  <MMD_Hippocampectomy.label>hippocampectomy</MMD_Hippocampectomy.label>
+  <MMD_Hippocampectomy.description>The hippocampus has been removed. Existing skills are fixed forever: they can neither improve nor decay, and the patient cannot suffer a mental break.</MMD_Hippocampectomy.description>
+</LanguageData>

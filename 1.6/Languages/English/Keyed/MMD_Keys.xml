@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <MMD_Triggered>{0}'s {1} erupted under severe stress.</MMD_Triggered>
+  <MMD_Cured>{0}'s mental disorder has been cured.</MMD_Cured>
+  <MMD_Acquired>{0} acquired {1} after an exceptionally severe mental break.</MMD_Acquired>
+  <MMD_Identity>Delusional identity: {0}</MMD_Identity>
+  <MMD_TraumaTab>Trauma</MMD_TraumaTab>
+</LanguageData>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <HediffDef ParentName="ImplantHediffBase">
+    <defName>MMD_CognitiveStabilizer</defName>
+    <label>心灵稳定芯片</label>
+    <labelNoun>一个心灵稳定芯片</labelNoun>
+    <description>植入脑部的认知调控芯片。它持续稳定异常的神经活动，使植入者保持清醒、平稳的精神状态。治愈并预防所有精神疾病，心情永久+12。</description>
+    <hediffClass>MoreMentalDisorders.Hediff_CognitiveStabilizer</hediffClass>
+    <descriptionHyperlinks><ThingDef>MMD_CognitiveStabilizer</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>MMD_CognitiveStabilizer</spawnThingOnRemoved>
+  </HediffDef>
+
+  <ThingDef ParentName="BodyPartBionicImperialBase">
+    <defName>MMD_CognitiveStabilizer</defName>
+    <label>心灵稳定芯片</label>
+    <description>一种植入脑部的精密神经调控芯片。植入后治愈并预防所有精神疾病，同时使心情永久+12。</description>
+    <descriptionHyperlinks><RecipeDef>MMD_InstallCognitiveStabilizer</RecipeDef></descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.8</drawSize>
+      <color>(105,190,210)</color>
+    </graphicData>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>MMD_NeuralResearch</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>MMD_InstallCognitiveStabilizer</defName>
+    <label>安装心灵稳定芯片</label>
+    <description>将心灵稳定芯片植入脑部。</description>
+    <descriptionHyperlinks>
+      <ThingDef>MMD_CognitiveStabilizer</ThingDef>
+      <HediffDef>MMD_CognitiveStabilizer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>正在安装心灵稳定芯片。</jobString>
+    <ingredients>
+      <li>
+        <filter><thingDefs><li>MMD_CognitiveStabilizer</li></thingDefs></filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter><thingDefs><li>MMD_CognitiveStabilizer</li></thingDefs></fixedIngredientFilter>
+    <appliedOnFixedBodyParts><li>Brain</li></appliedOnFixedBodyParts>
+    <addsHediff>MMD_CognitiveStabilizer</addsHediff>
+  </RecipeDef>
+
+  <RecipeDef ParentName="SurgeryRemoveImplantBase">
+    <defName>MMD_RemoveCognitiveStabilizer</defName>
+    <label>移除心灵稳定芯片</label>
+    <description>从脑部移除心灵稳定芯片。已被治愈的精神疾病不会因此复发，但芯片的预防作用和心情增益将会消失。</description>
+    <descriptionHyperlinks>
+      <ThingDef>MMD_CognitiveStabilizer</ThingDef>
+      <HediffDef>MMD_CognitiveStabilizer</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>正在移除心灵稳定芯片。</jobString>
+    <removesHediff>MMD_CognitiveStabilizer</removesHediff>
+  </RecipeDef>
+</Defs>

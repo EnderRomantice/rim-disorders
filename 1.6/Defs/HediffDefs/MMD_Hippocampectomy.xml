@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <HediffDef>
+    <defName>MMD_Hippocampectomy</defName>
+    <label>海马体切除</label>
+    <description>此人的海马体已经被手术切除。旧有的技能记忆被固定下来，但无法再形成新的技能记忆。技能不再进步，也不会遗忘，并且不会精神崩溃。</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>true</isBad>
+    <everCurableByItem>false</everCurableByItem>
+    <scenarioCanAdd>true</scenarioCanAdd>
+    <stages><li/></stages>
+  </HediffDef>
+
+  <RecipeDef ParentName="SurgeryFlesh">
+    <defName>MMD_HippocampectomySurgery</defName>
+    <label>海马体切除术</label>
+    <description>切除患者的海马体。患者现有技能将永久固定：不能继续进步，也不会遗忘；同时不再发生精神崩溃。此手术不可逆。</description>
+    <workerClass>Recipe_AddHediff</workerClass>
+    <addsHediff>MMD_Hippocampectomy</addsHediff>
+    <jobString>正在切除海马体。</jobString>
+    <workAmount>2500</workAmount>
+    <hideBodyPartNames>true</hideBodyPartNames>
+    <targetsBodyPart>false</targetsBodyPart>
+    <isViolation>true</isViolation>
+    <deathOnFailedSurgeryChance>0.1</deathOnFailedSurgeryChance>
+    <developmentalStageFilter>Child, Adult</developmentalStageFilter>
+    <skillRequirements><Medicine>8</Medicine></skillRequirements>
+    <researchPrerequisite><li>MMD_NeuralResearch</li></researchPrerequisite>
+    <ingredients>
+      <li>
+        <filter><categories><li>Medicine</li></categories></filter>
+        <count>2</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter><categories><li>Medicine</li></categories></fixedIngredientFilter>
+  </RecipeDef>
+</Defs>

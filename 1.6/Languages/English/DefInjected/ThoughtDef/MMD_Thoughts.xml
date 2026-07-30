@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <MMD_Thought_CognitiveStability.label>mind stabilized</MMD_Thought_CognitiveStability.label>
+  <MMD_Thought_CognitiveStability.description>The mind stabilizer chip continuously suppresses abnormal neural activity.</MMD_Thought_CognitiveStability.description>
+  <MMD_Thought_CognitiveStability.stages.0.label>mind stabilized</MMD_Thought_CognitiveStability.stages.0.label>
+  <MMD_Thought_Crazy.label>mental disorder</MMD_Thought_Crazy.label>
+  <MMD_Thought_Crazy.stages.0.label>a little odd</MMD_Thought_Crazy.stages.0.label>
+  <MMD_Thought_Crazy.stages.1.label>mentally unstable</MMD_Thought_Crazy.stages.1.label>
+  <MMD_Thought_Crazy.stages.2.label>best kept at a distance</MMD_Thought_Crazy.stages.2.label>
+  <MMD_Thought_Crazy.stages.3.label>that's a madman</MMD_Thought_Crazy.stages.3.label>
+  <MMD_Thought_WantsToKillMe.label>wants to kill me</MMD_Thought_WantsToKillMe.label>
+  <MMD_Thought_WantsToKillMe.stages.0.label>wants to kill me</MMD_Thought_WantsToKillMe.stages.0.label>
+  <MMD_Thought_Emotionless.label>cannot feel their emotions</MMD_Thought_Emotionless.label>
+  <MMD_Thought_Emotionless.stages.0.label>cannot feel their emotions</MMD_Thought_Emotionless.stages.0.label>
+  <MMD_Thought_President.label>natural leader</MMD_Thought_President.label>
+  <MMD_Thought_President.stages.0.label>natural leader</MMD_Thought_President.stages.0.label>
+  <MMD_Thought_BeneathMe.label>they are beneath me</MMD_Thought_BeneathMe.label>
+  <MMD_Thought_BeneathMe.stages.0.label>they are beneath me</MMD_Thought_BeneathMe.stages.0.label>
+  <MMD_Thought_SocialAnxiety.label>being near them makes me uneasy</MMD_Thought_SocialAnxiety.label>
+  <MMD_Thought_SocialAnxiety.stages.0.label>being near them makes me uneasy</MMD_Thought_SocialAnxiety.stages.0.label>
+  <MMD_Thought_Restless.label>cannot sit still</MMD_Thought_Restless.label>
+  <MMD_Thought_Restless.stages.0.label>cannot sit still</MMD_Thought_Restless.stages.0.label>
+  <MMD_Thought_OddSpeech.label>speaks strangely</MMD_Thought_OddSpeech.label>
+  <MMD_Thought_OddSpeech.stages.0.label>speaks strangely</MMD_Thought_OddSpeech.stages.0.label>
+  <MMD_Thought_DependencyMood.label>dependent relationship</MMD_Thought_DependencyMood.label>
+  <MMD_Thought_DependencyMood.description>Emotional stability depends on the presence of a trusted person.</MMD_Thought_DependencyMood.description>
+  <MMD_Thought_DependencyMood.stages.0.label>dependent person nearby</MMD_Thought_DependencyMood.stages.0.label>
+  <MMD_Thought_DependencyMood.stages.1.label>separated from dependent person</MMD_Thought_DependencyMood.stages.1.label>
+  <MMD_Thought_DependencySocial.label>I cannot live without them</MMD_Thought_DependencySocial.label>
+  <MMD_Thought_DependencySocial.stages.0.label>I cannot live without them</MMD_Thought_DependencySocial.stages.0.label>
+  <MMD_Thought_BodyCheckingUrge.label>cannot stop examining bodily flaws</MMD_Thought_BodyCheckingUrge.label>
+  <MMD_Thought_BodyCheckingUrge.description>I have not checked my appearance recently. Something must be wrong.</MMD_Thought_BodyCheckingUrge.description>
+  <MMD_Thought_CompulsionUrge.label>compulsion left unsatisfied</MMD_Thought_CompulsionUrge.label>
+  <MMD_Thought_CompulsionUrge.description>I have not checked everything carefully enough.</MMD_Thought_CompulsionUrge.description>
+  <MMD_Thought_HealthCheckUrge.label>afraid of serious illness</MMD_Thought_HealthCheckUrge.label>
+  <MMD_Thought_HealthCheckUrge.description>I have not been examined recently. I may be seriously ill.</MMD_Thought_HealthCheckUrge.description>
+  <MMD_Thought_BulimiaCycle.label>binge cycle</MMD_Thought_BulimiaCycle.label>
+  <MMD_Thought_BulimiaCycle.stages.0.label>satisfied after bingeing</MMD_Thought_BulimiaCycle.stages.0.label>
+  <MMD_Thought_BulimiaCycle.stages.1.label>ashamed after bingeing</MMD_Thought_BulimiaCycle.stages.1.label>
+  <MMD_Thought_AgoraphobiaExposure.label>surroundings</MMD_Thought_AgoraphobiaExposure.label>
+  <MMD_Thought_AgoraphobiaExposure.stages.0.label>inside a safe space</MMD_Thought_AgoraphobiaExposure.stages.0.label>
+  <MMD_Thought_AgoraphobiaExposure.stages.1.label>outdoors</MMD_Thought_AgoraphobiaExposure.stages.1.label>
+  <MMD_Thought_AgoraphobiaExposure.stages.2.label>exposed in open ground</MMD_Thought_AgoraphobiaExposure.stages.2.label>
+  <MMD_Thought_PanicAftermath.label>afraid of another attack</MMD_Thought_PanicAftermath.label>
+  <MMD_Thought_ExplosiveRemorse.label>remorse after rage</MMD_Thought_ExplosiveRemorse.label>
+  <MMD_Thought_NarcissisticState.label>self-image</MMD_Thought_NarcissisticState.label>
+  <MMD_Thought_NarcissisticState.stages.0.label>received recognition</MMD_Thought_NarcissisticState.stages.0.label>
+  <MMD_Thought_NarcissisticState.stages.1.label>wounded pride</MMD_Thought_NarcissisticState.stages.1.label>
+  <MMD_Thought_SocialCrowd.label>social environment</MMD_Thought_SocialCrowd.label>
+  <MMD_Thought_SocialCrowd.stages.0.label>quiet solitude</MMD_Thought_SocialCrowd.stages.0.label>
+  <MMD_Thought_SocialCrowd.stages.1.label>people nearby</MMD_Thought_SocialCrowd.stages.1.label>
+  <MMD_Thought_SocialCrowd.stages.2.label>surrounded by a crowd</MMD_Thought_SocialCrowd.stages.2.label>
+  <MMD_Thought_GeneralizedWorry.label>persistent worry</MMD_Thought_GeneralizedWorry.label>
+  <MMD_Thought_GeneralizedWorry.stages.0.label>nothing urgent to worry about</MMD_Thought_GeneralizedWorry.stages.0.label>
+  <MMD_Thought_GeneralizedWorry.stages.1.label>worried about the colony</MMD_Thought_GeneralizedWorry.stages.1.label>
+  <MMD_Thought_GeneralizedWorry.stages.2.label>everything may go wrong</MMD_Thought_GeneralizedWorry.stages.2.label>
+  <MMD_Thought_SpecificFear.label>phobic trigger</MMD_Thought_SpecificFear.label>
+  <MMD_Thought_SpecificFear.stages.0.label>nothing unwanted in sight</MMD_Thought_SpecificFear.stages.0.label>
+  <MMD_Thought_SpecificFear.stages.1.label>trauma briefly recalled</MMD_Thought_SpecificFear.stages.1.label>
+  <MMD_Thought_SpecificFear.stages.2.label>lingering trauma</MMD_Thought_SpecificFear.stages.2.label>
+  <MMD_Thought_SpecificFear.stages.3.label>overwhelmed by trauma</MMD_Thought_SpecificFear.stages.3.label>
+  <MMD_Thought_Claustrophobia.label>enclosure</MMD_Thought_Claustrophobia.label>
+  <MMD_Thought_Claustrophobia.stages.0.label>open space</MMD_Thought_Claustrophobia.stages.0.label>
+  <MMD_Thought_Claustrophobia.stages.1.label>inside an enclosed space</MMD_Thought_Claustrophobia.stages.1.label>
+  <MMD_Thought_Claustrophobia.stages.2.label>trapped in a small room</MMD_Thought_Claustrophobia.stages.2.label>
+  <MMD_Thought_AdjustmentStress.label>adjustment stress</MMD_Thought_AdjustmentStress.label>
+  <MMD_Thought_AdjustmentStress.stages.0.label>gradually adapting</MMD_Thought_AdjustmentStress.stages.0.label>
+  <MMD_Thought_AdjustmentStress.stages.1.label>unable to adapt</MMD_Thought_AdjustmentStress.stages.1.label>
+  <MMD_Thought_DissociationAftermath.label>reality still feels distant</MMD_Thought_DissociationAftermath.label>
+  <MMD_Thought_TraumaFlashback.label>traumatic flashback</MMD_Thought_TraumaFlashback.label>
+  <MMD_Thought_DissociativeAmnesia.label>gap in memory</MMD_Thought_DissociativeAmnesia.label>
+  <MMD_Thought_HypomaniaPhase.label>hypomanic cycle</MMD_Thought_HypomaniaPhase.label>
+  <MMD_Thought_HypomaniaPhase.stages.0.label>stable phase</MMD_Thought_HypomaniaPhase.stages.0.label>
+  <MMD_Thought_HypomaniaPhase.stages.1.label>hypomanic phase</MMD_Thought_HypomaniaPhase.stages.1.label>
+  <MMD_Thought_CyclothymiaPhase.label>mood cycle</MMD_Thought_CyclothymiaPhase.label>
+  <MMD_Thought_CyclothymiaPhase.stages.0.label>low phase</MMD_Thought_CyclothymiaPhase.stages.0.label>
+  <MMD_Thought_CyclothymiaPhase.stages.1.label>elevated phase</MMD_Thought_CyclothymiaPhase.stages.1.label>
+  <MMD_Thought_BipolarIIPhase.label>bipolar cycle</MMD_Thought_BipolarIIPhase.label>
+  <MMD_Thought_BipolarIIPhase.stages.0.label>depressive phase</MMD_Thought_BipolarIIPhase.stages.0.label>
+  <MMD_Thought_BipolarIIPhase.stages.1.label>hypomanic phase</MMD_Thought_BipolarIIPhase.stages.1.label>
+  <MMD_Thought_BipolarIPhase.label>bipolar cycle</MMD_Thought_BipolarIPhase.label>
+  <MMD_Thought_BipolarIPhase.stages.0.label>depressive phase</MMD_Thought_BipolarIPhase.stages.0.label>
+  <MMD_Thought_BipolarIPhase.stages.1.label>manic phase</MMD_Thought_BipolarIPhase.stages.1.label>
+  <MMD_Thought_SchizoaffectivePhase.label>schizoaffective cycle</MMD_Thought_SchizoaffectivePhase.label>
+  <MMD_Thought_SchizoaffectivePhase.stages.0.label>depressive phase</MMD_Thought_SchizoaffectivePhase.stages.0.label>
+  <MMD_Thought_SchizoaffectivePhase.stages.1.label>manic phase</MMD_Thought_SchizoaffectivePhase.stages.1.label>
+  <MMD_Thought_SchizoaffectivePhase.stages.2.label>psychotic phase</MMD_Thought_SchizoaffectivePhase.stages.2.label>
+  <MMD_Thought_BorderlinePhase.label>important relationship</MMD_Thought_BorderlinePhase.label>
+  <MMD_Thought_BorderlinePhase.stages.0.label>idealizing an important person</MMD_Thought_BorderlinePhase.stages.0.label>
+  <MMD_Thought_BorderlinePhase.stages.1.label>feeling abandoned</MMD_Thought_BorderlinePhase.stages.1.label>
+  <MMD_Thought_SchizotypalPhase.label>strange beliefs</MMD_Thought_SchizotypalPhase.label>
+  <MMD_Thought_SchizotypalPhase.stages.0.label>withdrawn phase</MMD_Thought_SchizotypalPhase.stages.0.label>
+  <MMD_Thought_SchizotypalPhase.stages.1.label>omens are everywhere</MMD_Thought_SchizotypalPhase.stages.1.label>
+  <MMD_Thought_PersistentLowEnergy.label>persistent low mood</MMD_Thought_PersistentLowEnergy.label>
+  <MMD_Thought_PersistentLowEnergy.stages.0.label>barely stable</MMD_Thought_PersistentLowEnergy.stages.0.label>
+  <MMD_Thought_PersistentLowEnergy.stages.1.label>low energy</MMD_Thought_PersistentLowEnergy.stages.1.label>
+  <MMD_Thought_SomaticConcern.label>physical discomfort</MMD_Thought_SomaticConcern.label>
+  <MMD_Thought_SomaticConcern.stages.0.label>symptoms temporarily calm</MMD_Thought_SomaticConcern.stages.0.label>
+  <MMD_Thought_SomaticConcern.stages.1.label>something is wrong with my body</MMD_Thought_SomaticConcern.stages.1.label>
+  <MMD_Thought_OCPDUrge.label>the work is not perfect yet</MMD_Thought_OCPDUrge.label>
+</LanguageData>
