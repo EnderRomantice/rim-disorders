@@ -468,7 +468,7 @@ namespace MoreMentalDisorders
             if (MMDLocalization.English)
             {
                 if (def == MMDDefOf.MMD_ParanoidDelusion)
-                    return "Mind-kill: unlimited range; line of sight required; 2-second interruptible cast; no cooldown\nHuman target: prior attacker or opinion at −40 or lower";
+                    return "Mind-kill: unlimited range; line of sight required; 2-second interruptible cast; no cooldown; vanilla instant death and twisted-flesh conversion\nHuman target: prior attacker or opinion at −40 or lower";
                 if (def == MMDDefOf.MMD_MajorDepression)
                     return "Psycast cost: ×0.5\nNeural heat gain and recovery: ×0.5\nNatural psyfocus decay: none";
                 if (def == MMDDefOf.MMD_Mania)
@@ -487,7 +487,7 @@ namespace MoreMentalDisorders
                 return "";
             }
             if (def == MMDDefOf.MMD_ParanoidDelusion)
-                return "心灵宰杀：无距离限制，需要视线，2秒可打断前摇，无冷却\n人类目标：曾伤害患者或评价低于或等于−40";
+                return "心灵宰杀：无距离限制，需要视线，2秒可打断前摇，无冷却，使用原版必杀与扭曲肉转化效果\n人类目标：曾伤害患者或评价低于或等于−40";
             if (def == MMDDefOf.MMD_MajorDepression)
                 return "灵能消耗：×0.5\n精神熵获取与消退：×0.5\n精神力自然降低：无";
             if (def == MMDDefOf.MMD_Mania)

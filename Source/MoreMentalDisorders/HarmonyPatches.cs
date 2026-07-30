@@ -918,27 +918,6 @@ namespace MoreMentalDisorders
         }
     }
 
-    [HarmonyPatch(typeof(CompAbilityEffect_PsychicSlaughter),
-        nameof(CompAbilityEffect_PsychicSlaughter.Apply))]
-    public static class MindKillOriginalApply_MMDPatch
-    {
-        public static bool Prefix(CompAbilityEffect_PsychicSlaughter __instance,
-            LocalTargetInfo target)
-        {
-            Ability ability = __instance.parent;
-            if (!MindKillOriginalAbilityUtility.IsParanoidSlaughter(ability)) return true;
-            Pawn victim = target.Pawn;
-            if (victim != null && !victim.Dead)
-            {
-                victim.TakeDamage(new DamageInfo(DamageDefOf.Bomb, 99999f, 999f,
-                    instigator: ability.pawn));
-                MoteMaker.ThrowText(victim.DrawPos, victim.Map,
-                    MMDLocalization.Pick("心灵宰杀", "Mind-kill"), Color.red);
-            }
-            return false;
-        }
-    }
-
     [HarmonyPatch(typeof(Ability), nameof(Ability.GizmosVisible))]
     public static class MindKillOriginalGizmo_MMDPatch
     {

@@ -62,7 +62,7 @@ namespace MoreMentalDisorders
                 if (def == MMDDefOf.MMD_DependentPersonality)
                     text.AppendLine("\nDependency\n• Prefers a spouse or lover, otherwise the most trusted faction mate.\n• Mood +8 nearby and −12 when separated, missing, or dead.\n• Opinion of the dependent person +40.");
                 if (def == MMDDefOf.MMD_ParanoidDelusion)
-                    text.AppendLine("\nEpisode and psychic effect\n• Mind-kill has unlimited range and no cooldown, but requires line of sight and an interruptible 2-second cast. A human target must have previously harmed the patient or be rated at −40 or lower; hostile non-humans are also valid.\n• During an episode, pursues the lowest-opinion valid target.");
+                    text.AppendLine("\nEpisode and psychic effect\n• Mind-kill has unlimited range and no cooldown, but requires line of sight and an interruptible 2-second cast. A human target must have previously harmed the patient or be rated at −40 or lower; hostile non-human flesh creatures are also valid. Impact uses vanilla instant death and twisted-flesh conversion.\n• During an episode, pursues the lowest-opinion valid target.");
                 else if (def == MMDDefOf.MMD_MajorDepression)
                     text.AppendLine("\nEpisode and psychic effect\n• Psycast cost and neural heat gain: ×0.5; neural heat recovery: ×0.5; no natural psyfocus decay.\n• An episode causes a genuine suicide attempt.");
                 else if (def == MMDDefOf.MMD_Schizophrenia)
@@ -79,7 +79,7 @@ namespace MoreMentalDisorders
                     + "• 依赖对象在身边时心情+8；分离、失联或死亡时心情−12。\n"
                     + "• 患者对依赖对象额外评价+40；对象失效后会重新建立依赖。");
             if (def == MMDDefOf.MMD_ParanoidDelusion)
-                text.AppendLine("\n病发与灵能\n• 主动心灵宰杀无距离限制且无冷却，但需要视线和可被打断的2秒前摇；人类目标必须曾伤害患者，或被患者评价低于或等于−40，敌对非人类也可成为目标。\n"
+                text.AppendLine("\n病发与灵能\n• 主动心灵宰杀无距离限制且无冷却，但需要视线和可被打断的2秒前摇；人类目标必须曾伤害患者，或被患者评价低于或等于−40，敌对非人血肉生物也可成为目标。命中使用原版必杀与扭曲肉转化效果。\n"
                     + "• 病发时优先追杀评价低于70者；目标不唯一时选择评价最低者。");
             else if (def == MMDDefOf.MMD_MajorDepression)
                 text.AppendLine("\n病发与灵能\n• 精神力消耗与精神熵获取：×0.5，精神熵消退：×0.5，精神力不自然降低。\n"

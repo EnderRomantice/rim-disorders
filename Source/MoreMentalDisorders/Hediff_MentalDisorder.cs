@@ -148,8 +148,8 @@ namespace MoreMentalDisorders
             {
                 defaultLabel = MMDLocalization.Pick("心灵宰杀", "Mind-kill"),
                 defaultDesc = MMDLocalization.Pick(
-                    "选择同一地图内一个曾伤害过患者的单位、敌对非人类单位，或患者评价低于或等于−40的人类。无距离限制，但需要视线；施法前摇2秒，可被打断，无冷却。",
-                    "Select a unit on the same map that previously harmed the patient, a hostile non-human, or a human the patient rates at −40 or lower. Unlimited range, but requires line of sight. The 2-second cast can be interrupted. No cooldown."),
+                    "选择同一地图内一个曾伤害过患者的血肉生物、敌对非人血肉生物，或患者评价低于或等于−40的人类。无距离限制，但需要视线；施法前摇2秒，可被打断，无冷却。命中后使用原版心灵宰杀效果。",
+                    "Select a flesh creature on the same map that previously harmed the patient, a hostile non-human flesh creature, or a human the patient rates at −40 or lower. Unlimited range, but requires line of sight. The 2-second cast can be interrupted. No cooldown. Uses the vanilla psychic slaughter effect on impact."),
                 icon = psychicSlaughter != null ? psychicSlaughter.uiIcon
                     : ContentFinder<Texture2D>.Get("UI/Abilities/Slaughter", false) ?? BaseContent.BadTex,
                 action = BeginMindKillTargeting
@@ -165,12 +165,13 @@ namespace MoreMentalDisorders
             TargetingParameters parameters = TargetingParameters.ForPawns();
             parameters.canTargetHumans = true;
             parameters.canTargetAnimals = true;
-            parameters.canTargetMechs = true;
+            parameters.canTargetMechs = false;
             parameters.canTargetSubhumans = true;
             parameters.validator = target =>
             {
                 Pawn victim = target.Thing as Pawn;
-                return victim != null && victim != pawn && !victim.Dead && victim.Map == pawn.Map
+                return victim != null && victim.RaceProps.IsFlesh
+                    && victim != pawn && !victim.Dead && victim.Map == pawn.Map
                     && GenSight.LineOfSight(pawn.Position, victim.Position, pawn.Map)
                     && IsValidMindKillTarget(victim);
             };
@@ -211,6 +212,8 @@ namespace MoreMentalDisorders
 
         public bool IsValidMindKillTarget(Pawn victim)
         {
+            if (victim == null || victim == pawn || victim.Dead || !victim.RaceProps.IsFlesh)
+                return false;
             if (harmedByPawnIds.Contains(victim.thingIDNumber)) return true;
             if (victim.RaceProps.Humanlike && pawn.relations != null)
                 return pawn.relations.OpinionOf(victim) <= -40;
