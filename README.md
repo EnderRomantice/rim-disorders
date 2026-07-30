@@ -1,60 +1,96 @@
-# 边缘精神疾病 / Rim Mental Disorders
+# 边缘精神疾病
 
-为边缘世界新增大量精神疾病，同时提供副作用和大量增益。
+[英文版](README_EN.md)
 
-Adds a large collection of mental disorders to RimWorld, each with meaningful drawbacks and substantial benefits.
+## 设计目标
 
-## Trauma framework / 创伤框架
+本模组将精神疾病拆分为疾病定义、病因记录、形成条件、症状机制和外部兼容五个层次。设计重点是让疾病由角色经历塑造，并让其他模组能够复用创伤与疾病形成基础设施，而不必依赖本模组的具体疾病。
 
-The pawn inspection pane includes one Trauma tab with Trauma records and Possible
-disorders sub-tabs. Disorder risks can show all entries or be filtered by severity.
-The mod settings provide an overall severity distribution totaling 100%, plus
-per-disease weights totaling 100% within each severity.
+当前不允许共病：每名角色至多拥有一种本模组精神疾病。这样可以避免多个改变行为逻辑的疾病互相争夺精神崩溃、工作与战斗控制权。
 
-小人检查面板包含一个“创伤”页签，内部再分为“创伤记录”和“可能形成的疾病”。
-疾病风险可显示全部或按严重度筛选；模组设置可调整合计100%的总体严重度权重，
-并在每个严重度内调整合计100%的逐疾病权重。
+## 系统架构
 
-Extension mods can add XML-only trauma types with
-`MoreMentalDisorders.TraumaDef` (or the compatible
-`MoreMentalDisorders.MentalCauseDef`) and attach
-`MoreMentalDisorders.DiseaseAcquisitionExtension` to any `HediffDef`.
-The public `MoreMentalDisorders.TraumaAPI` provides `Add`, `Reduce`,
-`GetSeverity`, `GetRecords`, and `GetDiseaseRisks`, plus trauma change and
-recovery events.
+### 疾病层
 
-## 主要内容
+疾病使用 `HediffDef` 定义，运行时行为由 `Hediff_MentalDisorder` 及其机制扩展实现。严重度分为轻度、中度、重度和极重，并统一决定基础社会偏见与最低灵能等级。
 
-- 39种精神疾病，分为轻度、中度、重度和极重。
-- 每种疾病都有实际属性、心情、行为或病发机制。
-- 38种疾病可以由创伤、关系破裂、失眠、疼痛、孤立、药物、灵能事故等经历在游戏中形成。
-- 超忆症只能在角色生成时获得。
-- 默认初始患病概率为69.5%，可在模组设置中调整；患病后的严重度与具体疾病权重也可分别配置。
-- 当前不允许共病，每名角色最多拥有一种本模组精神疾病。
-- 心灵敏感度归零、注射思滞血清或植入心灵稳定芯片可以治愈疾病。
-- 新增“神经研究”、心灵稳定芯片和海马体切除术。
-- 可选支持RimTalk：患病者的疾病、动态状态和社会偏见会加入对话上下文。
-- 支持简体中文和英文。
+属性修正、心情记忆与行为机制彼此分离。XML负责静态数据，C#负责需要状态、目标选择或事件响应的机制。
 
-## Features
+### 病因与创伤层
 
-- 39 mental disorders across mild, moderate, severe, and extreme tiers.
-- Every disorder has real stat, mood, behavioral, or episode mechanics.
-- 38 disorders can develop from in-game experiences such as trauma, relationship loss, sleep deprivation, pain, isolation, drugs, and psychic incidents.
-- Hyperthymesia is congenital only.
-- The default initial disorder chance is 69.5% and is configurable, as are the severity distribution and per-disorder weights.
-- Comorbidity is currently disabled: each pawn can have at most one disorder from this mod.
-- Disorders can be cured by zero psychic sensitivity, a mind-numb serum, or a mind stabilizer chip.
-- Adds Neural Research, the mind stabilizer chip, and hippocampectomy.
-- Optional RimTalk integration adds disorders, dynamic states, and social prejudice to dialogue context.
-- Simplified Chinese and English localization included.
+`MentalCauseDef` 描述一种可累计、可消退的病因。`Hediff_MentalEtiology` 隐藏在角色身上，保存病因数值、事件次数、来源、时间及恢复进度。
 
-## Requirements
+高频事件不会简单按每次伤害累计。战斗、脑损伤、远程枪击和灵能袭击使用事件窗口与单次上限；关系破裂以对方角色为键，在同一小时内视为一次事件。
 
-- RimWorld 1.6
-- Harmony
-- Royalty
-- Anomaly is optional
-- RimTalk is optional
+长期高心情会逐步稳定并消除允许恢复的创伤。年龄与不可逆脑损伤等病因可以声明为不可通过高心情恢复。
 
-Source code is under `Source/MoreMentalDisorders`; the compiled assembly is under `1.6/Assemblies`.
+### 疾病形成层
+
+`DiseaseAcquisitionExtension` 将疾病与病因条件连接。形成路径可以表达：
+
+- 所有条件同时满足；
+- 任一条件满足；
+- 多组替代路径；
+- 病因数值、事件次数与先后关系；
+- 形成概率与冷却时间。
+
+角色生成时的初始患病概率、严重度权重以及各严重度内部的疾病权重由模组设置控制。后天形成使用相同的严重度与疾病权重体系。
+
+### 表现与界面层
+
+角色检查面板中的“创伤”页签分为“创伤记录”和“可能形成的疾病”。前者按病因和来源组织记录，后者显示形成条件的完成进度并支持严重度筛选。
+
+疾病悬停信息只提供简要概述；健康详情页提供结构化的效果、动态状态和病因说明。玩家界面不会暴露内部框架术语。
+
+### 兼容层
+
+RimTalk兼容通过反射调用其公开上下文注入接口，不形成程序集硬依赖。安装RimTalk时，疾病、当前阶段、动态对象与社会偏见会进入对话上下文；未安装时兼容层不执行。
+
+Anomaly为选择性依赖。与思滞血清有关的逻辑仅在对应内容存在时启用。
+
+## 扩展接口
+
+其他模组可以使用 `TraumaDef`（`MentalCauseDef`的公开别名）定义新的创伤类型，并通过 `DiseaseAcquisitionExtension` 为任意 `HediffDef`声明形成条件。
+
+`TraumaAPI`提供：
+
+- `Add`
+- `Reduce`
+- `GetSeverity`
+- `GetRecords`
+- `GetDiseaseRisks`
+- 创伤变化与恢复事件
+
+扩展模组可以只使用XML增加病因和形成配方；需要主动写入创伤时再调用API。
+
+## 数据流
+
+```text
+游戏事件或长期状态
+        ↓
+病因采样与事件去重
+        ↓
+Hediff_MentalEtiology
+        ↓
+DiseaseAcquisitionExtension 条件计算
+        ↓
+严重度权重 → 疾病权重
+        ↓
+Hediff_MentalDisorder
+        ↓
+属性、心情、行为、病发与兼容上下文
+```
+
+## 目录结构
+
+```text
+1.6/Defs/                         XML定义
+1.6/Languages/                    本地化
+1.6/Patches/                      XML补丁与形成配方
+1.6/Assemblies/                   可加载程序集
+Source/MoreMentalDisorders/       C#源码
+About/                            模组元数据与封面
+work/                             验证辅助代码
+```
+
+运行环境为RimWorld 1.6，并依赖Harmony与Royalty。
