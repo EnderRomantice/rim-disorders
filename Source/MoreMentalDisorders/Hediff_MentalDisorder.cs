@@ -115,6 +115,8 @@ namespace MoreMentalDisorders
                     }
                 }
             }
+            if (def == MMDDefOf.MMD_ParanoidDelusion)
+                EnsureMindKillAbility();
             MentalDisorderUtility.EnsurePsylink(pawn, MentalDisorderUtility.RequiredPsylinkLevel(def));
             if (def == MMDDefOf.MMD_DependentPersonality) RefreshDependency();
             lastSymptomReliefTick = Find.TickManager.TicksGame;
@@ -140,6 +142,7 @@ namespace MoreMentalDisorders
         {
             foreach (Gizmo gizmo in base.GetGizmos()) yield return gizmo;
             if (def != MMDDefOf.MMD_ParanoidDelusion || pawn.Faction != Faction.OfPlayer || !pawn.Spawned) yield break;
+            EnsureMindKillAbility();
             AbilityDef psychicSlaughter = DefDatabase<AbilityDef>.GetNamedSilentFail("PsychicSlaughter");
             yield return new Command_Action
             {
@@ -156,6 +159,7 @@ namespace MoreMentalDisorders
         private void BeginMindKillTargeting()
         {
             AbilityDef psychicSlaughter = DefDatabase<AbilityDef>.GetNamedSilentFail("PsychicSlaughter");
+            EnsureMindKillAbility();
             Texture2D icon = psychicSlaughter != null ? psychicSlaughter.uiIcon
                 : ContentFinder<Texture2D>.Get("UI/Abilities/Slaughter", false) ?? BaseContent.BadTex;
             TargetingParameters parameters = TargetingParameters.ForPawns();
@@ -180,10 +184,30 @@ namespace MoreMentalDisorders
                         pawn, MessageTypeDefOf.RejectInput);
                     return;
                 }
+                Ability originalAbility = psychicSlaughter == null || pawn.abilities == null
+                    ? null : pawn.abilities.GetAbility(psychicSlaughter);
+                if (originalAbility != null)
+                {
+                    originalAbility.QueueCastingJob(victim, victim);
+                    return;
+                }
+
+                // Fallback for games without Anomaly: retain the standalone implementation.
                 Job job = JobMaker.MakeJob(MMDDefOf.MMD_MindKill, victim);
                 job.targetB = pawn;
                 pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
             }, pawn, null, icon);
+        }
+
+        private void EnsureMindKillAbility()
+        {
+            if (def != MMDDefOf.MMD_ParanoidDelusion || pawn?.abilities == null) return;
+            AbilityDef psychicSlaughter =
+                DefDatabase<AbilityDef>.GetNamedSilentFail("PsychicSlaughter");
+            if (psychicSlaughter == null || pawn.abilities.GetAbility(psychicSlaughter) != null) return;
+            pawn.abilities.GainAbility(psychicSlaughter);
+            if (!grantedPsycasts.Contains(psychicSlaughter))
+                grantedPsycasts.Add(psychicSlaughter);
         }
 
         public bool IsValidMindKillTarget(Pawn victim)

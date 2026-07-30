@@ -852,7 +852,100 @@ namespace MoreMentalDisorders
     {
         public static void Prefix(Ability __instance, ref int ticks)
         {
+            if (__instance.def.defName == "PsychicSlaughter"
+                && __instance.pawn.Has(MMDDefOf.MMD_ParanoidDelusion))
+            {
+                ticks = 0;
+                return;
+            }
             if (__instance.pawn.Has(MMDDefOf.MMD_Mania)) ticks = 300;
+        }
+    }
+
+    public static class MindKillOriginalAbilityUtility
+    {
+        public static bool IsParanoidSlaughter(Ability ability)
+        {
+            return ability != null && ability.def.defName == "PsychicSlaughter"
+                && ability.pawn.Has(MMDDefOf.MMD_ParanoidDelusion);
+        }
+    }
+
+    [HarmonyPatch(typeof(Verb), "get_EffectiveRange")]
+    public static class MindKillOriginalRange_MMDPatch
+    {
+        public static void Postfix(Verb __instance, ref float __result)
+        {
+            Ability ability = __instance.DirectOwner as Ability;
+            if (MindKillOriginalAbilityUtility.IsParanoidSlaughter(ability))
+                __result = 99999f;
+        }
+    }
+
+    [HarmonyPatch(typeof(Ability), nameof(Ability.CanApplyOn),
+        new[] { typeof(LocalTargetInfo) })]
+    public static class MindKillOriginalTarget_MMDPatch
+    {
+        public static bool Prefix(Ability __instance, LocalTargetInfo target, ref bool __result)
+        {
+            if (!MindKillOriginalAbilityUtility.IsParanoidSlaughter(__instance)) return true;
+            Pawn victim = target.Pawn;
+            Hediff_MentalDisorder disorder = __instance.pawn.Disorders()
+                .FirstOrDefault(d => d.def == MMDDefOf.MMD_ParanoidDelusion);
+            __result = victim != null && !victim.Dead && victim != __instance.pawn
+                && victim.Map == __instance.pawn.Map && disorder != null
+                && disorder.IsValidMindKillTarget(victim)
+                && GenSight.LineOfSight(__instance.pawn.Position, victim.Position,
+                    __instance.pawn.Map);
+            return false;
+        }
+    }
+
+    [HarmonyPatch(typeof(CompAbilityEffect_PsychicSlaughter),
+        nameof(CompAbilityEffect_PsychicSlaughter.Valid))]
+    public static class MindKillOriginalCompValid_MMDPatch
+    {
+        public static bool Prefix(CompAbilityEffect_PsychicSlaughter __instance,
+            LocalTargetInfo target, ref bool __result)
+        {
+            Ability ability = __instance.parent;
+            if (!MindKillOriginalAbilityUtility.IsParanoidSlaughter(ability)) return true;
+            Hediff_MentalDisorder disorder = ability.pawn.Disorders()
+                .FirstOrDefault(d => d.def == MMDDefOf.MMD_ParanoidDelusion);
+            __result = target.Pawn != null && disorder != null
+                && disorder.IsValidMindKillTarget(target.Pawn);
+            return false;
+        }
+    }
+
+    [HarmonyPatch(typeof(CompAbilityEffect_PsychicSlaughter),
+        nameof(CompAbilityEffect_PsychicSlaughter.Apply))]
+    public static class MindKillOriginalApply_MMDPatch
+    {
+        public static bool Prefix(CompAbilityEffect_PsychicSlaughter __instance,
+            LocalTargetInfo target)
+        {
+            Ability ability = __instance.parent;
+            if (!MindKillOriginalAbilityUtility.IsParanoidSlaughter(ability)) return true;
+            Pawn victim = target.Pawn;
+            if (victim != null && !victim.Dead)
+            {
+                victim.TakeDamage(new DamageInfo(DamageDefOf.Bomb, 99999f, 999f,
+                    instigator: ability.pawn));
+                MoteMaker.ThrowText(victim.DrawPos, victim.Map,
+                    MMDLocalization.Pick("心灵宰杀", "Mind-kill"), Color.red);
+            }
+            return false;
+        }
+    }
+
+    [HarmonyPatch(typeof(Ability), nameof(Ability.GizmosVisible))]
+    public static class MindKillOriginalGizmo_MMDPatch
+    {
+        public static void Postfix(Ability __instance, ref bool __result)
+        {
+            if (MindKillOriginalAbilityUtility.IsParanoidSlaughter(__instance))
+                __result = false;
         }
     }
 
