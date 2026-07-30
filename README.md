@@ -1,96 +1,96 @@
-# 边缘精神疾病
+# Rim Mental Disorders
 
-[英文版](README_EN.md)
+[Chinese version](README_CN.md)
 
-## 设计目标
+## Design goals
 
-本模组将精神疾病拆分为疾病定义、病因记录、形成条件、症状机制和外部兼容五个层次。设计重点是让疾病由角色经历塑造，并让其他模组能够复用创伤与疾病形成基础设施，而不必依赖本模组的具体疾病。
+The mod separates mental disorders into five layers: disease definitions, cause records, acquisition rules, symptom mechanics, and external compatibility. Its central design is that disorders emerge from pawn experiences while the trauma and acquisition infrastructure remains reusable by other mods.
 
-当前不允许共病：每名角色至多拥有一种本模组精神疾病。这样可以避免多个改变行为逻辑的疾病互相争夺精神崩溃、工作与战斗控制权。
+Comorbidity is currently disabled. A pawn may have at most one disorder from this mod, preventing multiple behavior-altering conditions from competing for control of mental breaks, work, and combat.
 
-## 系统架构
+## System architecture
 
-### 疾病层
+### Disease layer
 
-疾病使用 `HediffDef` 定义，运行时行为由 `Hediff_MentalDisorder` 及其机制扩展实现。严重度分为轻度、中度、重度和极重，并统一决定基础社会偏见与最低灵能等级。
+Disorders are defined as `HediffDef` records. Runtime behavior is implemented by `Hediff_MentalDisorder` and its mechanic extensions. Four severity tiers—mild, moderate, severe, and extreme—consistently determine baseline social prejudice and minimum psylink level.
 
-属性修正、心情记忆与行为机制彼此分离。XML负责静态数据，C#负责需要状态、目标选择或事件响应的机制。
+Stat modifiers, mood memories, and behavior mechanics are kept separate. XML contains static data, while C# handles stateful behavior, target selection, and event reactions.
 
-### 病因与创伤层
+### Etiology and trauma layer
 
-`MentalCauseDef` 描述一种可累计、可消退的病因。`Hediff_MentalEtiology` 隐藏在角色身上，保存病因数值、事件次数、来源、时间及恢复进度。
+`MentalCauseDef` describes an accumulative and optionally recoverable cause. A hidden `Hediff_MentalEtiology` on each pawn stores amount, event count, source, timing, and recovery progress.
 
-高频事件不会简单按每次伤害累计。战斗、脑损伤、远程枪击和灵能袭击使用事件窗口与单次上限；关系破裂以对方角色为键，在同一小时内视为一次事件。
+High-frequency events do not accumulate once per hit without limits. Combat, brain injury, long-range gunfire, and psychic attacks use incident windows and per-incident caps. Relationship rupture is keyed by the other pawn, so conflict with the same person during one in-game hour is one event.
 
-长期高心情会逐步稳定并消除允许恢复的创伤。年龄与不可逆脑损伤等病因可以声明为不可通过高心情恢复。
+Sustained high mood gradually establishes stability and removes recoverable trauma. Causes such as age or irreversible brain damage may opt out of high-mood recovery.
 
-### 疾病形成层
+### Disease acquisition layer
 
-`DiseaseAcquisitionExtension` 将疾病与病因条件连接。形成路径可以表达：
+`DiseaseAcquisitionExtension` connects disorders to etiological conditions. An acquisition recipe can express:
 
-- 所有条件同时满足；
-- 任一条件满足；
-- 多组替代路径；
-- 病因数值、事件次数与先后关系；
-- 形成概率与冷却时间。
+- conditions that must all be met;
+- conditions where any one is sufficient;
+- alternative groups of paths;
+- cause amount, event count, and temporal ordering;
+- acquisition chance and cooldown.
 
-角色生成时的初始患病概率、严重度权重以及各严重度内部的疾病权重由模组设置控制。后天形成使用相同的严重度与疾病权重体系。
+The initial disorder chance, severity weights, and per-disorder weights within each severity are configurable. Acquired disorders use the same severity and disease weighting model.
 
-### 表现与界面层
+### Presentation and UI layer
 
-角色检查面板中的“创伤”页签分为“创伤记录”和“可能形成的疾病”。前者按病因和来源组织记录，后者显示形成条件的完成进度并支持严重度筛选。
+The pawn inspection panel contains a Trauma tab with separate Trauma Records and Possible Disorders pages. Records are grouped by cause and source. Risk entries expose acquisition progress and can be filtered by severity.
 
-疾病悬停信息只提供简要概述；健康详情页提供结构化的效果、动态状态和病因说明。玩家界面不会暴露内部框架术语。
+Tooltips provide a short clinical summary. The health details page provides structured effects, dynamic state, and etiology. Internal framework terminology is not exposed in player-facing text.
 
-### 兼容层
+### Compatibility layer
 
-RimTalk兼容通过反射调用其公开上下文注入接口，不形成程序集硬依赖。安装RimTalk时，疾病、当前阶段、动态对象与社会偏见会进入对话上下文；未安装时兼容层不执行。
+RimTalk compatibility calls its public context-injection API through reflection and creates no hard assembly dependency. When RimTalk is active, disorders, current phases, dynamic targets, and social prejudice enter dialogue context. Without RimTalk, the compatibility layer remains inactive.
 
-Anomaly为选择性依赖。与思滞血清有关的逻辑仅在对应内容存在时启用。
+Anomaly is optional. Logic related to mind-numb serum activates only when the corresponding content exists.
 
-## 扩展接口
+## Extension API
 
-其他模组可以使用 `TraumaDef`（`MentalCauseDef`的公开别名）定义新的创伤类型，并通过 `DiseaseAcquisitionExtension` 为任意 `HediffDef`声明形成条件。
+Other mods can define trauma types using `TraumaDef`, the public alias of `MentalCauseDef`, and attach `DiseaseAcquisitionExtension` to any `HediffDef`.
 
-`TraumaAPI`提供：
+`TraumaAPI` exposes:
 
 - `Add`
 - `Reduce`
 - `GetSeverity`
 - `GetRecords`
 - `GetDiseaseRisks`
-- 创伤变化与恢复事件
+- trauma change and recovery events
 
-扩展模组可以只使用XML增加病因和形成配方；需要主动写入创伤时再调用API。
+An extension can add causes and acquisition recipes using XML alone. It only needs the API when gameplay code must actively record trauma.
 
-## 数据流
+## Data flow
 
 ```text
-游戏事件或长期状态
+Game event or long-term state
         ↓
-病因采样与事件去重
+Cause sampling and incident deduplication
         ↓
 Hediff_MentalEtiology
         ↓
-DiseaseAcquisitionExtension 条件计算
+DiseaseAcquisitionExtension evaluation
         ↓
-严重度权重 → 疾病权重
+Severity weight → disorder weight
         ↓
 Hediff_MentalDisorder
         ↓
-属性、心情、行为、病发与兼容上下文
+Stats, mood, behavior, episodes, and compatibility context
 ```
 
-## 目录结构
+## Repository layout
 
 ```text
-1.6/Defs/                         XML定义
-1.6/Languages/                    本地化
-1.6/Patches/                      XML补丁与形成配方
-1.6/Assemblies/                   可加载程序集
-Source/MoreMentalDisorders/       C#源码
-About/                            模组元数据与封面
-work/                             验证辅助代码
+1.6/Defs/                         XML definitions
+1.6/Languages/                    localization
+1.6/Patches/                      XML patches and acquisition recipes
+1.6/Assemblies/                   loadable assembly
+Source/MoreMentalDisorders/       C# source
+About/                            metadata and preview
+work/                             validation helpers
 ```
 
-运行环境为RimWorld 1.6，并依赖Harmony与Royalty。
+The runtime target is RimWorld 1.6 with Harmony and Royalty.
