@@ -191,11 +191,10 @@ namespace MoreMentalDisorders
                     originalAbility.QueueCastingJob(victim, victim);
                     return;
                 }
-
-                // Fallback for games without Anomaly: retain the standalone implementation.
-                Job job = JobMaker.MakeJob(MMDDefOf.MMD_MindKill, victim);
-                job.targetB = pawn;
-                pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
+                Messages.Message(MMDLocalization.Pick(
+                    "无法取得Anomaly的原版心灵宰杀能力。",
+                    "The vanilla Anomaly psychic slaughter ability is unavailable."),
+                    pawn, MessageTypeDefOf.RejectInput);
             }, pawn, null, icon);
         }
 

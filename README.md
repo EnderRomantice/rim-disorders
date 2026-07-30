@@ -52,7 +52,7 @@ Tooltips provide a short clinical summary. The health details page provides stru
 
 RimTalk compatibility calls its public context-injection API through reflection and creates no hard assembly dependency. When RimTalk is active, disorders, current phases, dynamic targets, and social prejudice enter dialogue context. Without RimTalk, the compatibility layer remains inactive.
 
-Anomaly is optional. Logic related to mind-numb serum activates only when the corresponding content exists.
+Anomaly is a required dependency. The mod directly reuses its psychic slaughter ability and also integrates with mind-numb serum.
 
 ## Extension API
 
@@ -99,4 +99,4 @@ About/                            metadata and preview
 work/                             validation helpers
 ```
 
-The runtime target is RimWorld 1.6 with Harmony and Royalty.
+The runtime target is RimWorld 1.6 with Harmony, Royalty, and Anomaly.
