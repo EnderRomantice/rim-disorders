@@ -21,7 +21,7 @@
         <li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
           <def>ConfigPage_ConfigureStartingPawns</def>
           <pawnCount>6</pawnCount>
-          <pawnChoiceCount>10</pawnChoiceCount>
+          <pawnChoiceCount>6</pawnChoiceCount>
         </li>
 
         <li Class="MoreMentalDisorders.ScenPart_AssignUniqueExtremeDisorders">
