@@ -409,9 +409,10 @@ namespace MoreMentalDisorders
             Map map = __instance.Corpse?.MapHeld;
             if (map != null)
             {
+                IntVec3 deathPos = __instance.PositionHeld;
                 foreach (Pawn witness in map.mapPawns.AllPawnsSpawned)
                     if (witness != __instance && witness.RaceProps.Humanlike
-                        && witness.Position.DistanceTo(__instance.Corpse.Position) <= 30f)
+                        && witness.Position.DistanceTo(deathPos) <= 30f)
                     {
                         MentalEtiologyUtility.AddCause(witness, MMDDefOf.MMD_Cause_WitnessDeath, 12f,
                             __instance.ThingID);
