@@ -208,8 +208,9 @@ namespace MoreMentalDisorders
             if (pawn.IsHashIntervalTick(60000, delta))
             {
                 foreach (MentalCauseRecord record in records)
-                    record.amount = Math.Max(0f, record.amount - record.cause.decayPerDay);
-                records.RemoveAll(r => r.amount <= 0.01f);
+                    if (record.cause != null)
+                        record.amount = Math.Max(0f, record.amount - record.cause.decayPerDay);
+                records.RemoveAll(r => r.cause == null || r.amount <= 0.01f);
             }
         }
 
