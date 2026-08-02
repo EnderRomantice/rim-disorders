@@ -392,6 +392,7 @@ namespace MoreMentalDisorders
 
         public static void Postfix(Pawn_PsychicEntropyTracker __instance, float __state)
         {
+            if (__instance.Pawn == null) return;
             if (__instance.Pawn.Has(MMDDefOf.MMD_MajorDepression) && __instance.CurrentPsyfocus < __state)
                 __instance.OffsetPsyfocusDirectly(__state - __instance.CurrentPsyfocus);
             else if (__instance.Pawn.Has(MMDDefOf.MMD_Cotard) && __instance.CurrentPsyfocus < __state)
@@ -409,9 +410,10 @@ namespace MoreMentalDisorders
             Map map = __instance.Corpse?.MapHeld;
             if (map != null)
             {
+                IntVec3 deathPos = __instance.PositionHeld;
                 foreach (Pawn witness in map.mapPawns.AllPawnsSpawned)
                     if (witness != __instance && witness.RaceProps.Humanlike
-                        && witness.Position.DistanceTo(__instance.Corpse.Position) <= 30f)
+                        && witness.Position.DistanceTo(deathPos) <= 30f)
                     {
                         MentalEtiologyUtility.AddCause(witness, MMDDefOf.MMD_Cause_WitnessDeath, 12f,
                             __instance.ThingID);
@@ -807,12 +809,12 @@ namespace MoreMentalDisorders
             Hediff_MentalDisorder d = pawn.Disorder();
             if (d == null || d.identity != DelusionalIdentity.SpecialForcesOfficer) return;
             object boxed = __result;
-            ShooterField.SetValue(boxed, 1f);
-            EquipmentField.SetValue(boxed, 1f);
-            TargetField.SetValue(boxed, 1f);
-            WeatherField.SetValue(boxed, 1f);
-            CoverField.SetValue(boxed, 0f);
-            ForcedMissField.SetValue(boxed, 0f);
+            ShooterField?.SetValue(boxed, 1f);
+            EquipmentField?.SetValue(boxed, 1f);
+            TargetField?.SetValue(boxed, 1f);
+            WeatherField?.SetValue(boxed, 1f);
+            CoverField?.SetValue(boxed, 0f);
+            ForcedMissField?.SetValue(boxed, 0f);
             __result = (ShotReport)boxed;
         }
     }

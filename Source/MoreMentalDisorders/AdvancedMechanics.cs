@@ -223,7 +223,7 @@ namespace MoreMentalDisorders
             if (!pawn.Spawned) return 0;
             int concerns = pawn.Map.mapPawns.FreeColonistsSpawned.Count(p =>
                 p.health.hediffSet.PainTotal > 0.25f || p.needs?.mood?.CurLevelPercentage < 0.3f);
-            if (pawn.Map.listerThings.AllThings.Any(t => t is Fire)) concerns += 2;
+            if (pawn.Map.listerThings.ThingsInGroup(ThingRequestGroup.Fire).Any()) concerns += 2;
             return Mathf.Clamp(concerns, 0, 2);
         }
 
@@ -256,8 +256,7 @@ namespace MoreMentalDisorders
             if (kind == "Weather")
                 return pawn.Map.weatherManager.curWeather != null
                     && pawn.Map.weatherManager.curWeather.defName == value ? ExposureStage : 0;
-            IEnumerable<Thing> nearby = pawn.Map.listerThings.AllThings.Where(t =>
-                t.Spawned && t.Position.DistanceToSquared(pawn.Position) <= 144f);
+            IEnumerable<Thing> nearby = GenRadial.RadialDistinctThingsAround(pawn.Position, pawn.Map, 12f, true);
             int count = nearby.Count(t => MatchesSpecificFear(t, kind, value));
             return count == 0 ? 0 : ExposureStage;
         }
