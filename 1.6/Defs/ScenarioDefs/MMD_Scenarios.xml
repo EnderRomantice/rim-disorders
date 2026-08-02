@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ScenPartDef>
+    <defName>MMD_AssignUniqueExtremeDisorders</defName>
+    <label>分配不同的极重精神疾病</label>
+    <description>六名开局角色分别患有一种不同的极重精神疾病。</description>
+    <scenPartClass>MoreMentalDisorders.ScenPart_AssignUniqueExtremeDisorders</scenPartClass>
+    <category>Fixed</category>
+    <selectionWeight>0</selectionWeight>
+    <summaryPriority>465</summaryPriority>
+    <maxUses>1</maxUses>
+  </ScenPartDef>
+
+  <ScenarioDef ParentName="ScenarioBase">
+    <defName>MMD_AsylumEscapees</defName>
+    <label>精神病院逃离者</label>
+    <description>你们曾被关押在一座闪耀世界精神病院的重症区。医生坚持说你们病得很重，可你们六个人都很清楚：真正有问题的是他们。\n\n一次席卷病院的暴动带来了机会。你们临时组成小队，穿过封锁，抢下一艘穿梭机，向星海深处逃亡。仓促的航行最终将你们带到了一颗陌生的边缘世界。\n\n穿梭机已经报废，抢来的东西也在迫降中遗失殆尽。现在，你们一无所有——除了六颗异常强大、绝对正常的心灵。</description>
+    <scenario>
+      <summary>六名各患一种极重精神疾病的逃离者，没有任何物资，掌握电力科技。</summary>
+      <parts>
+        <li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+          <def>ConfigPage_ConfigureStartingPawns</def>
+          <pawnCount>6</pawnCount>
+          <pawnChoiceCount>10</pawnChoiceCount>
+        </li>
+
+        <li Class="MoreMentalDisorders.ScenPart_AssignUniqueExtremeDisorders">
+          <def>MMD_AssignUniqueExtremeDisorders</def>
+          <visible>false</visible>
+        </li>
+
+        <li Class="ScenPart_PlayerPawnsArriveMethod">
+          <def>PlayerPawnsArriveMethod</def>
+          <visible>false</visible>
+          <method>DropPods</method>
+        </li>
+
+        <li Class="ScenPart_StartingResearch">
+          <def>StartingResearch</def>
+          <project>Electricity</project>
+        </li>
+      </parts>
+    </scenario>
+  </ScenarioDef>
+</Defs>
