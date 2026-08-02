@@ -80,6 +80,7 @@
   <MMD_Hyperthymesia.description>The patient cannot forget: skill experience never decays and all positive and negative mood memories persist forever. Congenital only.</MMD_Hyperthymesia.description>
 
   <MMD_MentalEtiology.label>mental etiology record</MMD_MentalEtiology.label>
+  <MMD_MentalEtiology.description>A hidden state that records experiences, trauma, and conditions that may lead to a mental disorder.</MMD_MentalEtiology.description>
   <MMD_CognitiveStabilizer.label>mind stabilizer chip</MMD_CognitiveStabilizer.label>
   <MMD_CognitiveStabilizer.labelNoun>a mind stabilizer chip</MMD_CognitiveStabilizer.labelNoun>
   <MMD_CognitiveStabilizer.description>An implanted neural regulator that cures and prevents all mental disorders and grants a permanent +12 mood.</MMD_CognitiveStabilizer.description>

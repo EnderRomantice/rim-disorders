@@ -25,6 +25,7 @@
   <HediffDef>
     <defName>MMD_MentalEtiology</defName>
     <label>精神病因记录</label>
+    <description>用于记录角色经历、创伤及精神疾病形成条件的隐藏状态。</description>
     <hediffClass>MoreMentalDisorders.Hediff_MentalEtiology</hediffClass>
     <scenarioCanAdd>false</scenarioCanAdd>
   </HediffDef>
