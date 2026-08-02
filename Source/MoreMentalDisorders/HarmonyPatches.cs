@@ -392,6 +392,7 @@ namespace MoreMentalDisorders
 
         public static void Postfix(Pawn_PsychicEntropyTracker __instance, float __state)
         {
+            if (__instance.Pawn == null) return;
             if (__instance.Pawn.Has(MMDDefOf.MMD_MajorDepression) && __instance.CurrentPsyfocus < __state)
                 __instance.OffsetPsyfocusDirectly(__state - __instance.CurrentPsyfocus);
             else if (__instance.Pawn.Has(MMDDefOf.MMD_Cotard) && __instance.CurrentPsyfocus < __state)
