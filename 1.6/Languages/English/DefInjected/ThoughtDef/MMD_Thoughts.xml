@@ -3,6 +3,7 @@
   <MMD_Thought_CognitiveStability.label>mind stabilized</MMD_Thought_CognitiveStability.label>
   <MMD_Thought_CognitiveStability.description>The mind stabilizer chip continuously suppresses abnormal neural activity.</MMD_Thought_CognitiveStability.description>
   <MMD_Thought_CognitiveStability.stages.0.label>mind stabilized</MMD_Thought_CognitiveStability.stages.0.label>
+  <MMD_Thought_CognitiveStability.stages.0.description>The chip keeps my thoughts clear and stable.</MMD_Thought_CognitiveStability.stages.0.description>
   <MMD_Thought_Crazy.label>mental disorder</MMD_Thought_Crazy.label>
   <MMD_Thought_Crazy.stages.0.label>a little odd</MMD_Thought_Crazy.stages.0.label>
   <MMD_Thought_Crazy.stages.1.label>mentally unstable</MMD_Thought_Crazy.stages.1.label>
@@ -25,77 +26,129 @@
   <MMD_Thought_DependencyMood.label>dependent relationship</MMD_Thought_DependencyMood.label>
   <MMD_Thought_DependencyMood.description>Emotional stability depends on the presence of a trusted person.</MMD_Thought_DependencyMood.description>
   <MMD_Thought_DependencyMood.stages.0.label>dependent person nearby</MMD_Thought_DependencyMood.stages.0.label>
+  <MMD_Thought_DependencyMood.stages.0.description>As long as they are nearby, I can feel safe.</MMD_Thought_DependencyMood.stages.0.description>
   <MMD_Thought_DependencyMood.stages.1.label>separated from dependent person</MMD_Thought_DependencyMood.stages.1.label>
+  <MMD_Thought_DependencyMood.stages.1.description>Without them, I do not know what to do.</MMD_Thought_DependencyMood.stages.1.description>
   <MMD_Thought_DependencySocial.label>I cannot live without them</MMD_Thought_DependencySocial.label>
   <MMD_Thought_DependencySocial.stages.0.label>I cannot live without them</MMD_Thought_DependencySocial.stages.0.label>
   <MMD_Thought_BodyCheckingUrge.label>cannot stop examining bodily flaws</MMD_Thought_BodyCheckingUrge.label>
   <MMD_Thought_BodyCheckingUrge.description>I have not checked my appearance recently. Something must be wrong.</MMD_Thought_BodyCheckingUrge.description>
+  <MMD_Thought_BodyCheckingUrge.stages.0.description>I cannot stop checking the bodily flaw I imagine others can see.</MMD_Thought_BodyCheckingUrge.stages.0.description>
   <MMD_Thought_CompulsionUrge.label>compulsion left unsatisfied</MMD_Thought_CompulsionUrge.label>
   <MMD_Thought_CompulsionUrge.description>I have not checked everything carefully enough.</MMD_Thought_CompulsionUrge.description>
+  <MMD_Thought_CompulsionUrge.stages.0.description>Leaving the check unfinished keeps me constantly uneasy.</MMD_Thought_CompulsionUrge.stages.0.description>
   <MMD_Thought_HealthCheckUrge.label>afraid of serious illness</MMD_Thought_HealthCheckUrge.label>
   <MMD_Thought_HealthCheckUrge.description>I have not been examined recently. I may be seriously ill.</MMD_Thought_HealthCheckUrge.description>
+  <MMD_Thought_HealthCheckUrge.stages.0.description>Something must be seriously wrong with my body. I need an examination.</MMD_Thought_HealthCheckUrge.stages.0.description>
   <MMD_Thought_BulimiaCycle.label>binge cycle</MMD_Thought_BulimiaCycle.label>
   <MMD_Thought_BulimiaCycle.stages.0.label>satisfied after bingeing</MMD_Thought_BulimiaCycle.stages.0.label>
+  <MMD_Thought_BulimiaCycle.stages.0.description>For a short while, I feel energized and satisfied.</MMD_Thought_BulimiaCycle.stages.0.description>
   <MMD_Thought_BulimiaCycle.stages.1.label>ashamed after bingeing</MMD_Thought_BulimiaCycle.stages.1.label>
+  <MMD_Thought_BulimiaCycle.stages.1.description>I lost control again.</MMD_Thought_BulimiaCycle.stages.1.description>
   <MMD_Thought_AgoraphobiaExposure.label>surroundings</MMD_Thought_AgoraphobiaExposure.label>
   <MMD_Thought_AgoraphobiaExposure.stages.0.label>inside a safe space</MMD_Thought_AgoraphobiaExposure.stages.0.label>
+  <MMD_Thought_AgoraphobiaExposure.stages.0.description>There are clear exits and shelter here. I can control the situation.</MMD_Thought_AgoraphobiaExposure.stages.0.description>
   <MMD_Thought_AgoraphobiaExposure.stages.1.label>outdoors</MMD_Thought_AgoraphobiaExposure.stages.1.label>
+  <MMD_Thought_AgoraphobiaExposure.stages.1.description>This place makes me uneasy, but at least there is cover nearby.</MMD_Thought_AgoraphobiaExposure.stages.1.description>
   <MMD_Thought_AgoraphobiaExposure.stages.2.label>exposed in open ground</MMD_Thought_AgoraphobiaExposure.stages.2.label>
+  <MMD_Thought_AgoraphobiaExposure.stages.2.description>There is nowhere to escape. I could lose control at any moment.</MMD_Thought_AgoraphobiaExposure.stages.2.description>
   <MMD_Thought_PanicAftermath.label>afraid of another attack</MMD_Thought_PanicAftermath.label>
+  <MMD_Thought_PanicAftermath.stages.0.description>The loss of control still frightens me. It could happen again at any moment.</MMD_Thought_PanicAftermath.stages.0.description>
   <MMD_Thought_ExplosiveRemorse.label>remorse after rage</MMD_Thought_ExplosiveRemorse.label>
+  <MMD_Thought_ExplosiveRemorse.stages.0.description>I should not have lost control. I do not know who I might hurt next.</MMD_Thought_ExplosiveRemorse.stages.0.description>
   <MMD_Thought_NarcissisticState.label>self-image</MMD_Thought_NarcissisticState.label>
   <MMD_Thought_NarcissisticState.stages.0.label>received recognition</MMD_Thought_NarcissisticState.stages.0.label>
+  <MMD_Thought_NarcissisticState.stages.0.description>They finally recognized my value.</MMD_Thought_NarcissisticState.stages.0.description>
   <MMD_Thought_NarcissisticState.stages.1.label>wounded pride</MMD_Thought_NarcissisticState.stages.1.label>
+  <MMD_Thought_NarcissisticState.stages.1.description>How dare they treat me with such contempt.</MMD_Thought_NarcissisticState.stages.1.description>
   <MMD_Thought_SocialCrowd.label>social environment</MMD_Thought_SocialCrowd.label>
   <MMD_Thought_SocialCrowd.stages.0.label>quiet solitude</MMD_Thought_SocialCrowd.stages.0.label>
+  <MMD_Thought_SocialCrowd.stages.0.description>No one is watching me here. I can finally relax.</MMD_Thought_SocialCrowd.stages.0.description>
   <MMD_Thought_SocialCrowd.stages.1.label>people nearby</MMD_Thought_SocialCrowd.stages.1.label>
+  <MMD_Thought_SocialCrowd.stages.1.description>People are nearby, and I cannot stop noticing their attention.</MMD_Thought_SocialCrowd.stages.1.description>
   <MMD_Thought_SocialCrowd.stages.2.label>surrounded by a crowd</MMD_Thought_SocialCrowd.stages.2.label>
+  <MMD_Thought_SocialCrowd.stages.2.description>Everyone is looking at me. I need to leave immediately.</MMD_Thought_SocialCrowd.stages.2.description>
   <MMD_Thought_GeneralizedWorry.label>persistent worry</MMD_Thought_GeneralizedWorry.label>
   <MMD_Thought_GeneralizedWorry.stages.0.label>nothing urgent to worry about</MMD_Thought_GeneralizedWorry.stages.0.label>
+  <MMD_Thought_GeneralizedWorry.stages.0.description>At least for now, everything seems calm.</MMD_Thought_GeneralizedWorry.stages.0.description>
   <MMD_Thought_GeneralizedWorry.stages.1.label>worried about the colony</MMD_Thought_GeneralizedWorry.stages.1.label>
+  <MMD_Thought_GeneralizedWorry.stages.1.description>Too many things could go wrong. I cannot stop worrying.</MMD_Thought_GeneralizedWorry.stages.1.description>
   <MMD_Thought_GeneralizedWorry.stages.2.label>everything may go wrong</MMD_Thought_GeneralizedWorry.stages.2.label>
+  <MMD_Thought_GeneralizedWorry.stages.2.description>Danger is everywhere. The whole situation could collapse at any moment.</MMD_Thought_GeneralizedWorry.stages.2.description>
   <MMD_Thought_SpecificFear.label>phobic trigger</MMD_Thought_SpecificFear.label>
   <MMD_Thought_SpecificFear.stages.0.label>nothing unwanted in sight</MMD_Thought_SpecificFear.stages.0.label>
+  <MMD_Thought_SpecificFear.stages.0.description>None of my traumatic triggers are nearby.</MMD_Thought_SpecificFear.stages.0.description>
   <MMD_Thought_SpecificFear.stages.1.label>trauma briefly recalled</MMD_Thought_SpecificFear.stages.1.label>
+  <MMD_Thought_SpecificFear.stages.1.description>That thing brought back an experience I do not want to remember.</MMD_Thought_SpecificFear.stages.1.description>
   <MMD_Thought_SpecificFear.stages.2.label>lingering trauma</MMD_Thought_SpecificFear.stages.2.label>
+  <MMD_Thought_SpecificFear.stages.2.description>The traumatic memory keeps returning and will not leave my mind.</MMD_Thought_SpecificFear.stages.2.description>
   <MMD_Thought_SpecificFear.stages.3.label>overwhelmed by trauma</MMD_Thought_SpecificFear.stages.3.label>
+  <MMD_Thought_SpecificFear.stages.3.description>It feels as though I am inside that experience again. I cannot think clearly.</MMD_Thought_SpecificFear.stages.3.description>
   <MMD_Thought_Claustrophobia.label>enclosure</MMD_Thought_Claustrophobia.label>
   <MMD_Thought_Claustrophobia.stages.0.label>open space</MMD_Thought_Claustrophobia.stages.0.label>
+  <MMD_Thought_Claustrophobia.stages.0.description>There is enough space here. I can leave whenever I need to.</MMD_Thought_Claustrophobia.stages.0.description>
   <MMD_Thought_Claustrophobia.stages.1.label>inside an enclosed space</MMD_Thought_Claustrophobia.stages.1.label>
+  <MMD_Thought_Claustrophobia.stages.1.description>The walls and roof are pressing in on me.</MMD_Thought_Claustrophobia.stages.1.description>
   <MMD_Thought_Claustrophobia.stages.2.label>trapped in a small room</MMD_Thought_Claustrophobia.stages.2.label>
+  <MMD_Thought_Claustrophobia.stages.2.description>This room is trapping me. I have to get out.</MMD_Thought_Claustrophobia.stages.2.description>
   <MMD_Thought_AdjustmentStress.label>adjustment stress</MMD_Thought_AdjustmentStress.label>
   <MMD_Thought_AdjustmentStress.stages.0.label>gradually adapting</MMD_Thought_AdjustmentStress.stages.0.label>
+  <MMD_Thought_AdjustmentStress.stages.0.description>The change remains, but I am beginning to cope with it.</MMD_Thought_AdjustmentStress.stages.0.description>
   <MMD_Thought_AdjustmentStress.stages.1.label>unable to adapt</MMD_Thought_AdjustmentStress.stages.1.label>
+  <MMD_Thought_AdjustmentStress.stages.1.description>Everything feels unfamiliar. I do not know how to continue.</MMD_Thought_AdjustmentStress.stages.1.description>
   <MMD_Thought_DissociationAftermath.label>reality still feels distant</MMD_Thought_DissociationAftermath.label>
+  <MMD_Thought_DissociationAftermath.stages.0.description>Everything still seems distant and unreal, as if behind a thin veil.</MMD_Thought_DissociationAftermath.stages.0.description>
   <MMD_Thought_TraumaFlashback.label>traumatic flashback</MMD_Thought_TraumaFlashback.label>
+  <MMD_Thought_TraumaFlashback.stages.0.description>The trauma is replaying before me as though it were happening now.</MMD_Thought_TraumaFlashback.stages.0.description>
   <MMD_Thought_DissociativeAmnesia.label>gap in memory</MMD_Thought_DissociativeAmnesia.label>
+  <MMD_Thought_DissociativeAmnesia.stages.0.description>There is an inexplicable blank space in my memory.</MMD_Thought_DissociativeAmnesia.stages.0.description>
   <MMD_Thought_HypomaniaPhase.label>hypomanic cycle</MMD_Thought_HypomaniaPhase.label>
   <MMD_Thought_HypomaniaPhase.stages.0.label>stable phase</MMD_Thought_HypomaniaPhase.stages.0.label>
+  <MMD_Thought_HypomaniaPhase.stages.0.description>My energy and thoughts are stable for now.</MMD_Thought_HypomaniaPhase.stages.0.description>
   <MMD_Thought_HypomaniaPhase.stages.1.label>hypomanic phase</MMD_Thought_HypomaniaPhase.stages.1.label>
+  <MMD_Thought_HypomaniaPhase.stages.1.description>My thoughts feel light and fast, as though I can accomplish anything.</MMD_Thought_HypomaniaPhase.stages.1.description>
   <MMD_Thought_CyclothymiaPhase.label>mood cycle</MMD_Thought_CyclothymiaPhase.label>
   <MMD_Thought_CyclothymiaPhase.stages.0.label>low phase</MMD_Thought_CyclothymiaPhase.stages.0.label>
+  <MMD_Thought_CyclothymiaPhase.stages.0.description>My mood is sinking, and I cannot find enthusiasm for anything.</MMD_Thought_CyclothymiaPhase.stages.0.description>
   <MMD_Thought_CyclothymiaPhase.stages.1.label>elevated phase</MMD_Thought_CyclothymiaPhase.stages.1.label>
+  <MMD_Thought_CyclothymiaPhase.stages.1.description>My mood is rising, and I feel unusually positive.</MMD_Thought_CyclothymiaPhase.stages.1.description>
   <MMD_Thought_BipolarIIPhase.label>bipolar cycle</MMD_Thought_BipolarIIPhase.label>
   <MMD_Thought_BipolarIIPhase.stages.0.label>depressive phase</MMD_Thought_BipolarIIPhase.stages.0.label>
+  <MMD_Thought_BipolarIIPhase.stages.0.description>A heavy depression is suppressing all of my energy.</MMD_Thought_BipolarIIPhase.stages.0.description>
   <MMD_Thought_BipolarIIPhase.stages.1.label>hypomanic phase</MMD_Thought_BipolarIIPhase.stages.1.label>
+  <MMD_Thought_BipolarIIPhase.stages.1.description>Energy and confidence keep surging through me. I can barely stop.</MMD_Thought_BipolarIIPhase.stages.1.description>
   <MMD_Thought_BipolarIPhase.label>bipolar cycle</MMD_Thought_BipolarIPhase.label>
   <MMD_Thought_BipolarIPhase.stages.0.label>depressive phase</MMD_Thought_BipolarIPhase.stages.0.label>
+  <MMD_Thought_BipolarIPhase.stages.0.description>Everything has lost meaning, and even moving feels difficult.</MMD_Thought_BipolarIPhase.stages.0.description>
   <MMD_Thought_BipolarIPhase.stages.1.label>manic phase</MMD_Thought_BipolarIPhase.stages.1.label>
+  <MMD_Thought_BipolarIPhase.stages.1.description>I have endless energy. Nothing can stop me.</MMD_Thought_BipolarIPhase.stages.1.description>
   <MMD_Thought_SchizoaffectivePhase.label>schizoaffective cycle</MMD_Thought_SchizoaffectivePhase.label>
   <MMD_Thought_SchizoaffectivePhase.stages.0.label>depressive phase</MMD_Thought_SchizoaffectivePhase.stages.0.label>
+  <MMD_Thought_SchizoaffectivePhase.stages.0.description>Depression and exhaustion occupy my thoughts.</MMD_Thought_SchizoaffectivePhase.stages.0.description>
   <MMD_Thought_SchizoaffectivePhase.stages.1.label>manic phase</MMD_Thought_SchizoaffectivePhase.stages.1.label>
+  <MMD_Thought_SchizoaffectivePhase.stages.1.description>My thoughts are accelerating as my energy and confidence expand.</MMD_Thought_SchizoaffectivePhase.stages.1.description>
   <MMD_Thought_SchizoaffectivePhase.stages.2.label>psychotic phase</MMD_Thought_SchizoaffectivePhase.stages.2.label>
+  <MMD_Thought_SchizoaffectivePhase.stages.2.description>Reality feels unreliable, and everything seems to conceal a hidden meaning.</MMD_Thought_SchizoaffectivePhase.stages.2.description>
   <MMD_Thought_BorderlinePhase.label>important relationship</MMD_Thought_BorderlinePhase.label>
   <MMD_Thought_BorderlinePhase.stages.0.label>idealizing an important person</MMD_Thought_BorderlinePhase.stages.0.label>
+  <MMD_Thought_BorderlinePhase.stages.0.description>This is the only person who truly understands and values me.</MMD_Thought_BorderlinePhase.stages.0.description>
   <MMD_Thought_BorderlinePhase.stages.1.label>feeling abandoned</MMD_Thought_BorderlinePhase.stages.1.label>
+  <MMD_Thought_BorderlinePhase.stages.1.description>The person who matters most has abandoned me again.</MMD_Thought_BorderlinePhase.stages.1.description>
   <MMD_Thought_SchizotypalPhase.label>strange beliefs</MMD_Thought_SchizotypalPhase.label>
   <MMD_Thought_SchizotypalPhase.stages.0.label>withdrawn phase</MMD_Thought_SchizotypalPhase.stages.0.label>
+  <MMD_Thought_SchizotypalPhase.stages.0.description>Solitude keeps me away from signals I cannot explain.</MMD_Thought_SchizotypalPhase.stages.0.description>
   <MMD_Thought_SchizotypalPhase.stages.1.label>omens are everywhere</MMD_Thought_SchizotypalPhase.stages.1.label>
+  <MMD_Thought_SchizotypalPhase.stages.1.description>Ordinary events seem to conceal omens intended only for me.</MMD_Thought_SchizotypalPhase.stages.1.description>
   <MMD_Thought_PersistentLowEnergy.label>persistent low mood</MMD_Thought_PersistentLowEnergy.label>
   <MMD_Thought_PersistentLowEnergy.stages.0.label>barely stable</MMD_Thought_PersistentLowEnergy.stages.0.label>
+  <MMD_Thought_PersistentLowEnergy.stages.0.description>My mood remains low, but I can still maintain daily life.</MMD_Thought_PersistentLowEnergy.stages.0.description>
   <MMD_Thought_PersistentLowEnergy.stages.1.label>low energy</MMD_Thought_PersistentLowEnergy.stages.1.label>
+  <MMD_Thought_PersistentLowEnergy.stages.1.description>Persistent exhaustion and depression make action difficult.</MMD_Thought_PersistentLowEnergy.stages.1.description>
   <MMD_Thought_SomaticConcern.label>physical discomfort</MMD_Thought_SomaticConcern.label>
   <MMD_Thought_SomaticConcern.stages.0.label>symptoms temporarily calm</MMD_Thought_SomaticConcern.stages.0.label>
+  <MMD_Thought_SomaticConcern.stages.0.description>The physical discomfort has at least stopped worsening for now.</MMD_Thought_SomaticConcern.stages.0.description>
   <MMD_Thought_SomaticConcern.stages.1.label>something is wrong with my body</MMD_Thought_SomaticConcern.stages.1.label>
+  <MMD_Thought_SomaticConcern.stages.1.description>These sensations prove that something is seriously wrong with my body.</MMD_Thought_SomaticConcern.stages.1.description>
   <MMD_Thought_OCPDUrge.label>the work is not perfect yet</MMD_Thought_OCPDUrge.label>
+  <MMD_Thought_OCPDUrge.stages.0.description>The details are still imperfect. I have to check again.</MMD_Thought_OCPDUrge.stages.0.description>
 </LanguageData>

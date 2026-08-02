@@ -8,6 +8,7 @@
     <stages>
       <li>
         <label>心灵稳定</label>
+        <description>芯片让我的思绪始终清晰、稳定。</description>
         <baseMoodEffect>12</baseMoodEffect>
       </li>
     </stages>
@@ -95,21 +96,21 @@
     <workerClass>MoreMentalDisorders.ThoughtWorker_BodyCheckingUrge</workerClass>
     <label>无法停止关注身体缺陷</label>
     <description>我必须再确认一次，其他人肯定已经注意到了那个缺陷。</description>
-    <stages><li><baseMoodEffect>-6</baseMoodEffect></li></stages>
+    <stages><li><description>我无法停止检查自己想象中的身体缺陷。</description><baseMoodEffect>-6</baseMoodEffect></li></stages>
   </ThoughtDef>
   <ThoughtDef>
     <defName>MMD_Thought_CompulsionUrge</defName>
     <workerClass>MoreMentalDisorders.ThoughtWorker_CompulsionUrge</workerClass>
     <label>强迫冲动未被满足</label>
     <description>有什么地方不对。我必须重新检查。</description>
-    <stages><li><baseMoodEffect>-8</baseMoodEffect></li></stages>
+    <stages><li><description>没有完成检查让我一直感到不安。</description><baseMoodEffect>-8</baseMoodEffect></li></stages>
   </ThoughtDef>
   <ThoughtDef>
     <defName>MMD_Thought_HealthCheckUrge</defName>
     <workerClass>MoreMentalDisorders.ThoughtWorker_HealthCheckUrge</workerClass>
     <label>担心自己患有重病</label>
     <description>身体一定出了问题，我需要接受检查。</description>
-    <stages><li><baseMoodEffect>-7</baseMoodEffect></li></stages>
+    <stages><li><description>身体一定出了严重问题，我必须接受检查。</description><baseMoodEffect>-7</baseMoodEffect></li></stages>
   </ThoughtDef>
   <ThoughtDef>
     <defName>MMD_Thought_BulimiaCycle</defName>
@@ -130,55 +131,55 @@
       <li><label>暴露在开阔区域</label><description>这里无处可逃，我随时可能失去控制。</description><baseMoodEffect>-14</baseMoodEffect></li>
     </stages>
   </ThoughtDef>
-  <ThoughtDef><defName>MMD_Thought_PanicAftermath</defName><workerClass>MoreMentalDisorders.ThoughtWorker_PanicAftermath</workerClass><label>害怕再次发作</label><stages><li><baseMoodEffect>-8</baseMoodEffect></li></stages></ThoughtDef>
-  <ThoughtDef><defName>MMD_Thought_ExplosiveRemorse</defName><workerClass>MoreMentalDisorders.ThoughtWorker_ExplosiveRemorse</workerClass><label>暴怒后的懊悔</label><stages><li><baseMoodEffect>-9</baseMoodEffect></li></stages></ThoughtDef>
+  <ThoughtDef><defName>MMD_Thought_PanicAftermath</defName><workerClass>MoreMentalDisorders.ThoughtWorker_PanicAftermath</workerClass><label>害怕再次发作</label><stages><li><description>刚才的失控仍让我害怕，我担心它随时会再次发生。</description><baseMoodEffect>-8</baseMoodEffect></li></stages></ThoughtDef>
+  <ThoughtDef><defName>MMD_Thought_ExplosiveRemorse</defName><workerClass>MoreMentalDisorders.ThoughtWorker_ExplosiveRemorse</workerClass><label>暴怒后的懊悔</label><stages><li><description>我不该那样失控，也不知道自己下次会伤害谁。</description><baseMoodEffect>-9</baseMoodEffect></li></stages></ThoughtDef>
   <ThoughtDef><defName>MMD_Thought_NarcissisticState</defName><workerClass>MoreMentalDisorders.ThoughtWorker_NarcissisticState</workerClass><label>自我评价</label><stages>
-    <li><label>获得认可</label><baseMoodEffect>8</baseMoodEffect></li><li><label>自尊受损</label><baseMoodEffect>-12</baseMoodEffect></li>
+    <li><label>获得认可</label><description>他们终于看到了我的价值。</description><baseMoodEffect>8</baseMoodEffect></li><li><label>自尊受损</label><description>他们竟敢这样轻视我。</description><baseMoodEffect>-12</baseMoodEffect></li>
   </stages></ThoughtDef>
   <ThoughtDef><defName>MMD_Thought_SocialCrowd</defName><workerClass>MoreMentalDisorders.ThoughtWorker_SocialCrowd</workerClass><label>社交环境</label><stages>
-    <li><label>安静独处</label><baseMoodEffect>3</baseMoodEffect></li><li><label>附近有人</label><baseMoodEffect>-4</baseMoodEffect></li><li><label>被人群包围</label><baseMoodEffect>-10</baseMoodEffect></li>
+    <li><label>安静独处</label><description>这里没有人注视我，我终于能放松一些。</description><baseMoodEffect>3</baseMoodEffect></li><li><label>附近有人</label><description>有人在附近，我很难不去在意他们的目光。</description><baseMoodEffect>-4</baseMoodEffect></li><li><label>被人群包围</label><description>所有人都在看着我，我只想马上离开。</description><baseMoodEffect>-10</baseMoodEffect></li>
   </stages></ThoughtDef>
   <ThoughtDef><defName>MMD_Thought_GeneralizedWorry</defName><workerClass>MoreMentalDisorders.ThoughtWorker_GeneralizedWorry</workerClass><label>持续担忧</label><stages>
-    <li><label>暂时没有值得担忧的事</label><baseMoodEffect>2</baseMoodEffect></li><li><label>担心殖民地出事</label><baseMoodEffect>-5</baseMoodEffect></li><li><label>所有事情都可能失控</label><baseMoodEffect>-11</baseMoodEffect></li>
+    <li><label>暂时没有值得担忧的事</label><description>至少现在，一切还算平静。</description><baseMoodEffect>2</baseMoodEffect></li><li><label>担心殖民地出事</label><description>有太多事情可能出错，我无法停止担忧。</description><baseMoodEffect>-5</baseMoodEffect></li><li><label>所有事情都可能失控</label><description>危险到处都是，整个局面随时会彻底失控。</description><baseMoodEffect>-11</baseMoodEffect></li>
   </stages></ThoughtDef>
   <ThoughtDef><defName>MMD_Thought_SpecificFear</defName><workerClass>MoreMentalDisorders.ThoughtWorker_SpecificFear</workerClass><label>恐惧对象</label><stages>
-    <li><label>没有我不愿看见的事物</label><baseMoodEffect>6</baseMoodEffect></li><li><label>创伤被短暂唤起</label><baseMoodEffect>-4</baseMoodEffect></li><li><label>创伤挥之不去</label><baseMoodEffect>-9</baseMoodEffect></li><li><label>被创伤压垮</label><baseMoodEffect>-15</baseMoodEffect></li>
+    <li><label>没有我不愿看见的事物</label><description>附近没有我不愿看见的创伤源。</description><baseMoodEffect>6</baseMoodEffect></li><li><label>创伤被短暂唤起</label><description>那个东西让我想起了不愿回忆的经历。</description><baseMoodEffect>-4</baseMoodEffect></li><li><label>创伤挥之不去</label><description>创伤记忆在脑海中反复出现，怎么也赶不走。</description><baseMoodEffect>-9</baseMoodEffect></li><li><label>被创伤压垮</label><description>我仿佛再次身处那场经历，已经无法正常思考。</description><baseMoodEffect>-15</baseMoodEffect></li>
   </stages></ThoughtDef>
   <ThoughtDef><defName>MMD_Thought_Claustrophobia</defName><workerClass>MoreMentalDisorders.ThoughtWorker_Claustrophobia</workerClass><label>封闭程度</label><stages>
-    <li><label>空间开阔</label><baseMoodEffect>3</baseMoodEffect></li><li><label>待在封闭空间</label><baseMoodEffect>-6</baseMoodEffect></li><li><label>困在狭小房间</label><baseMoodEffect>-14</baseMoodEffect></li>
+    <li><label>空间开阔</label><description>这里足够开阔，我随时都能离开。</description><baseMoodEffect>3</baseMoodEffect></li><li><label>待在封闭空间</label><description>墙壁和屋顶让我感到压抑。</description><baseMoodEffect>-6</baseMoodEffect></li><li><label>困在狭小房间</label><description>这个房间正在把我困住，我必须出去。</description><baseMoodEffect>-14</baseMoodEffect></li>
   </stages></ThoughtDef>
   <ThoughtDef><defName>MMD_Thought_AdjustmentStress</defName><workerClass>MoreMentalDisorders.ThoughtWorker_AdjustmentStress</workerClass><label>适应压力</label><stages>
-    <li><label>正在逐渐适应</label><baseMoodEffect>2</baseMoodEffect></li><li><label>无法适应变化</label><baseMoodEffect>-9</baseMoodEffect></li>
+    <li><label>正在逐渐适应</label><description>变化仍然存在，但我开始能够应付了。</description><baseMoodEffect>2</baseMoodEffect></li><li><label>无法适应变化</label><description>一切都变得陌生，我不知道该如何继续。</description><baseMoodEffect>-9</baseMoodEffect></li>
   </stages></ThoughtDef>
-  <ThoughtDef><defName>MMD_Thought_DissociationAftermath</defName><workerClass>MoreMentalDisorders.ThoughtWorker_DissociationAftermath</workerClass><label>现实感尚未恢复</label><stages><li><baseMoodEffect>-8</baseMoodEffect></li></stages></ThoughtDef>
-  <ThoughtDef><defName>MMD_Thought_TraumaFlashback</defName><workerClass>MoreMentalDisorders.ThoughtWorker_TraumaFlashback</workerClass><label>创伤闪回</label><stages><li><baseMoodEffect>-12</baseMoodEffect></li></stages></ThoughtDef>
-  <ThoughtDef><defName>MMD_Thought_DissociativeAmnesia</defName><workerClass>MoreMentalDisorders.ThoughtWorker_DissociativeAmnesia</workerClass><label>记忆出现空白</label><stages><li><baseMoodEffect>-8</baseMoodEffect></li></stages></ThoughtDef>
+  <ThoughtDef><defName>MMD_Thought_DissociationAftermath</defName><workerClass>MoreMentalDisorders.ThoughtWorker_DissociationAftermath</workerClass><label>现实感尚未恢复</label><stages><li><description>周围的一切仍像隔着一层薄膜，显得不太真实。</description><baseMoodEffect>-8</baseMoodEffect></li></stages></ThoughtDef>
+  <ThoughtDef><defName>MMD_Thought_TraumaFlashback</defName><workerClass>MoreMentalDisorders.ThoughtWorker_TraumaFlashback</workerClass><label>创伤闪回</label><stages><li><description>那段创伤像正在发生一样重现在我眼前。</description><baseMoodEffect>-12</baseMoodEffect></li></stages></ThoughtDef>
+  <ThoughtDef><defName>MMD_Thought_DissociativeAmnesia</defName><workerClass>MoreMentalDisorders.ThoughtWorker_DissociativeAmnesia</workerClass><label>记忆出现空白</label><stages><li><description>我的记忆中出现了一块无法解释的空白。</description><baseMoodEffect>-8</baseMoodEffect></li></stages></ThoughtDef>
   <ThoughtDef><defName>MMD_Thought_HypomaniaPhase</defName><workerClass>MoreMentalDisorders.ThoughtWorker_HypomaniaPhase</workerClass><label>轻躁周期</label><stages>
-    <li><label>平稳期</label><baseMoodEffect>0</baseMoodEffect></li><li><label>轻躁期</label><baseMoodEffect>6</baseMoodEffect></li>
+    <li><label>平稳期</label><description>我的精力和思绪暂时保持平稳。</description><baseMoodEffect>0</baseMoodEffect></li><li><label>轻躁期</label><description>思维变得轻快，仿佛什么事情都能完成。</description><baseMoodEffect>6</baseMoodEffect></li>
   </stages></ThoughtDef>
   <ThoughtDef><defName>MMD_Thought_CyclothymiaPhase</defName><workerClass>MoreMentalDisorders.ThoughtWorker_CyclothymiaPhase</workerClass><label>心境周期</label><stages>
-    <li><label>低落期</label><baseMoodEffect>-5</baseMoodEffect></li><li><label>高涨期</label><baseMoodEffect>5</baseMoodEffect></li>
+    <li><label>低落期</label><description>心境正在下沉，做什么都提不起精神。</description><baseMoodEffect>-5</baseMoodEffect></li><li><label>高涨期</label><description>心境正在上扬，我感到格外积极。</description><baseMoodEffect>5</baseMoodEffect></li>
   </stages></ThoughtDef>
   <ThoughtDef><defName>MMD_Thought_BipolarIIPhase</defName><workerClass>MoreMentalDisorders.ThoughtWorker_BipolarIIPhase</workerClass><label>双相周期</label><stages>
-    <li><label>抑郁期</label><baseMoodEffect>-12</baseMoodEffect></li><li><label>轻躁期</label><baseMoodEffect>8</baseMoodEffect></li>
+    <li><label>抑郁期</label><description>沉重的低落感压住了我的全部精力。</description><baseMoodEffect>-12</baseMoodEffect></li><li><label>轻躁期</label><description>精力和自信不断涌上来，我几乎停不下来。</description><baseMoodEffect>8</baseMoodEffect></li>
   </stages></ThoughtDef>
   <ThoughtDef><defName>MMD_Thought_BipolarIPhase</defName><workerClass>MoreMentalDisorders.ThoughtWorker_BipolarIPhase</workerClass><label>双相周期</label><stages>
-    <li><label>抑郁期</label><baseMoodEffect>-16</baseMoodEffect></li><li><label>躁狂期</label><baseMoodEffect>12</baseMoodEffect></li>
+    <li><label>抑郁期</label><description>一切都失去了意义，连行动也变得困难。</description><baseMoodEffect>-16</baseMoodEffect></li><li><label>躁狂期</label><description>我拥有无穷的精力，没有什么能够阻止我。</description><baseMoodEffect>12</baseMoodEffect></li>
   </stages></ThoughtDef>
   <ThoughtDef><defName>MMD_Thought_SchizoaffectivePhase</defName><workerClass>MoreMentalDisorders.ThoughtWorker_SchizoaffectivePhase</workerClass><label>分裂情感周期</label><stages>
-    <li><label>抑郁期</label><baseMoodEffect>-12</baseMoodEffect></li><li><label>躁狂期</label><baseMoodEffect>9</baseMoodEffect></li><li><label>精神病性期</label><baseMoodEffect>-7</baseMoodEffect></li>
+    <li><label>抑郁期</label><description>低落和疲惫占据了我的思绪。</description><baseMoodEffect>-12</baseMoodEffect></li><li><label>躁狂期</label><description>思绪加速，精力和自信不断膨胀。</description><baseMoodEffect>9</baseMoodEffect></li><li><label>精神病性期</label><description>现实变得不可靠，周围似乎充满隐藏的含义。</description><baseMoodEffect>-7</baseMoodEffect></li>
   </stages></ThoughtDef>
   <ThoughtDef><defName>MMD_Thought_BorderlinePhase</defName><workerClass>MoreMentalDisorders.ThoughtWorker_BorderlinePhase</workerClass><label>重要关系</label><stages>
-    <li><label>理想化重要的人</label><baseMoodEffect>8</baseMoodEffect></li><li><label>觉得自己被抛弃</label><baseMoodEffect>-13</baseMoodEffect></li>
+    <li><label>理想化重要的人</label><description>这个人是唯一真正理解并重视我的人。</description><baseMoodEffect>8</baseMoodEffect></li><li><label>觉得自己被抛弃</label><description>我又被最重要的人抛弃了。</description><baseMoodEffect>-13</baseMoodEffect></li>
   </stages></ThoughtDef>
   <ThoughtDef><defName>MMD_Thought_SchizotypalPhase</defName><workerClass>MoreMentalDisorders.ThoughtWorker_SchizotypalPhase</workerClass><label>奇异信念</label><stages>
-    <li><label>退缩期</label><baseMoodEffect>2</baseMoodEffect></li><li><label>征兆无处不在</label><baseMoodEffect>-4</baseMoodEffect></li>
+    <li><label>退缩期</label><description>独处让我暂时远离那些难以解释的信号。</description><baseMoodEffect>2</baseMoodEffect></li><li><label>征兆无处不在</label><description>普通事件背后似乎都隐藏着只给我看的征兆。</description><baseMoodEffect>-4</baseMoodEffect></li>
   </stages></ThoughtDef>
   <ThoughtDef><defName>MMD_Thought_PersistentLowEnergy</defName><workerClass>MoreMentalDisorders.ThoughtWorker_PersistentLowEnergy</workerClass><label>持续低落</label><stages>
-    <li><label>勉强平稳</label><baseMoodEffect>-2</baseMoodEffect></li><li><label>精力低下</label><baseMoodEffect>-7</baseMoodEffect></li>
+    <li><label>勉强平稳</label><description>情绪仍然低沉，但至少还能维持日常生活。</description><baseMoodEffect>-2</baseMoodEffect></li><li><label>精力低下</label><description>持续的疲惫和低落让我难以行动。</description><baseMoodEffect>-7</baseMoodEffect></li>
   </stages></ThoughtDef>
   <ThoughtDef><defName>MMD_Thought_SomaticConcern</defName><workerClass>MoreMentalDisorders.ThoughtWorker_SomaticConcern</workerClass><label>身体不适</label><stages>
-    <li><label>症状暂时平静</label><baseMoodEffect>0</baseMoodEffect></li><li><label>身体一定出了问题</label><baseMoodEffect>-7</baseMoodEffect></li>
+    <li><label>症状暂时平静</label><description>身体的不适暂时没有继续恶化。</description><baseMoodEffect>0</baseMoodEffect></li><li><label>身体一定出了问题</label><description>这些感觉证明我的身体一定患了严重疾病。</description><baseMoodEffect>-7</baseMoodEffect></li>
   </stages></ThoughtDef>
-  <ThoughtDef><defName>MMD_Thought_OCPDUrge</defName><workerClass>MoreMentalDisorders.ThoughtWorker_OCPDUrge</workerClass><label>工作还不够完美</label><stages><li><baseMoodEffect>-6</baseMoodEffect></li></stages></ThoughtDef>
+  <ThoughtDef><defName>MMD_Thought_OCPDUrge</defName><workerClass>MoreMentalDisorders.ThoughtWorker_OCPDUrge</workerClass><label>工作还不够完美</label><stages><li><description>细节仍然不够完美，我必须重新检查。</description><baseMoodEffect>-6</baseMoodEffect></li></stages></ThoughtDef>
 </Defs>
