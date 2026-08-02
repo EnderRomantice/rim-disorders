@@ -807,12 +807,12 @@ namespace MoreMentalDisorders
             Hediff_MentalDisorder d = pawn.Disorder();
             if (d == null || d.identity != DelusionalIdentity.SpecialForcesOfficer) return;
             object boxed = __result;
-            ShooterField.SetValue(boxed, 1f);
-            EquipmentField.SetValue(boxed, 1f);
-            TargetField.SetValue(boxed, 1f);
-            WeatherField.SetValue(boxed, 1f);
-            CoverField.SetValue(boxed, 0f);
-            ForcedMissField.SetValue(boxed, 0f);
+            ShooterField?.SetValue(boxed, 1f);
+            EquipmentField?.SetValue(boxed, 1f);
+            TargetField?.SetValue(boxed, 1f);
+            WeatherField?.SetValue(boxed, 1f);
+            CoverField?.SetValue(boxed, 0f);
+            ForcedMissField?.SetValue(boxed, 0f);
             __result = (ShotReport)boxed;
         }
     }
