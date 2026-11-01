@@ -22,6 +22,32 @@ namespace MoreMentalDisorders
         private int nextBehaviorTick;
         private JobDef observedJob;
         private int observedJobSince;
+        private float cotardResurrectionCharge = -1f;
+
+        public int CotardMaxCharges
+        {
+            get
+            {
+                if (def != MMDDefOf.MMD_Cotard || pawn == null) return 0;
+                return Mathf.Max(0, Mathf.FloorToInt(
+                    pawn.GetStatValue(StatDefOf.PsychicSensitivity) + 0.0001f));
+            }
+        }
+
+        public float CotardResurrectionCharge
+        {
+            get { return Mathf.Clamp(cotardResurrectionCharge, 0f, CotardMaxCharges); }
+        }
+
+        public bool CotardCanResurrect
+        {
+            get { return def == MMDDefOf.MMD_Cotard && CotardResurrectionCharge >= 1f; }
+        }
+
+        public void ConsumeCotardResurrectionCharge()
+        {
+            cotardResurrectionCharge = Mathf.Max(0f, CotardResurrectionCharge - 1f);
+        }
 
         public int ObservedJobAge
         {
@@ -68,10 +94,13 @@ namespace MoreMentalDisorders
                     description += MMDLocalization.Pick("\n恐惧对象：", "\nPhobic trigger: ")
                         + SpecificFearLabel + ".";
                 if (def == MMDDefOf.MMD_PTSD)
-                    description += MMDLocalization.Pick("\n创伤触发源：", "\nTrauma trigger: ") + triggerTag + ".";
+                    description += MMDLocalization.Pick("\n创伤触发源：", "\nTrauma trigger: ") + ITab_Pawn_Trauma.LocalizedContext(triggerTag) + ".";
                 if (def == MMDDefOf.MMD_Borderline && focusPawn != null)
                     description += MMDLocalization.Pick("\n重要关系对象：", "\nImportant relationship: ")
                         + focusPawn.LabelShortCap + ".";
+                if (def == MMDDefOf.MMD_Cotard)
+                    description += MMDLocalization.Pick("\n复活充能：", "\nResurrection charge: ")
+                        + CotardResurrectionCharge.ToString("0.##") + " / " + CotardMaxCharges + ".";
                 return description;
             }
         }
@@ -119,6 +148,8 @@ namespace MoreMentalDisorders
                 EnsureMindKillAbility();
             MentalDisorderUtility.EnsurePsylink(pawn, MentalDisorderUtility.RequiredPsylinkLevel(def));
             if (def == MMDDefOf.MMD_DependentPersonality) RefreshDependency();
+            if (def == MMDDefOf.MMD_Cotard && cotardResurrectionCharge < 0f)
+                cotardResurrectionCharge = CotardMaxCharges;
             lastSymptomReliefTick = Find.TickManager.TicksGame;
             nextBehaviorTick = Find.TickManager.TicksGame + Rand.RangeInclusive(30000, 90000);
             InitializeAdvancedMechanics();
@@ -224,10 +255,22 @@ namespace MoreMentalDisorders
         {
             base.TickInterval(delta);
             if (pawn == null || pawn.health == null) return;
-            if (pawn.IsShambler)
+            if (pawn.IsShambler || MentalDisorderUtility.IsInfant(pawn))
             {
                 pawn.health.RemoveHediff(this);
                 return;
+            }
+            if (def == MMDDefOf.MMD_Cotard)
+            {
+                int maxCharges = CotardMaxCharges;
+                cotardResurrectionCharge = Mathf.Clamp(cotardResurrectionCharge, 0f, maxCharges);
+                if (cotardResurrectionCharge < maxCharges)
+                {
+                    float sensitivity = Mathf.Max(0f,
+                        pawn.GetStatValue(StatDefOf.PsychicSensitivity));
+                    cotardResurrectionCharge = Mathf.Min(maxCharges,
+                        cotardResurrectionCharge + delta * sensitivity / GenDate.TicksPerDay);
+                }
             }
             if (pawn.IsHashIntervalTick(2500, delta)
                 && def == MMDDefOf.MMD_Claustrophobia && pawn.Spawned && !pawn.InMentalState
@@ -285,8 +328,14 @@ namespace MoreMentalDisorders
             Scribe_Values.Look(ref nextBehaviorTick, "nextBehaviorTick");
             Scribe_Defs.Look(ref observedJob, "observedJob");
             Scribe_Values.Look(ref observedJobSince, "observedJobSince");
+            Scribe_Values.Look(ref cotardResurrectionCharge, "cotardResurrectionCharge", -1f);
             ExposeAdvancedData();
-            if (Scribe.mode == LoadSaveMode.PostLoadInit) InitializeAdvancedMechanics();
+            if (Scribe.mode == LoadSaveMode.PostLoadInit)
+            {
+                if (def == MMDDefOf.MMD_Cotard && cotardResurrectionCharge < 0f)
+                    cotardResurrectionCharge = CotardMaxCharges;
+                InitializeAdvancedMechanics();
+            }
         }
 
         private void RefreshDependency()

@@ -18,7 +18,7 @@ Comorbidity is currently disabled. A pawn may have at most one disorder from thi
 
 ### Disease layer
 
-Disorders are defined as `HediffDef` records. Runtime behavior is implemented by `Hediff_MentalDisorder` and its mechanic extensions. Four severity tiers—mild, moderate, severe, and extreme—consistently determine baseline social prejudice and minimum psylink level.
+Disorders are defined as `HediffDef` records. Runtime behavior is implemented by `Hediff_MentalDisorder` and its mechanic extensions. Four severity tiers—mild, moderate, severe, and extreme—determine baseline social prejudice. By default, only extreme disorders grant a minimum psylink level of 6; mild, moderate, and severe disorders grant none. The **Psylink grants** settings page offers an independent enable switch and minimum level (1–6) for each severity. Disabling or lowering a grant preserves existing psylinks; condition-specific abilities remain part of their respective disorders. Older settings without these per-severity options adopt the new extreme-only defaults.
 
 Stat modifiers, mood memories, and behavior mechanics are kept separate. XML contains static data, while C# handles stateful behavior, target selection, and event reactions.
 
@@ -100,3 +100,13 @@ work/                             validation helpers
 ```
 
 The runtime target is RimWorld 1.6 with Harmony, Royalty, and Anomaly.
+
+## September feedback fixes
+
+Newborns and babies are excluded from disorder generation and trauma tracking. Existing infant disorder and etiology hediffs are removed on their next health tick. Only states registered by a `MentalBreakDef` (plus this mod's panic episode) are intercepted or recorded as mental-break trauma; crying, giggling, and other ordinary states keep their vanilla behavior.
+
+The insomnia task patch now checks its sampling interval before querying disorders and uses Harmony field injection instead of per-tick reflection. Common disorder lookups no longer allocate and sort temporary lists.
+
+Trauma labels default to English, with Chinese translations, and custom-def translation folders use the fully qualified type name. Saved fear triggers resolve their labels in the active language instead of reusing the language saved at creation.
+
+These changes do not remove already-earned psylinks or retroactively diagnose adult pawns' old trauma records. In-game crib/bed performance still needs confirmation with the reporting player's mod list.

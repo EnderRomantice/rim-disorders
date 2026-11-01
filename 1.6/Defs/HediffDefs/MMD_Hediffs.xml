@@ -17,8 +17,8 @@
   <HediffDef ParentName="MMD_BaseDisorder">
     <defName>MMD_MajorDepression</defName>
     <label>重性抑郁障碍</label>
-    <description>患者的灵能异常稳定而低耗，但正面感受迅速消逝，病发时可能尝试自杀。</description>
-    <stages><li><minSeverity>0</minSeverity></li></stages>
+    <description>患者永久心情−20，但拥有极端敏锐且低耗的灵能：心灵敏感度+1000%，所有灵能力的精神力消耗与精神熵获取减半，施法前摇减半；病发时会真实尝试自杀。</description>
+    <stages><li><minSeverity>0</minSeverity><statOffsets><PsychicSensitivity>10</PsychicSensitivity></statOffsets></li></stages>
   </HediffDef>
 
   <HediffDef ParentName="MMD_BaseDisorder">
@@ -292,7 +292,7 @@
   <HediffDef ParentName="MMD_BaseDisorder">
     <defName>MMD_Cotard</defName>
     <label>虚无妄想综合征</label>
-    <description>患者否定死亡和现实本身；死亡后只要尸体仍然存在，就会立即否定死亡并复活。</description>
+    <description>患者否定死亡和现实本身。每满100%心灵敏感度提供1点复活充能；死亡后有充能时消耗1点完整复活。没有充能时仍会尝试透支复活：50%彻底失败，50%成功但永久失去1至2条肢体。100%心灵敏感度时每天恢复1点充能，恢复速度随心灵敏感度线性提高。</description>
     <stages><li><minSeverity>0</minSeverity><statFactors>
       <PsychicSensitivity>5</PsychicSensitivity>
       <PsychicEntropyMax>5</PsychicEntropyMax>

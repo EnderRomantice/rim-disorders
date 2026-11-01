@@ -188,7 +188,7 @@ namespace MoreMentalDisorders
         {
             base.TickInterval(delta);
             if (pawn == null || pawn.health == null) return;
-            if (pawn.IsShambler)
+            if (pawn.IsShambler || MentalDisorderUtility.IsInfant(pawn))
             {
                 pawn.health.RemoveHediff(this);
                 return;

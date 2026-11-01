@@ -394,7 +394,7 @@ namespace MoreMentalDisorders
             }
         }
 
-        private static string LocalizedContext(string context)
+        internal static string LocalizedContext(string context)
         {
             if (context.NullOrEmpty()) return MMDLocalization.Pick("未记录来源", "Unrecorded source");
             if (context == "MentalBreak") return MMDLocalization.Pick("精神崩溃", "mental break");

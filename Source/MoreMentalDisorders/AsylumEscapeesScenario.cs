@@ -11,7 +11,10 @@ namespace MoreMentalDisorders
     /// </summary>
     public sealed class ScenPart_AssignUniqueExtremeDisorders : ScenPart
     {
-        private static readonly HediffDef[] ExtremeDisorders =
+        // Do not cache DefOf values in a static field. RimWorld can initialize this
+        // ScenPart class while defs are still loading, which would permanently fill
+        // the array with null entries.
+        private static HediffDef[] ExtremeDisorders => new[]
         {
             MMDDefOf.MMD_ParanoidDelusion,
             MMDDefOf.MMD_MajorDepression,

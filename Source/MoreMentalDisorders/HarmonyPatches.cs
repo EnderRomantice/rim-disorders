@@ -37,6 +37,8 @@ namespace MoreMentalDisorders
             ref Pawn otherPawn, ref bool __result)
         {
             Pawn pawn = Traverse.Create(__instance).Field("pawn").GetValue<Pawn>();
+            if (!MentalDisorderUtility.IsDisorderMentalBreak(stateDef)
+                || !MentalDisorderUtility.EligibleForMentalDisorders(pawn)) return true;
             if (MentalDisorderUtility.HasHippocampectomy(pawn))
             {
                 __result = false;
@@ -232,7 +234,8 @@ namespace MoreMentalDisorders
         public static void Postfix(MentalState __instance)
         {
             Pawn pawn = __instance.pawn;
-            if (pawn != null)
+            if (MentalDisorderUtility.IsDisorderMentalBreak(__instance.def)
+                && MentalDisorderUtility.EligibleForMentalDisorders(pawn))
             {
                 MentalEtiologyUtility.AddCause(pawn, MMDDefOf.MMD_Cause_Trauma, 6f, "MentalBreak");
                 if (pawn.needs?.mood != null && pawn.needs.mood.CurLevelPercentage < 0.3f)
@@ -363,6 +366,18 @@ namespace MoreMentalDisorders
         }
     }
 
+    [HarmonyPatch(typeof(Verb), "get_WarmupTime")]
+    public static class Ability_Warmup_MajorDepression_MMDPatch
+    {
+        public static void Postfix(Verb __instance, ref float __result)
+        {
+            Verb_CastAbility abilityVerb = __instance as Verb_CastAbility;
+            if (abilityVerb?.Ability is Psycast
+                && __instance.CasterPawn.Has(MMDDefOf.MMD_MajorDepression))
+                __result *= 0.5f;
+        }
+    }
+
     [HarmonyPatch(typeof(Pawn_PsychicEntropyTracker), nameof(Pawn_PsychicEntropyTracker.OffsetPsyfocusDirectly))]
     public static class Psyfocus_Offset_MMDPatch
     {
@@ -422,16 +437,42 @@ namespace MoreMentalDisorders
                     }
             }
             MentalEtiologyUtility.AddCause(__instance, MMDDefOf.MMD_Cause_NearDeath, 30f, "Death");
-            if (!__instance.Has(MMDDefOf.MMD_Cotard) || __instance.Corpse == null) return;
+            Hediff_MentalDisorder cotard = __instance.Disorders()
+                .FirstOrDefault(d => d.def == MMDDefOf.MMD_Cotard);
+            if (cotard == null || __instance.Corpse == null) return;
+            bool charged = cotard.CotardCanResurrect;
+            if (!charged && Rand.Chance(0.5f)) return;
             if (ResurrectionUtility.TryResurrect(__instance))
             {
+                if (charged)
+                    cotard.ConsumeCotardResurrectionCharge();
+                else
+                    RemoveRandomLimbs(__instance);
                 Pawn_PsychicEntropyTracker tracker = __instance.psychicEntropy;
                 if (tracker != null && tracker.CurrentPsyfocus < tracker.TargetPsyfocus)
                     tracker.OffsetPsyfocusDirectly(tracker.TargetPsyfocus - tracker.CurrentPsyfocus);
-                Messages.Message(MMDLocalization.Pick(__instance.LabelShortCap + "否定了自己的死亡。",
-                    __instance.LabelShortCap + " denied their own death."), __instance,
-                    MessageTypeDefOf.PositiveEvent);
+                string message = charged
+                    ? MMDLocalization.Pick(__instance.LabelShortCap + "否定了自己的死亡。剩余复活充能："
+                        + cotard.CotardResurrectionCharge.ToString("0.##") + " / " + cotard.CotardMaxCharges + "。",
+                        __instance.LabelShortCap + " denied their own death. Resurrection charge remaining: "
+                        + cotard.CotardResurrectionCharge.ToString("0.##") + " / " + cotard.CotardMaxCharges + ".")
+                    : MMDLocalization.Pick(__instance.LabelShortCap + "在没有充能的情况下勉强否定了死亡，但失去了肢体。",
+                        __instance.LabelShortCap + " barely denied death without a charge, but lost limbs.");
+                Messages.Message(message, __instance, MessageTypeDefOf.PositiveEvent);
             }
+        }
+
+        private static void RemoveRandomLimbs(Pawn pawn)
+        {
+            if (pawn?.health?.hediffSet == null) return;
+            List<BodyPartRecord> limbs = pawn.health.hediffSet.GetNotMissingParts()
+                .Where(part => part.def.tags != null
+                    && (part.def.tags.Contains(BodyPartTagDefOf.ManipulationLimbCore)
+                        || part.def.tags.Contains(BodyPartTagDefOf.MovingLimbCore)))
+                .Distinct().InRandomOrder().ToList();
+            int count = Mathf.Min(limbs.Count, Rand.RangeInclusive(1, 2));
+            for (int i = 0; i < count; i++)
+                pawn.health.AddHediff(HediffDefOf.MissingBodyPart, limbs[i]);
         }
     }
 
@@ -535,12 +576,13 @@ namespace MoreMentalDisorders
     [HarmonyPatch(typeof(Pawn_JobTracker), nameof(Pawn_JobTracker.JobTrackerTickInterval))]
     public static class Insomnia_Sleep_MMDPatch
     {
-        public static void Postfix(Pawn_JobTracker __instance, int delta)
+        public static void Postfix(Pawn_JobTracker __instance, Pawn ___pawn, int delta)
         {
-            Pawn pawn = Traverse.Create(__instance).Field("pawn").GetValue<Pawn>();
-            if (pawn == null || !pawn.Has(MMDDefOf.MMD_Insomnia) || pawn.CurJobDef != JobDefOf.LayDown)
-                return;
-            if (pawn.IsHashIntervalTick(7500, delta) && Rand.Chance(0.22f))
+            Pawn pawn = ___pawn;
+            if (pawn == null || MentalDisorderUtility.IsInfant(pawn)
+                || pawn.CurJobDef != JobDefOf.LayDown || !pawn.IsHashIntervalTick(7500, delta)
+                || !pawn.Has(MMDDefOf.MMD_Insomnia)) return;
+            if (Rand.Chance(0.22f))
             {
                 __instance.EndCurrentJob(JobCondition.InterruptForced);
                 if (pawn.Spawned) MoteMaker.ThrowText(pawn.DrawPos, pawn.Map,
@@ -616,7 +658,7 @@ namespace MoreMentalDisorders
                 if (stat == StatDefOf.WorkSpeedGlobal) __result *= 1.1f;
             }
             __result *= AdvancedDisorderUtility.StatFactor(disorder, stat);
-            if (disorder.def == MMDDefOf.MMD_Mania && pawn.InMentalState
+            if (disorder.def == MMDDefOf.MMD_Mania && MentalDisorderUtility.IsInMentalStateSafe(pawn)
                 && stat == StatDefOf.MoveSpeed)
             {
                 float manicMinimum = pawn.def.GetStatValueAbstract(StatDefOf.MoveSpeed) * 2f;
@@ -630,8 +672,10 @@ namespace MoreMentalDisorders
     {
         public static void Postfix(HediffSet __instance, ref float __result)
         {
-            Pawn pawn = __instance.pawn;
-            if (pawn != null && pawn.InMentalState && pawn.Has(MMDDefOf.MMD_Mania))
+            Pawn pawn = __instance?.pawn;
+            // Pain can be queried while PawnGenerator is still constructing mindState.
+            // Pawn.InMentalState assumes that construction has already completed.
+            if (MentalDisorderUtility.IsInMentalStateSafe(pawn) && pawn.Has(MMDDefOf.MMD_Mania))
                 __result = 0f;
         }
     }

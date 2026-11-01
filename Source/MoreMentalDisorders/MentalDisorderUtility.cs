@@ -67,10 +67,18 @@ namespace MoreMentalDisorders
 
         public static Hediff_MentalDisorder Disorder(this Pawn pawn)
         {
-            return pawn.Disorders()
-                .OrderByDescending(d => SeverityStage(d.def))
-                .ThenByDescending(d => IsMechanicAltering(d.def))
-                .FirstOrDefault();
+            if (pawn?.health?.hediffSet == null) return null;
+            Hediff_MentalDisorder best = null;
+            foreach (Hediff hediff in pawn.health.hediffSet.hediffs)
+            {
+                Hediff_MentalDisorder candidate = hediff as Hediff_MentalDisorder;
+                if (candidate == null) continue;
+                if (best == null || SeverityStage(candidate.def) > SeverityStage(best.def)
+                    || (SeverityStage(candidate.def) == SeverityStage(best.def)
+                        && IsMechanicAltering(candidate.def) && !IsMechanicAltering(best.def)))
+                    best = candidate;
+            }
+            return best;
         }
 
         public static List<Hediff_MentalDisorder> Disorders(this Pawn pawn)
@@ -93,7 +101,18 @@ namespace MoreMentalDisorders
 
         public static bool Has(this Pawn pawn, HediffDef def)
         {
-            return pawn.Disorders().Any(d => d.def == def);
+            if (def == null || pawn?.health?.hediffSet == null) return false;
+            foreach (Hediff hediff in pawn.health.hediffSet.hediffs)
+                if (hediff is Hediff_MentalDisorder && hediff.def == def) return true;
+            return false;
+        }
+
+        public static bool IsInMentalStateSafe(Pawn pawn)
+        {
+            return pawn != null
+                && pawn.mindState != null
+                && pawn.mindState.mentalStateHandler != null
+                && pawn.mindState.mentalStateHandler.CurState != null;
         }
 
         public static void AddRandomDisorder(Pawn pawn, bool acquired)
@@ -145,11 +164,28 @@ namespace MoreMentalDisorders
             return current.Count == 0;
         }
 
+        public static bool IsInfant(Pawn pawn)
+        {
+            return pawn?.ageTracker != null
+                && (pawn.DevelopmentalStage & (DevelopmentalStage.Newborn | DevelopmentalStage.Baby)) != 0;
+        }
+
+        // Mental states also represent harmless fits and other non-break behavior.
+        public static bool IsDisorderMentalBreak(MentalStateDef state)
+        {
+            if (state == null) return false;
+            if (state == MMDDefOf.MMD_PanicEpisode) return true;
+            foreach (MentalBreakDef mentalBreak in DefDatabase<MentalBreakDef>.AllDefsListForReading)
+                if (mentalBreak.mentalState == state) return true;
+            return false;
+        }
+
         public static bool EligibleForMentalDisorders(Pawn pawn)
         {
             return pawn != null
                 && pawn.health != null
                 && pawn.RaceProps.Humanlike
+                && !IsInfant(pawn)
                 && !pawn.IsShambler
                 && !HasCognitiveStabilizer(pawn);
         }
@@ -209,8 +245,18 @@ namespace MoreMentalDisorders
 
         public static int RequiredPsylinkLevel(HediffDef def)
         {
+            if (def == null) return 0;
             int stage = SeverityStage(def);
-            return stage == 3 ? 6 : stage == 0 ? 3 : 4;
+            return MMDMod.Settings == null ? (stage == 3 ? 6 : 0)
+                : MMDMod.Settings.PsylinkLevel(stage);
+        }
+
+        public static string PsylinkGrantDescription(HediffDef def)
+        {
+            int level = RequiredPsylinkLevel(def);
+            return level > 0
+                ? MMDLocalization.Pick("最低灵能等级：", "Minimum psylink level: ") + level
+                : MMDLocalization.Pick("灵能等级需通过正常途径获得", "Psylink levels must be earned normally");
         }
 
         public static string SeverityLabel(HediffDef def)
@@ -319,7 +365,8 @@ namespace MoreMentalDisorders
 
         public static void EnsurePsylink(Pawn pawn, int level)
         {
-            if (!ModsConfig.RoyaltyActive || pawn == null) return;
+            if (level <= 0 || !ModsConfig.RoyaltyActive || pawn == null
+                || IsInfant(pawn)) return;
             int current = pawn.GetPsylinkLevel();
             if (current < level) PawnUtility.ChangePsylinkLevel(pawn, level - current, false);
         }
@@ -410,7 +457,9 @@ namespace MoreMentalDisorders
                 switch (identity)
                 {
                     case DelusionalIdentity.AncientPsycaster:
-                        return "Current identity: ancient psycaster\n• Psylink level: 6\n• All vanilla psycasts\n• Episode: casts a random psycast\n• Refuses mining, cleaning, and hauling";
+                        return "Current identity: ancient psycaster\n"
+                            + ("• " + PsylinkGrantDescription(MMDDefOf.MMD_Schizophrenia) + "\n")
+                            + "• All vanilla psycasts\n• Episode: casts a random psycast\n• Refuses mining, cleaning, and hauling";
                     case DelusionalIdentity.SpecialForcesOfficer:
                         return "Current identity: special forces officer\n• Shooting minimum: 20\n• Guaranteed ranged hits; aiming time: ×0.01\n• Incoming damage: ×0.6; move speed: ×1.2\n• Episode: attacks people or animals\n• Refuses research, art, and crafting";
                     case DelusionalIdentity.OldWorldPresident:
@@ -426,7 +475,7 @@ namespace MoreMentalDisorders
             {
                 case DelusionalIdentity.AncientPsycaster:
                     return "当前人格：古代灵能大师\n"
-                        + "• 灵能等级：6\n"
+                        + ("• " + PsylinkGrantDescription(MMDDefOf.MMD_Schizophrenia) + "\n")
                         + "• 掌握全部原版灵能\n"
                         + "• 病发：随机释放一种灵能\n"
                         + "• 拒绝工作：采矿、清洁、搬运";
@@ -470,26 +519,32 @@ namespace MoreMentalDisorders
                 if (def == MMDDefOf.MMD_ParanoidDelusion)
                     return "Mind-kill: unlimited range; line of sight required; 2-second interruptible cast; no cooldown; vanilla instant death and twisted-flesh conversion\nHuman target: prior attacker or opinion at −40 or lower";
                 if (def == MMDDefOf.MMD_MajorDepression)
-                    return "Psycast cost: ×0.5\nNeural heat gain and recovery: ×0.5\nNatural psyfocus decay: none";
+                    return "Mood: −20\nPsychic sensitivity: +1000%\nPsychic ability cost and warmup: ×0.5\nNeural heat gain and recovery: ×0.5\nNatural psyfocus decay: none";
                 if (def == MMDDefOf.MMD_Mania)
                     return "Psycast cost and neural heat gain: ×2\nNeural heat capacity: ×0.5\nAbility cooldown: 5 seconds\nMelee attack interval: ×0.1\nPain during episode: none\nMovement slowdown during episode: none";
                 if (def == MMDDefOf.MMD_Schizophrenia)
                     return IdentityDescription(disorder.identity);
                 if (def == MMDDefOf.MMD_Hyperthymesia)
                     return "Natural skill decay: none\nPositive and negative mood memories: permanent";
+                if (def == MMDDefOf.MMD_Cotard)
+                    return "Resurrection charge: " + disorder.CotardResurrectionCharge.ToString("0.##")
+                        + " / " + disorder.CotardMaxCharges
+                        + "\nRecharge: "
+                        + disorder.pawn.GetStatValue(StatDefOf.PsychicSensitivity).ToString("0.##")
+                        + " charge/day";
                 if (disorder.UsesCycle) return "Current phase: " + disorder.PhaseLabel();
                 if (def == MMDDefOf.MMD_SpecificPhobia)
                     return "Trauma source: " + disorder.SpecificFearLabel
                         + "\nSafe: mood +6; positive memories ×1.2; negative memories ×0.8"
                         + "\nTrauma active: memory multipliers reversed"
                         + "\nExposure penalty: −4 / −9 / −15; aftermath: 6 hours / 1 day / 2 days";
-                if (def == MMDDefOf.MMD_PTSD) return "Trauma trigger: " + disorder.triggerTag;
+                if (def == MMDDefOf.MMD_PTSD) return "Trauma trigger: " + ITab_Pawn_Trauma.LocalizedContext(disorder.triggerTag);
                 return "";
             }
             if (def == MMDDefOf.MMD_ParanoidDelusion)
                 return "心灵宰杀：无距离限制，需要视线，2秒可打断前摇，无冷却，使用原版必杀与扭曲肉转化效果\n人类目标：曾伤害患者或评价低于或等于−40";
             if (def == MMDDefOf.MMD_MajorDepression)
-                return "灵能消耗：×0.5\n精神熵获取与消退：×0.5\n精神力自然降低：无";
+                return "心情：−20\n心灵敏感度：+1000%\n灵能力消耗与施法前摇：×0.5\n精神熵获取与消退：×0.5\n精神力自然降低：无";
             if (def == MMDDefOf.MMD_Mania)
                 return "灵能消耗与精神熵获取：×2\n精神熵上限：×0.5\n技能冷却：5秒\n近战攻击间隔：×0.1\n病发时疼痛感知：无\n病发时移动减速：无";
             if (def == MMDDefOf.MMD_Schizophrenia)
@@ -497,7 +552,8 @@ namespace MoreMentalDisorders
                 switch (disorder.identity)
                 {
                     case DelusionalIdentity.AncientPsycaster:
-                        return "灵能等级：6\n原版灵能：全部掌握";
+                        return PsylinkGrantDescription(def)
+                            + "\n原版灵能：全部掌握";
                     case DelusionalIdentity.SpecialForcesOfficer:
                         return "射击技能：最低20\n射击命中：必定\n瞄准时间：×0.01\n承伤系数：×0.6\n移动速度：×1.2";
                     case DelusionalIdentity.OldWorldPresident:
@@ -510,6 +566,11 @@ namespace MoreMentalDisorders
             }
             if (def == MMDDefOf.MMD_Hyperthymesia)
                 return "技能自然遗忘：无\n正面与负面心情记忆：永久";
+            if (def == MMDDefOf.MMD_Cotard)
+                return "复活充能：" + disorder.CotardResurrectionCharge.ToString("0.##")
+                    + " / " + disorder.CotardMaxCharges
+                    + "\n每日恢复："
+                    + disorder.pawn.GetStatValue(StatDefOf.PsychicSensitivity).ToString("0.##") + "点";
             if (disorder.UsesCycle)
                 return "当前状态：" + disorder.PhaseLabel();
             if (def == MMDDefOf.MMD_SpecificPhobia)

@@ -11,9 +11,59 @@ namespace MoreMentalDisorders
         private static readonly float[] DefaultSeverityWeights =
             { 79.13669f, 14.38849f, 5.755396f, 0.7194245f };
 
+        public List<bool> psylinkEnabledBySeverity = new List<bool> { false, false, false, true };
+        public List<int> psylinkLevelsBySeverity = new List<int> { 1, 1, 1, 6 };
         public float initialDiseaseChancePercent = 69.5f;
         public List<float> severityWeights = DefaultSeverityWeights.ToList();
         public Dictionary<string, float> diseaseWeights = new Dictionary<string, float>();
+
+        public bool PsylinkEnabled(int stage)
+        {
+            EnsurePsylinkSettings();
+            return stage >= 0 && stage < 4 && psylinkEnabledBySeverity[stage];
+        }
+
+        public int ConfiguredPsylinkLevel(int stage)
+        {
+            EnsurePsylinkSettings();
+            return stage >= 0 && stage < 4 ? psylinkLevelsBySeverity[stage] : 1;
+        }
+
+        public int PsylinkLevel(int stage)
+        {
+            return PsylinkEnabled(stage) ? ConfiguredPsylinkLevel(stage) : 0;
+        }
+
+        public void SetPsylinkGrant(int stage, bool enabled, int level)
+        {
+            if (stage < 0 || stage >= 4) return;
+            EnsurePsylinkSettings();
+            psylinkEnabledBySeverity[stage] = enabled;
+            psylinkLevelsBySeverity[stage] = Math.Max(1, Math.Min(6, level));
+        }
+
+        public void ResetPsylinkSettings()
+        {
+            psylinkEnabledBySeverity = new List<bool> { false, false, false, true };
+            psylinkLevelsBySeverity = new List<int> { 1, 1, 1, 6 };
+        }
+
+        private void EnsurePsylinkSettings()
+        {
+            // Older settings lack these lists; adopt the new extreme-only default.
+            if (psylinkEnabledBySeverity == null) psylinkEnabledBySeverity = new List<bool>();
+            if (psylinkLevelsBySeverity == null) psylinkLevelsBySeverity = new List<int>();
+            while (psylinkEnabledBySeverity.Count < 4)
+                psylinkEnabledBySeverity.Add(psylinkEnabledBySeverity.Count == 3);
+            while (psylinkLevelsBySeverity.Count < 4)
+                psylinkLevelsBySeverity.Add(psylinkLevelsBySeverity.Count == 3 ? 6 : 1);
+            if (psylinkEnabledBySeverity.Count > 4)
+                psylinkEnabledBySeverity.RemoveRange(4, psylinkEnabledBySeverity.Count - 4);
+            if (psylinkLevelsBySeverity.Count > 4)
+                psylinkLevelsBySeverity.RemoveRange(4, psylinkLevelsBySeverity.Count - 4);
+            for (int i = 0; i < 4; i++)
+                psylinkLevelsBySeverity[i] = Math.Max(1, Math.Min(6, psylinkLevelsBySeverity[i]));
+        }
 
         public float SeverityWeight(int stage)
         {
@@ -61,6 +111,8 @@ namespace MoreMentalDisorders
 
         public override void ExposeData()
         {
+            Scribe_Collections.Look(ref psylinkEnabledBySeverity, "psylinkEnabledBySeverity", LookMode.Value);
+            Scribe_Collections.Look(ref psylinkLevelsBySeverity, "psylinkLevelsBySeverity", LookMode.Value);
             Scribe_Values.Look(ref initialDiseaseChancePercent,
                 "initialDiseaseChancePercent", 69.5f);
             Scribe_Collections.Look(ref severityWeights, "severityWeights", LookMode.Value);
@@ -70,6 +122,7 @@ namespace MoreMentalDisorders
                 if (diseaseWeights == null) diseaseWeights = new Dictionary<string, float>();
                 initialDiseaseChancePercent = Mathf.Clamp(initialDiseaseChancePercent, 0f, 100f);
                 EnsureSeverityWeights();
+                EnsurePsylinkSettings();
                 Normalize(severityWeights);
             }
             base.ExposeData();
@@ -147,31 +200,42 @@ namespace MoreMentalDisorders
 
         public override void DoSettingsWindowContents(Rect inRect)
         {
-            float mainWidth = (inRect.width - 4f) / 2f;
-            if (ITab_Pawn_Trauma.DrawTabButton(new Rect(inRect.x, inRect.y, mainWidth, 34f),
-                MMDLocalization.Pick("总体概率", "Overall weights"), mainPage == 0))
+            float mainWidth = (inRect.width - 8f) / 3f;
+            string[] labels = {
+                MMDLocalization.Pick("总体概率", "Overall weights"),
+                MMDLocalization.Pick("具体配置", "Disease weights"),
+                MMDLocalization.Pick("灵能赠送", "Psylink grants")
+            };
+            for (int page = 0; page < labels.Length; page++)
             {
-                mainPage = 0;
-                scrollPosition = Vector2.zero;
-            }
-            if (ITab_Pawn_Trauma.DrawTabButton(new Rect(inRect.x + mainWidth + 4f, inRect.y,
-                mainWidth, 34f), MMDLocalization.Pick("具体配置", "Disease weights"), mainPage == 1))
-            {
-                mainPage = 1;
-                scrollPosition = Vector2.zero;
+                if (ITab_Pawn_Trauma.DrawTabButton(
+                    new Rect(inRect.x + page * (mainWidth + 4f), inRect.y, mainWidth, 34f),
+                    labels[page], mainPage == page))
+                {
+                    mainPage = page;
+                    scrollPosition = Vector2.zero;
+                }
             }
             Rect body = new Rect(inRect.x, inRect.y + 44f, inRect.width, inRect.height - 44f);
             if (mainPage == 0) DrawOverall(body);
-            else DrawSpecific(body);
+            else if (mainPage == 1) DrawSpecific(body);
+            else DrawPsylinks(body);
         }
 
         private void DrawOverall(Rect rect)
+        {
+            Rect view = new Rect(0f, 0f, rect.width - 20f, Mathf.Max(rect.height, 600f));
+            Widgets.BeginScrollView(rect, ref scrollPosition, view);
+            DrawOverallContents(view);
+            Widgets.EndScrollView();
+        }
+
+        private void DrawOverallContents(Rect rect)
         {
             Widgets.Label(new Rect(rect.x, rect.y, rect.width, 42f),
                 MMDLocalization.Pick("初始患病概率决定新生成角色是否患病；严重度权重决定患病后的总体分布。",
                     "Initial disease chance controls whether a newly generated pawn has a disorder; severity weights control its distribution."));
             float y = rect.y + 50f;
-
             Widgets.Label(new Rect(rect.x, y, rect.width * 0.7f, 24f),
                 MMDLocalization.Pick("初始患病概率", "Initial disease chance"));
             Widgets.Label(new Rect(rect.xMax - 90f, y, 86f, 24f),
@@ -207,6 +271,41 @@ namespace MoreMentalDisorders
             if (Widgets.ButtonText(new Rect(rect.x, rect.yMax - 36f, 180f, 32f),
                 MMDLocalization.Pick("恢复默认分布", "Restore defaults")))
                 Settings.ResetSeverityWeights();
+        }
+
+        private void DrawPsylinks(Rect rect)
+        {
+            Rect view = new Rect(0f, 0f, rect.width - 20f, Mathf.Max(rect.height, 530f));
+            Widgets.BeginScrollView(rect, ref scrollPosition, view);
+            Widgets.Label(new Rect(0f, 0f, view.width, 64f),
+                MMDLocalization.Pick("默认仅极重疾病赠送6级灵能。每档可独立开启，并设置最低灵能等级（1至6级）。关闭或调低不会移除已有等级。",
+                    "Only extreme disorders grant level 6 by default. Enable each severity independently and choose a minimum level (1–6). Disabling or lowering a grant preserves existing levels."));
+            float y = 76f;
+            for (int stage = 0; stage < 4; stage++)
+            {
+                bool enabled = Settings.PsylinkEnabled(stage);
+                int level = Settings.ConfiguredPsylinkLevel(stage);
+                Widgets.CheckboxLabeled(new Rect(0f, y, view.width, 28f),
+                    ITab_Pawn_Trauma.SeverityTabLabel(stage)
+                        + MMDLocalization.Pick("：赠送灵能", ": grant psylink"), ref enabled);
+                y += 32f;
+                Widgets.Label(new Rect(0f, y, view.width, 24f),
+                    enabled ? MMDLocalization.Pick("最低灵能等级：", "Minimum psylink level: ") + level
+                        : MMDLocalization.Pick("不赠送", "No grant"));
+                y += 24f;
+                bool oldEnabled = GUI.enabled;
+                GUI.enabled = oldEnabled && enabled;
+                level = Mathf.RoundToInt(Widgets.HorizontalSlider(
+                    new Rect(0f, y, view.width - 8f, 24f), level, 1f, 6f,
+                    false, null, null, null, 1f));
+                GUI.enabled = oldEnabled;
+                Settings.SetPsylinkGrant(stage, enabled, level);
+                y += 36f;
+            }
+            if (Widgets.ButtonText(new Rect(0f, y + 12f, 240f, 32f),
+                MMDLocalization.Pick("恢复默认：仅极重6级", "Reset: extreme level 6 only")))
+                Settings.ResetPsylinkSettings();
+            Widgets.EndScrollView();
         }
 
         private void DrawSpecific(Rect rect)

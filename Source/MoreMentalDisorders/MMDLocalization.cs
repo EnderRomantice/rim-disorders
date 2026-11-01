@@ -8,8 +8,8 @@ namespace MoreMentalDisorders
         {
             get
             {
-                return LanguageDatabase.activeLanguage != null
-                    && LanguageDatabase.activeLanguage.folderName == "English";
+                string folder = LanguageDatabase.activeLanguage?.folderName;
+                return folder == null || !folder.StartsWith("Chinese", System.StringComparison.OrdinalIgnoreCase);
             }
         }
 

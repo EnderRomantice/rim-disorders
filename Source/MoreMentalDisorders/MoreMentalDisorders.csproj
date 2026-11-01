@@ -14,6 +14,9 @@
   <ItemGroup>
     <Reference Include="Assembly-CSharp"><HintPath>$(RIMWORLD_MANAGED)\Assembly-CSharp.dll</HintPath><Private>False</Private></Reference>
     <Reference Include="UnityEngine.CoreModule"><HintPath>$(RIMWORLD_MANAGED)\UnityEngine.CoreModule.dll</HintPath><Private>False</Private></Reference>
+    <Reference Include="UnityEngine.IMGUIModule"><HintPath>$(RIMWORLD_MANAGED)\UnityEngine.IMGUIModule.dll</HintPath><Private>False</Private></Reference>
+    <Reference Include="UnityEngine.TextRenderingModule"><HintPath>$(RIMWORLD_MANAGED)\UnityEngine.TextRenderingModule.dll</HintPath><Private>False</Private></Reference>
+    <Reference Include="netstandard"><HintPath>$(RIMWORLD_MANAGED)\netstandard.dll</HintPath><Private>False</Private></Reference>
     <Reference Include="0Harmony"><HintPath>$(HARMONY_DLL)</HintPath><Private>False</Private></Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

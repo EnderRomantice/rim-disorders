@@ -11,6 +11,15 @@ namespace MoreMentalDisorders
     public class Thought_SocialNarcissistic : Thought_MemorySocial { }
     public class Thought_SocialDependency : Thought_MemorySocial { }
 
+    public class ThoughtWorker_MajorDepressionMood : ThoughtWorker
+    {
+        protected override ThoughtState CurrentStateInternal(Pawn p)
+        {
+            return p != null && p.Has(MMDDefOf.MMD_MajorDepression)
+                ? ThoughtState.ActiveDefault : ThoughtState.Inactive;
+        }
+    }
+
     public class ThoughtWorker_SocialCrazy : ThoughtWorker
     {
         protected override ThoughtState CurrentSocialStateInternal(Pawn p, Pawn otherPawn)

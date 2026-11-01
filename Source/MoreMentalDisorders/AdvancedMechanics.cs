@@ -26,7 +26,31 @@ namespace MoreMentalDisorders
             get
             {
                 string[] parts = (triggerTag ?? "").Split('|');
-                return parts.Length >= 3 ? parts[2] : triggerTag;
+                if (parts.Length < 3) return ITab_Pawn_Trauma.LocalizedContext(triggerTag);
+                string kind = parts[0];
+                string id = parts[1];
+                if (kind == "Time")
+                {
+                    if (id == "Night") return MMDLocalization.Pick("夜晚", "night");
+                    if (id == "Dawn") return MMDLocalization.Pick("黎明", "dawn");
+                    if (id == "Dusk") return MMDLocalization.Pick("黄昏", "dusk");
+                    if (id == "Day") return MMDLocalization.Pick("白昼", "daylight");
+                }
+                if (kind == "Special")
+                {
+                    if (id == "Fire") return MMDLocalization.Pick("火焰", "fire");
+                    if (id == "Corpse") return MMDLocalization.Pick("尸体", "corpses");
+                }
+                if (kind == "Person")
+                {
+                    Pawn person = PawnsFinder.AllMapsWorldAndTemporary_AliveOrDead
+                        .FirstOrDefault(p => p.thingIDNumber.ToString() == id);
+                    return person != null ? person.LabelShortCap.ToString() : parts[2];
+                }
+                Def source = kind == "Weather"
+                    ? (Def)DefDatabase<WeatherDef>.GetNamedSilentFail(id)
+                    : DefDatabase<ThingDef>.GetNamedSilentFail(id);
+                return source != null ? source.LabelCap.ToString() : parts[2];
             }
         }
 

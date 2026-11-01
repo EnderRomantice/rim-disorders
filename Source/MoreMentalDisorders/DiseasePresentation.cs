@@ -64,13 +64,13 @@ namespace MoreMentalDisorders
                 if (def == MMDDefOf.MMD_ParanoidDelusion)
                     text.AppendLine("\nEpisode and psychic effect\n• Mind-kill has unlimited range and no cooldown, but requires line of sight and an interruptible 2-second cast. A human target must have previously harmed the patient or be rated at −40 or lower; hostile non-human flesh creatures are also valid. Impact uses vanilla instant death and twisted-flesh conversion.\n• During an episode, pursues the lowest-opinion valid target.");
                 else if (def == MMDDefOf.MMD_MajorDepression)
-                    text.AppendLine("\nEpisode and psychic effect\n• Psycast cost and neural heat gain: ×0.5; neural heat recovery: ×0.5; no natural psyfocus decay.\n• An episode causes a genuine suicide attempt.");
+                    text.AppendLine("\nEpisode and psychic effect\n• Permanent mood: −20; psychic sensitivity: +1000%.\n• All psychic ability psyfocus cost, neural heat gain, and warmup: ×0.5; neural heat recovery: ×0.5; no natural psyfocus decay.\n• An episode causes a genuine suicide attempt.");
                 else if (def == MMDDefOf.MMD_Schizophrenia)
                     text.AppendLine("\nIdentity\n• Receives one fixed delusional identity with distinct skills, combat, social, research, work refusals, and episode behavior.");
                 else if (def == MMDDefOf.MMD_Mania)
                     text.AppendLine("\nEpisode and combat\n• Psycast cost and neural heat gain: ×2; neural heat capacity: ×0.5; ability cooldowns: 5 seconds.\n• Melee attack interval: ×0.1; attacks cause no movement slowdown; indiscriminate attacks include buildings.\n• During an episode, pain and movement slowdown are ignored.");
                 else if (def == MMDDefOf.MMD_Cotard)
-                    text.AppendLine("\nDenial of death\n• Immediately resurrects after death if the corpse still exists.");
+                    text.AppendLine("\nDenial of death\n• Resurrection charges equal the whole multiples of 100% psychic sensitivity. One charge is consumed by each complete resurrection.\n• With no charge, death has a 50% chance to remain final and a 50% chance to resurrect with 1–2 permanently missing limbs.\n• At 100% sensitivity, one charge recovers per day; recovery scales linearly with sensitivity.");
                 if (def == MMDDefOf.MMD_Hyperthymesia)
                     text.AppendLine("\nPerfect memory\n• Skills never decay and all positive and negative mood memories are permanent.");
             }
@@ -82,7 +82,8 @@ namespace MoreMentalDisorders
                 text.AppendLine("\n病发与灵能\n• 主动心灵宰杀无距离限制且无冷却，但需要视线和可被打断的2秒前摇；人类目标必须曾伤害患者，或被患者评价低于或等于−40，敌对非人血肉生物也可成为目标。命中使用原版必杀与扭曲肉转化效果。\n"
                     + "• 病发时优先追杀评价低于70者；目标不唯一时选择评价最低者。");
             else if (def == MMDDefOf.MMD_MajorDepression)
-                text.AppendLine("\n病发与灵能\n• 精神力消耗与精神熵获取：×0.5，精神熵消退：×0.5，精神力不自然降低。\n"
+                text.AppendLine("\n病发与灵能\n• 永久心情−20，心灵敏感度+1000%。\n"
+                    + "• 所有灵能力的精神力消耗、精神熵获取与施法前摇：×0.5；精神熵消退：×0.5，精神力不自然降低。\n"
                     + "• 病发时会真实尝试自杀。");
             else if (def == MMDDefOf.MMD_Schizophrenia)
                 text.AppendLine("\n病发与人格\n• 生成时固定获得古代灵能大师、特殊部队军官、旧时代总统、隐世剑客或首席科学家人格。\n"
@@ -92,7 +93,9 @@ namespace MoreMentalDisorders
                     + "• 近战攻击间隔：×0.1，攻击不会减速；病发时无差别攻击人、动物与建筑。\n"
                     + "• 病发期间疼痛感知归零，不会因伤势、疼痛或其他移动减速降到狂躁基础速度以下。");
             else if (def == MMDDefOf.MMD_Cotard)
-                text.AppendLine("\n死亡否定\n• 死亡后只要尸体仍存在便立即复活；这是实际复活，不是文字描述。");
+                text.AppendLine("\n死亡否定\n• 每满100%心灵敏感度提供1点复活充能；每次完整复活消耗1点。\n"
+                    + "• 没有充能时，50%彻底死亡，50%复活但永久随机失去1至2条肢体。\n"
+                    + "• 100%心灵敏感度时每天恢复1点，恢复速度随心灵敏感度线性提高。");
             if (def == MMDDefOf.MMD_Hyperthymesia)
                 text.AppendLine("\n超常记忆\n• 技能经验不会自然衰减，技能等级不会因自然遗忘下降。\n"
                     + "• 所有正面与负面心情记忆均不会随时间消失。");

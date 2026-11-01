@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <MMD_Cause_Trauma.label>创伤</MMD_Cause_Trauma.label>
+  <MMD_Cause_NearDeath.label>濒死</MMD_Cause_NearDeath.label>
+  <MMD_Cause_WitnessDeath.label>目睹死亡</MMD_Cause_WitnessDeath.label>
+  <MMD_Cause_LowMood.label>长期低落</MMD_Cause_LowMood.label>
+  <MMD_Cause_SleepLoss.label>长期失眠</MMD_Cause_SleepLoss.label>
+  <MMD_Cause_ChronicPain.label>慢性疼痛</MMD_Cause_ChronicPain.label>
+  <MMD_Cause_PsychicOverload.label>灵能过载</MMD_Cause_PsychicOverload.label>
+  <MMD_Cause_PsychicAttack.label>灵能攻击</MMD_Cause_PsychicAttack.label>
+  <MMD_Cause_Aging.label>高龄退化</MMD_Cause_Aging.label>
+  <MMD_Cause_BrainDamage.label>脑部损伤</MMD_Cause_BrainDamage.label>
+  <MMD_Cause_SevereCabinFever.label>持续的重度幽居病</MMD_Cause_SevereCabinFever.label>
+  <MMD_Cause_OpenFieldLongShot.label>开阔地远程受击创伤</MMD_Cause_OpenFieldLongShot.label>
+  <MMD_Cause_SocialRejection.label>受辱与社交排斥</MMD_Cause_SocialRejection.label>
+  <MMD_Cause_RelationshipLoss.label>亲密关系破裂或丧失</MMD_Cause_RelationshipLoss.label>
+  <MMD_Cause_Isolation.label>长期孤立</MMD_Cause_Isolation.label>
+  <MMD_Cause_StimulantExposure.label>反复使用兴奋性药物</MMD_Cause_StimulantExposure.label>
+  <MMD_Cause_Hunger.label>长期饥饿</MMD_Cause_Hunger.label>
+  <MMD_Cause_RecurrentIllness.label>反复患病与治疗</MMD_Cause_RecurrentIllness.label>
+  <MMD_Cause_WorkStress.label>长期工作压力</MMD_Cause_WorkStress.label>
+  <MMD_Cause_ChaoticEnvironment.label>污秽与失控环境</MMD_Cause_ChaoticEnvironment.label>
+  <MMD_Cause_BodyTrauma.label>毁容与躯体创伤</MMD_Cause_BodyTrauma.label>
+</LanguageData>
